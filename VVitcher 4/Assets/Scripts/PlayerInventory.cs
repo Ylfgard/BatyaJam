@@ -78,4 +78,23 @@ public class PlayerInventory : MonoBehaviour {
         onBoltInventoryChangedCallback?.Invoke();
         onHerbInventoryChangedCallback?.Invoke();
     }
+
+    public void UseBolt(HerbType type)
+    {
+        _boltsCount[(int)type]--;
+        onBoltInventoryChangedCallback?.Invoke();
+    }
+
+    public void UseHerbs(HerbType[] types, int[] amount)
+    {
+        if(types.Length != amount.Length)
+        {
+            Debug.LogWarning("Error using herbs! length of types and amount doesn't match");
+            return;
+        }
+        for (int typeIndex = 0; typeIndex < types.Length; typeIndex++)
+        {
+            _herbsCount[(int)types[typeIndex]] -= amount[typeIndex];
+        }
+    }
 }
