@@ -36,10 +36,6 @@ public class PlayerInventory : MonoBehaviour {
         _herbsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
         _boltsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
 
-        // Delete this
-        _boltsCount = new int[] { 1, 2, 3 };
-        onBoltInventoryChangedCallback?.Invoke();
-
         _activeBoltIndex = 0;
     }
 
@@ -71,5 +67,34 @@ public class PlayerInventory : MonoBehaviour {
 
         if (_activeBoltIndex < _herbsCount.Length) _activeBoltIndex++;
         else _activeBoltIndex = 0;
+    }
+
+    public void CraftBolts(int typeIndex)
+    {
+        if (_herbsCount[typeIndex] <= 0) return;
+
+        _herbsCount[typeIndex]--;
+        _boltsCount[typeIndex]++;
+        onBoltInventoryChangedCallback?.Invoke();
+        onHerbInventoryChangedCallback?.Invoke();
+    }
+
+    public void UseBolt(HerbType type)
+    {
+        _boltsCount[(int)type]--;
+        onBoltInventoryChangedCallback?.Invoke();
+    }
+
+    public void UseHerbs(HerbType[] types, int[] amount)
+    {
+        if(types.Length != amount.Length)
+        {
+            Debug.LogWarning("Error using herbs! length of types and amount doesn't match");
+            return;
+        }
+        for (int typeIndex = 0; typeIndex < types.Length; typeIndex++)
+        {
+            _herbsCount[(int)types[typeIndex]] -= amount[typeIndex];
+        }
     }
 }
