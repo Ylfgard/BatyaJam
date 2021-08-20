@@ -12,7 +12,7 @@ public class MovePlayer : MonoBehaviour
     [HideInInspector]
     public Vector3 moveDirection { get; private set; }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

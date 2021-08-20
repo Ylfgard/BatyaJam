@@ -25,7 +25,7 @@ public class MovePlayerDefault : MonoBehaviour, IMovePlayerMode
         defaultCam.m_YAxis.m_MaxSpeed *= sensitivityY;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!isAiming)
         {
