@@ -18,6 +18,9 @@ public class PlayerInventory : MonoBehaviour {
     }
     #endregion
 
+    public delegate void OnInventoryChanged();
+    public OnInventoryChanged onInventoryChangedCallback;
+
     private int[] _herbsCount;
 
     void Start()
@@ -28,5 +31,11 @@ public class PlayerInventory : MonoBehaviour {
     public void AddHerb(HerbType type)
     {
         _herbsCount[(int)type]++;
+        onInventoryChangedCallback?.Invoke();
+    }
+
+    public int[] GetHerbs()
+    {
+        return _herbsCount;
     }
 }

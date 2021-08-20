@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum HerbType {
-    bloody,
-    creaky,
-    linthy
+    bloody = 0,
+    creaky = 1,
+    linthy = 2
 }
 
 public class Herb : MonoBehaviour, IInteractable {
