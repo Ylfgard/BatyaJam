@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
+    public delegate void OnCraftModChanged();
+    public OnCraftModChanged onCraftModChangedCallback;
+
     private PlayerInventory _inventory;
 
     void Start()
@@ -15,6 +18,10 @@ public class PlayerInput : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             _inventory.SwitchBolt();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            onCraftModChangedCallback?.Invoke();
         }
     }
 }
