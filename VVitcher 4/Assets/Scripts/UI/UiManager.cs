@@ -35,7 +35,7 @@ public class UiManager : MonoBehaviour {
         int[] bolts = _inventory.GetBolts();
         for (int boltIndex = 1; boltIndex < bolts.Length + 1; boltIndex++)
         {
-            _boltValuesText[boltIndex].GetComponent<TextMeshProUGUI>().text = bolts[boltIndex].ToString();
+            _boltValuesText[boltIndex].GetComponent<TextMeshProUGUI>().text = bolts[boltIndex-1].ToString();
         }
     }
 

@@ -35,6 +35,11 @@ public class PlayerInventory : MonoBehaviour {
     {
         _herbsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
         _boltsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
+
+        // Delete this
+        _boltsCount = new int[] { 1, 2, 3 };
+        onBoltInventoryChangedCallback?.Invoke();
+
         _activeBoltIndex = 0;
     }
 
