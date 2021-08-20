@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class TriggerZone : MonoBehaviour
 {
+    private GameObject player;
     [SerializeField] private bool oneOff;
     [SerializeField] private List<MysticThings> activateOnEnterMystics;
     [SerializeField] private List<MysticThings> diactivateOnExitMystics;
 
+    private void Start()
+    {
+        player = FindObjectOfType<MovePlayer>().gameObject;
+    }
+
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject == player)
         {
             foreach(MysticThings mystic in activateOnEnterMystics)
             {
@@ -21,7 +27,7 @@ public class TriggerZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
-        if(other.CompareTag("Player"))
+        if(other.gameObject == player)
         {
             foreach(MysticThings mystic in diactivateOnExitMystics)
             {
