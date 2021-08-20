@@ -18,24 +18,53 @@ public class PlayerInventory : MonoBehaviour {
     }
     #endregion
 
-    public delegate void OnInventoryChanged();
-    public OnInventoryChanged onInventoryChangedCallback;
+    public delegate void OnHerbInventoryChanged();
+    public OnHerbInventoryChanged onHerbInventoryChangedCallback;
+
+    public delegate void OnBoltInventoryChanged();
+    public OnBoltInventoryChanged onBoltInventoryChangedCallback;
+
+    public delegate void OnBoltChanged(int activeBoltIndex);
+    public OnBoltChanged onBoltChangedCallback;
 
     private int[] _herbsCount;
+    private int[] _boltsCount;
+    private int _activeBoltIndex;
 
     void Start()
     {
         _herbsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
+        _boltsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
+        _activeBoltIndex = 0;
     }
 
     public void AddHerb(HerbType type)
     {
         _herbsCount[(int)type]++;
-        onInventoryChangedCallback?.Invoke();
+        onHerbInventoryChangedCallback?.Invoke();
     }
 
     public int[] GetHerbs()
     {
         return _herbsCount;
+    }
+
+    public void AddBolt(HerbType type)
+    {
+        _boltsCount[(int)type]++;
+        onHerbInventoryChangedCallback?.Invoke();
+    }
+
+    public int[] GetBolts()
+    {
+        return _boltsCount;
+    }
+
+    public void SwitchBolt()
+    {
+        onBoltChangedCallback?.Invoke(_activeBoltIndex);
+
+        if (_activeBoltIndex < _herbsCount.Length) _activeBoltIndex++;
+        else _activeBoltIndex = 0;
     }
 }
