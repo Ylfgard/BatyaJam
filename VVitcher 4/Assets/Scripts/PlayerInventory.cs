@@ -61,6 +61,11 @@ public class PlayerInventory : MonoBehaviour {
         return _boltsCount;
     }
 
+    public WeaponType GetActiveBoltType()
+    {
+        return (WeaponType)_activeBoltIndex;
+    }
+
     public void SwitchBolt()
     {
         onBoltChangedCallback?.Invoke(_activeBoltIndex);
@@ -79,10 +84,20 @@ public class PlayerInventory : MonoBehaviour {
         onHerbInventoryChangedCallback?.Invoke();
     }
 
-    public void UseBolt(HerbType type)
+    public bool UseBolt(WeaponType type)
     {
-        _boltsCount[(int)type]--;
+        if ((int)type == 0) return true;
+
+        if (_boltsCount[(int)type - 1] <= 0)
+        {
+            Debug.Log("Болты закончились");
+            return false;
+        }
+
+        _boltsCount[(int)type-1]--;
         onBoltInventoryChangedCallback?.Invoke();
+
+        return true;
     }
 
     public void UseHerbs(HerbType[] types, int[] amount)

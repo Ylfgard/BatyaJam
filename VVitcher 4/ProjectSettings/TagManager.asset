@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Projectile_player
+  - Enemy
+  - GameUi
   layers:
   - Default
   - TransparentFX
@@ -11,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Map Ignore
-  - Camera Ignore
-  - First Floor
-  - Second Floor
+  - Projectile_player
+  - 
+  - 
+  - 
   - 
   - 
   - 

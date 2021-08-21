@@ -16,7 +16,7 @@ public class MapMover : MonoBehaviour
     {
         mapCamera = gameObject.GetComponent<Camera>();
         defaultMapZoom = mapCamera.orthographicSize;
-        maxMapZoom = defaultMapZoom - 10;
+        maxMapZoom = 10;
 
         _transform = gameObject.GetComponent<Transform>();
 
