@@ -12,13 +12,12 @@ public class AttackBehavior : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        _lookRotation = Quaternion.LookRotation(_player.position - animator.transform.position);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _lookRotation = Quaternion.LookRotation(_player.position - animator.transform.position);
         animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, _lookRotation, _rotateSpeed * Time.deltaTime); 
     }
 
@@ -26,6 +25,8 @@ public class AttackBehavior : StateMachineBehaviour {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Уменьшать здоровье игрока
+        int damage = animator.GetComponent<ServantStats>().GetDamage();
+        _player.GetComponent<PlayerMain>().TakeDamage(damage);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
