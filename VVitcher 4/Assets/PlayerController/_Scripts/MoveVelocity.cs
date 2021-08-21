@@ -17,10 +17,16 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private Rigidbody rb;
     private Vector3 velocity;
-    private bool canRun = true;
-    private bool isRunning;
-    private bool isCooldown;
-    private float timerOfRun;
+    private bool _canRun = true;
+    private bool _isRunning;
+    private bool _isCooldown;
+    private float _timerOfRun;
+
+    public bool isRunning
+    {
+        get { return _isRunning; }
+        private set { _isRunning = value; }
+    }
 
     private void Start()
     {
@@ -29,7 +35,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void FixedUpdate()
     {
-        rb.velocity = velocity * walkSpeed * (isRunning ? runSpeedMultiplier : defaultRunSpeedMutiplier) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
+        rb.velocity = velocity * walkSpeed * (_isRunning ? runSpeedMultiplier : defaultRunSpeedMutiplier) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
     }
 
     private void Update()
@@ -44,30 +50,30 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void PlayerRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canRun)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _canRun)
         {
-            canRun = false;
-            isRunning = true;
-            timerOfRun = Time.time + runContinuance;
+            _canRun = false;
+            _isRunning = true;
+            _timerOfRun = Time.time + runContinuance;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) && isRunning)
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && _isRunning)
         {
-            isRunning = false;
-            isCooldown = true;
-            timerOfRun = Time.time + runCooldown;
-        }
-
-        if (isRunning && timerOfRun < Time.time)
-        {
-            isRunning = false;
-            isCooldown = true;
-            timerOfRun = Time.time + runCooldown;
+            _isRunning = false;
+            _isCooldown = true;
+            _timerOfRun = Time.time + runCooldown;
         }
 
-        if (isCooldown && timerOfRun < Time.time)
+        if (_isRunning && _timerOfRun < Time.time)
         {
-            isCooldown = false;
-            canRun = true;
+            _isRunning = false;
+            _isCooldown = true;
+            _timerOfRun = Time.time + runCooldown;
+        }
+
+        if (_isCooldown && _timerOfRun < Time.time)
+        {
+            _isCooldown = false;
+            _canRun = true;
         }
     }
 }

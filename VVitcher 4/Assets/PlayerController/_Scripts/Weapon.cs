@@ -4,18 +4,19 @@ using UnityEngine;
 
 public enum WeaponType
 {
-    simple,
-    bloody,
-    creaky,
-    linthy
+    simpleBolt,
+    bloodyBolt,
+    creakyBolt,
+    linthyBolt
 }
 
 [System.Serializable]
 public class WeaponDefinition
 {
-    public WeaponType type = WeaponType.simple;
+    public WeaponType type = WeaponType.simpleBolt;
     public GameObject projectilePrefab;
     public Color projectileColor = Color.white;
+    public bool emissive;
     public float velocity = 0;
     public float damageOnHit = 0;
     public float delayBetweenShots = 0;
@@ -27,12 +28,8 @@ public class Weapon : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private Transform projectileAnchor;
-    [SerializeField]
-    //private string projectilePlayerTag = "Projectile_player";
-    //[SerializeField]
-    //private LayerMask projectilePlayerLayerMask;
 
-    private WeaponType _type = WeaponType.simple;
+    private WeaponType _type = WeaponType.simpleBolt;
     private WeaponDefinition def;
     private float lastShotTime;
 
@@ -59,7 +56,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        // Если this.gameObject неактивен, выйти
+        // Если gameObject неактивен, выйти
         if (!gameObject.activeInHierarchy) return;
         // Если между выстрелами прошло недостаточно много времени, выйти
         if (Time.time - lastShotTime < def.delayBetweenShots) return;
@@ -67,46 +64,50 @@ public class Weapon : MonoBehaviour
         Projectile p;
         Vector3 vel = transform.forward * def.velocity;
 
-        //if (transform.forward.z < 0)
-        //{
-        //    vel.z = -vel.z;
-        //}
+        GetActiveBolt();
 
         switch (type)
         {
-            case WeaponType.simple:
-                p = MakeProjectile();
-                p.rb.velocity = vel;
-                break;
-            case WeaponType.bloody:
+            case WeaponType.simpleBolt:
                 p = MakeProjectile();
                 p.rb.velocity = vel;
                 break;
 
-            case WeaponType.creaky:
+            case WeaponType.bloodyBolt:
                 p = MakeProjectile();
                 p.rb.velocity = vel;
                 break;
 
-            case WeaponType.linthy:
+            case WeaponType.creakyBolt:
+                p = MakeProjectile();
+                p.rb.velocity = vel;
+                break;
+
+            case WeaponType.linthyBolt:
                 p = MakeProjectile();
                 p.rb.velocity = vel;
                 break;
         }
+    }
 
-        Projectile MakeProjectile()
-        {
-            GameObject go = Instantiate(def.projectilePrefab, transform.position, transform.rotation);
-            //go.tag = projectilePlayerTag;
-            //go.layer = projectilePlayerLayerMask;
+    public Projectile MakeProjectile()
+    {
+        GameObject go = Instantiate(def.projectilePrefab, transform.position, transform.rotation);
+        go.transform.SetParent(projectileAnchor, true);
 
-            //go.transform.position = transform.position;
-            go.transform.SetParent(projectileAnchor, true);
+        Projectile p = go.GetComponent<Projectile>();
+        p.type = type;
+        lastShotTime = Time.time;
+        return (p);
+    }
 
-            Projectile p = go.GetComponent<Projectile>();
-            p.type = type;
-            lastShotTime = Time.time;
-            return (p);
-        }
+    public void GetActiveBolt()
+    {
+        //HerbType ht = PlayerInventory.instance.;
+
+        WeaponType wt = WeaponType.linthyBolt;
+        type = wt;
+
+        //Debug.LogWarning("Can't get bolt type from inventory.");
     }
 }
