@@ -35,7 +35,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void FixedUpdate()
     {
-        rb.velocity = velocity * walkSpeed * (_isRunning ? runSpeedMultiplier : defaultRunSpeedMutiplier) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
+        if(velocity.magnitude > 0)
+            rb.velocity = velocity * walkSpeed * (_isRunning ? runSpeedMultiplier : defaultRunSpeedMutiplier) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
     }
 
     private void Update()
