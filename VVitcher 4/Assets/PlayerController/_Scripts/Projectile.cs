@@ -36,7 +36,6 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Projectile created");
         lifetime = Time.time + projectileLifetime;
     }
 
@@ -44,7 +43,7 @@ public class Projectile : MonoBehaviour
     {
         if (lifetime < Time.time)
         {
-            Destroy(gameObject);
+            ProjectileDestroy();
         }
     }
 
@@ -67,6 +66,12 @@ public class Projectile : MonoBehaviour
         _type = eType;
         WeaponDefinition def = PlayerMain.GetWeaponDefinition(_type);
         _rend.material.color = def.projectileColor;
+        if (def.emissive)
+        {
+            _rend.material.SetColor("_EmissionColor", def.projectileColor);
+            _rend.material.EnableKeyword("_EMISSION");
+        }
+        Debug.Log(def.type);
     }
 
     private void ProjectileDestroy()

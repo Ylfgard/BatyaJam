@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    private const float gravity = 9.81f;
-
     [SerializeField]
     private GameObject cameraPositionAnchor;
 

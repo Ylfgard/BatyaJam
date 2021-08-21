@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6812055431026650772}
   projectileAnchor: {fileID: 4580083732069029538}
-  _type: 0
 --- !u!1 &968201961418915479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,8 +1523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a8fde6ec83f9c4ea1306f264bec9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 800
-  runSpeedMultiplier: 2.5
+  walkSpeed: 500
+  runSpeedMultiplier: 2
   runContinuance: 1
   runCooldown: 1
 --- !u!114 &6812055431026650780
@@ -1554,28 +1553,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4580af9df653a25498a06b9ff332e53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   weaponDefinitions:
   - type: 0
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
     projectileColor: {r: 0.5377358, g: 0.346477, b: 0.11921501, a: 0}
+    emissive: 0
     velocity: 30
     damageOnHit: 5
     delayBetweenShots: 1
   - type: 1
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
-    projectileColor: {r: 0.035243843, g: 0.41395947, b: 0.8301887, a: 0}
+    projectileColor: {r: 0.028, g: 0.44, b: 0.793, a: 0}
+    emissive: 1
     velocity: 40
     damageOnHit: 15
     delayBetweenShots: 1
   - type: 2
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
-    projectileColor: {r: 0.1619288, g: 0.509434, b: 0.05526879, a: 0}
+    projectileColor: {r: 0.16780408, g: 0.7169812, b: 0, a: 0}
+    emissive: 1
     velocity: 45
     damageOnHit: 20
     delayBetweenShots: 1
   - type: 3
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
-    projectileColor: {r: 0.6698113, g: 0.11058204, b: 0.11058204, a: 0}
+    projectileColor: {r: 0.5754717, g: 0, b: 0, a: 0}
+    emissive: 1
     velocity: 50
     damageOnHit: 25
     delayBetweenShots: 1
