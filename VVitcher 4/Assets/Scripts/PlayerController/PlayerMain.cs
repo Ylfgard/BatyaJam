@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMain : MonoBehaviour
 {
+    public delegate void OnPlayerDead();
+    public OnPlayerDead onPlayerDeadCallback;
+
     public static Dictionary<WeaponType, WeaponDefinition> WEAPON_DICT;
 
     [SerializeField]
@@ -39,6 +42,7 @@ public class PlayerMain : MonoBehaviour
             }
             else
             {
+                onPlayerDeadCallback?.Invoke();
                 Debug.LogError("Потрачено. GAME OVER!");
             }
         }

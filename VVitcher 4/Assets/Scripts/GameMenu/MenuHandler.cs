@@ -5,36 +5,46 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject menuFone;
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _deathMenu;
 
     private void Start()
     {
-        CloseMenu();    
+        CloseMenu(_pauseMenu);
+        CloseMenu(_deathMenu);
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>().onPlayerDeadCallback += DeathMenu;
     }
 
     private void Update() 
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(menuFone.activeSelf)
-                CloseMenu();
+            if(_pauseMenu.activeSelf)
+                CloseMenu(_pauseMenu);
             else
-                OpenMenu();
+                OpenMenu(_pauseMenu);
         }    
     }
 
+    public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     public void MainMenuButton() => SceneManager.LoadScene(0);
     public void ExitButton() => Application.Quit();
 
-    void OpenMenu()
+    public void OpenMenu(GameObject menu)
     {
         GamePauser.GamePause();
-        menuFone.SetActive(true);
+        menu.SetActive(true);
     }
 
-    public void CloseMenu()
+    public void CloseMenu(GameObject menu)
     {
         GamePauser.GameContinue();
-        menuFone.SetActive(false);
+        menu.SetActive(false);
+    }
+
+    private void DeathMenu()
+    {
+        OpenMenu(_deathMenu);
     }
 }
