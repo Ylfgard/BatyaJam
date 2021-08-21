@@ -19,6 +19,6 @@ public class DialogueViewer
 
 public class Node
 {
-    [XmlElement("name")] public string speakerName;
+    [XmlAttribute] public float duration;
     [XmlElement("text")] public string text;
 }

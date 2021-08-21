@@ -20,7 +20,7 @@ public class MovePlayer : MonoBehaviour
 
         moveDirection = camXAxis * horizontalInput + camZAxis * verticalInput;
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
-
+        
         GetComponent<IMoveVelocity>().SetMoveVelocity(moveDirection);
     }
 }

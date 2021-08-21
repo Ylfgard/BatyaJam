@@ -7,27 +7,30 @@ using UnityEngine.Events;
 public class DialogueHandler : MonoBehaviour
 {
     private int curNodeIndex = 0;
+    private float curStepTimeDelay = 0;
     private DialogueViewer curDialogue;
     private Text commentText;
-    private UnityEvent nextStep = new UnityEvent();
-    [SerializeField] private GameObject commentFrame, dialogueFrame;
-    [SerializeField] private Text speakerName, nodeText;
+    private UnityEvent nextStep = new UnityEvent(), writingFinished = new UnityEvent();
+    [SerializeField] private GameObject commentFrame, dialogueFrame, dialogueCloseButton;
+    [SerializeField] private Text nodeText;
     [SerializeField] private float commentHideTime;
 
     private void Start() 
     {
+        gameObject.GetComponent<DialogueHandler>().
+        writingFinished.AddListener(NextStepDelayCaller);
         commentText = commentFrame.GetComponentInChildren<Text>();
         HideComment();
-        //EndDialogue();
+        EndDialogue();
     }
 
     public void ShowComment(string comment)
     {
         commentText.text = "";
         commentFrame.SetActive(true);
+        curStepTimeDelay = commentHideTime;
         StartCoroutine(TextByLetters(commentText, comment, 0));
         nextStep.AddListener(HideComment);
-        StartCoroutine(NextStepDelay(commentHideTime));
     }
 
     public void HideComment()
@@ -38,28 +41,41 @@ public class DialogueHandler : MonoBehaviour
 
     public void StartDialogue(TextAsset dialogue)
     {
+        GamePauser.GamePause();
+        nodeText.text = "";
+        dialogueCloseButton.SetActive(false);
         curDialogue = DialogueViewer.Load(dialogue);
         dialogueFrame.SetActive(true);
-        ToNode(0);
+        curNodeIndex = 0;
+        nextStep.AddListener(NextNode);
+        NextNode();
     }
 
-    public void ToNode(int newNodeIndex)
+    public void NextNode()
     {
-        if(newNodeIndex >= 0 && newNodeIndex < curDialogue.nodes.Length)
+        if(curNodeIndex < curDialogue.nodes.Length)
         {
-            curNodeIndex = newNodeIndex;
-            speakerName.text = curDialogue.nodes[curNodeIndex].speakerName;
-            nodeText.text = curDialogue.nodes[curNodeIndex].text;
+            nodeText.text += "\n\t";
+            curStepTimeDelay = curDialogue.nodes[curNodeIndex].duration; 
+            StartCoroutine(TextByLetters(nodeText, curDialogue.nodes[curNodeIndex].text, 0));
+            curNodeIndex++;
         }
         else
         {
-            Debug.LogError("Выход за границы массива абзацев. Индекс: " + newNodeIndex);
-        }    
+            dialogueCloseButton.SetActive(true);
+        }
     }
 
     public void EndDialogue()
     {
+        nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
+        GamePauser.GameContinue();
+    }
+
+    void NextStepDelayCaller()
+    {
+        StartCoroutine(NextStepDelay());
     }
 
     IEnumerator TextByLetters(Text textObj, string text, int letterIndex)
@@ -69,11 +85,13 @@ public class DialogueHandler : MonoBehaviour
         letterIndex++;
         if(letterIndex < text.Length)
             StartCoroutine(TextByLetters(textObj, text, letterIndex));
+        else
+            writingFinished?.Invoke();
     }
 
-    IEnumerator NextStepDelay(float timeDelay)
+    IEnumerator NextStepDelay()
     {
-        yield return new WaitForSeconds(timeDelay);
-        nextStep.Invoke();
+        yield return new WaitForSecondsRealtime(curStepTimeDelay);
+        nextStep?.Invoke();
     }
 }

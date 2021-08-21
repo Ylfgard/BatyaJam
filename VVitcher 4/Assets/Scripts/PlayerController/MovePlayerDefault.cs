@@ -25,7 +25,7 @@ public class MovePlayerDefault : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed * Time.deltaTime);
     }
 
     public Vector3 LookDirection()
