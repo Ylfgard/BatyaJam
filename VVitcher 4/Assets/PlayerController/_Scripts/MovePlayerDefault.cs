@@ -3,44 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MovePlayerDefault : MonoBehaviour, IMovePlayerMode
+public class MovePlayerDefault : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineFreeLook defaultCam;
+    private GameObject mouseTarget;
     [SerializeField]
     private float playerRotationSpeed = 8f;
-    [SerializeField]
-    private float sensitivityX = 3f;
-    [SerializeField]
-    private float sensitivityY = 3f;
-
-    private MovePlayer movePlayerScript;
-    private bool isAiming;
-
-    private void Start()
-    {
-        movePlayerScript = GetComponent<MovePlayer>();
-
-        defaultCam.m_XAxis.m_MaxSpeed *= sensitivityX;
-        defaultCam.m_YAxis.m_MaxSpeed *= sensitivityY;
-    }
 
     private void Update()
     {
-        if (!isAiming)
-        {
-            if (Input.GetKey(KeyCode.W) ||
-                Input.GetKey(KeyCode.A) ||
-                Input.GetKey(KeyCode.S) ||
-                Input.GetKey(KeyCode.D))
-            {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movePlayerScript.moveDirection, Vector3.up), playerRotationSpeed);
-            }
-        }
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed);
     }
 
-    public void SetAimingBool(bool b)
+    public Vector3 LookDirection()
     {
-        isAiming = b;
+        Vector3 lookAt = new Vector3(mouseTarget.transform.position.x, transform.position.y, mouseTarget.transform.position.z);
+        Vector3 direction = lookAt - transform.position;
+        return direction;
     }
 }
