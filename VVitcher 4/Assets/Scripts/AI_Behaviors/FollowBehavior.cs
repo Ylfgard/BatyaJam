@@ -28,8 +28,8 @@ public class FollowBehavior : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<NavMeshAgent>().isStopped = true;
-        animator.GetComponent<NavMeshAgent>().ResetPath();
+        //animator.GetComponent<NavMeshAgent>().isStopped = true;
+        //animator.GetComponent<NavMeshAgent>().ResetPath();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
