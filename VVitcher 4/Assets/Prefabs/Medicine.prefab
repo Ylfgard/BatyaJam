@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0613f52c61e4e24ca361239529fb95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   _healingPower: 15
 --- !u!1 &3652389957260468450
 GameObject:
