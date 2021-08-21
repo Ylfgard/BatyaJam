@@ -32,7 +32,7 @@ public class MenuHandler : MonoBehaviour
         menuFone.SetActive(true);
     }
 
-    void CloseMenu()
+    public void CloseMenu()
     {
         GamePauser.GameContinue();
         menuFone.SetActive(false);
