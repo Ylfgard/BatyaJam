@@ -9,4 +9,10 @@ public class PlayerInteraction : MonoBehaviour {
         if (item == null) return;
         item.Interact();
     }
+    private void OnTriggerExit(Collider other)
+    {
+        SummonTable summonTable = other.GetComponent<SummonTable>();
+        if (summonTable == null) return;
+        summonTable.CloseInteraction();
+    }
 }
