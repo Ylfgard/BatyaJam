@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 
 public class SummonUi : MonoBehaviour {
+    public delegate void OnSummonSuccess();
+    public OnSummonSuccess onSummonSuccessCallback;
+
     [SerializeField] private GameObject[] _herbValuesText;
     [SerializeField] private GameObject[] _herbInputValues;
 
@@ -56,6 +59,7 @@ public class SummonUi : MonoBehaviour {
             _inventory.UseHerbs(herbsToUse);
 
             // Призвать босса
+            onSummonSuccessCallback?.Invoke();
 
             GameObject summonTable = GameObject.Find("SummonTable");
             summonTable.GetComponent<SummonTable>().CloseInteraction();
