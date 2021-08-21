@@ -41,6 +41,7 @@ public class DialogueHandler : MonoBehaviour
 
     public void StartDialogue(TextAsset dialogue)
     {
+        GamePauser.GamePause();
         nodeText.text = "";
         dialogueCloseButton.SetActive(false);
         curDialogue = DialogueViewer.Load(dialogue);
@@ -69,6 +70,7 @@ public class DialogueHandler : MonoBehaviour
     {
         nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
+        GamePauser.GameContinue();
     }
 
     void NextStepDelayCaller()
@@ -78,7 +80,6 @@ public class DialogueHandler : MonoBehaviour
 
     IEnumerator TextByLetters(Text textObj, string text, int letterIndex)
     {
-        Debug.Log("show");
         yield return new WaitForEndOfFrame();
         textObj.text += text[letterIndex];
         letterIndex++;
@@ -90,7 +91,7 @@ public class DialogueHandler : MonoBehaviour
 
     IEnumerator NextStepDelay()
     {
-        yield return new WaitForSeconds(curStepTimeDelay);
+        yield return new WaitForSecondsRealtime(curStepTimeDelay);
         nextStep?.Invoke();
     }
 }

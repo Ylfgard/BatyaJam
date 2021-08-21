@@ -5,13 +5,15 @@ using UnityEngine.Events;
 
 public class GamePauser : MonoBehaviour
 {
-    public static void PauseGame()
+    public static void GamePause()
     {
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
-    public static void PauseContinue()
+    public static void GameContinue()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
