@@ -100,16 +100,11 @@ public class PlayerInventory : MonoBehaviour {
         return true;
     }
 
-    public void UseHerbs(HerbType[] types, int[] amount)
+    public void UseHerbs(int[] amount)
     {
-        if(types.Length != amount.Length)
+        for (int typeIndex = 0; typeIndex < amount.Length; typeIndex++)
         {
-            Debug.LogWarning("Error using herbs! length of types and amount doesn't match");
-            return;
-        }
-        for (int typeIndex = 0; typeIndex < types.Length; typeIndex++)
-        {
-            _herbsCount[(int)types[typeIndex]] -= amount[typeIndex];
+            _herbsCount[typeIndex] -= amount[typeIndex];
         }
     }
 }
