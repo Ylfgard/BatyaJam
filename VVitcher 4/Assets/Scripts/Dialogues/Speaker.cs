@@ -4,27 +4,60 @@ using UnityEngine;
 
 public class Speaker : MonoBehaviour
 {
-    private int curDialogIndex = 0;
+    private bool wasUsed = false;
     private DialogueHandler dialogHandler;
-    [SerializeField] private Transform cameraPosition;
-    [SerializeField] private TextAsset[] dialogues;
+    private GameObject player; 
+    private Advice advice;
+    [SerializeField] private TextAsset dialogues;
+    [SerializeField] private Transform adviceTransform;
+    [SerializeField] private bool playSound, onlyAudio;
+    [FMODUnity.EventRef] [SerializeField] private string soundPath; 
 
     void Start() 
     {
+        player = FindObjectOfType<MovePlayer>().gameObject;
         dialogHandler = FindObjectOfType<DialogueHandler>();
+        advice = FindObjectOfType<Advice>();
     }
 
-    public void UseObject(GameObject player)
+    public void UseObject()
     {
-        Camera.main.transform.position = cameraPosition.position;
-        dialogHandler.StartDialogue(dialogues[curDialogIndex]);
+        if(!wasUsed)
+        {
+            wasUsed = true;
+            if(!onlyAudio)
+                dialogHandler.StartDialogue(dialogues);
+            if(playSound || onlyAudio)
+                FMODUnity.RuntimeManager.PlayOneShotAttached(soundPath, this.gameObject);
+        }
     }
 
-    public void ChangeDialogue(int newDialogIndex)
+    private void OnTriggerEnter(Collider other)
     {
-        if(newDialogIndex >= 0 && newDialogIndex < dialogues.Length)
-            curDialogIndex = newDialogIndex;
-        else
-            Debug.LogError("Выход за границы массива диалогов. Индекс: " + newDialogIndex);
+        if(other.gameObject == player)
+        {
+            advice.ShowAdvice(adviceTransform.position);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject == player)
+        {
+            if(Input.GetKeyDown(KeyCode.E) && !wasUsed)
+            {
+                UseObject();
+                advice.HideAdvice();
+            }
+        }      
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject == player)
+        {
+            wasUsed = false;
+            advice.HideAdvice();
+        }
     }
 }

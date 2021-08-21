@@ -41,9 +41,9 @@ public class MapMover : MonoBehaviour
             float zArgument = mapCamera.orthographicSize;
             float xArgument = mapCamera.orthographicSize / mapCamera.scaledPixelHeight * mapCamera.scaledPixelWidth;
 
-            move.x = Input.GetAxis("Horizontal");
-            move.y = Input.GetAxis("Vertical");
-            float mw = -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * scrollSensivity;
+            move.x = Input.GetAxisRaw("Horizontal");
+            move.y = Input.GetAxisRaw("Vertical");
+            float mw = -Input.GetAxisRaw("Mouse ScrollWheel") * Time.unscaledDeltaTime * scrollSensivity;
             
             if(mw != 0 && mapCamera.orthographicSize+mw < defaultMapZoom && mapCamera.orthographicSize+mw > maxMapZoom)
                 mapCamera.orthographicSize += mw; 
@@ -75,7 +75,7 @@ public class MapMover : MonoBehaviour
             }
 
             if(move != Vector3.zero)
-                _transform.Translate(move * speed * Time.deltaTime);
+                _transform.Translate(move * Time.unscaledDeltaTime * speed);
         }
     }
 
