@@ -61,6 +61,11 @@ public class PlayerInventory : MonoBehaviour {
         return _boltsCount;
     }
 
+    public int GetActiveBoltIndex()
+    {
+        return _activeBoltIndex;
+    }
+
     public void SwitchBolt()
     {
         onBoltChangedCallback?.Invoke(_activeBoltIndex);
