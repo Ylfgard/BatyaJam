@@ -5,7 +5,7 @@ using UnityEngine;
 public class StrangeSounds : MysticThings
 {
     private FMOD.Studio.EventInstance instance;
-    [SerializeField] private string soundPath;
+    [FMODUnity.EventRef] [SerializeField] private string soundPath;
     [SerializeField] private bool autoPlay;
     [SerializeField] private float minSoundDelay, maxSoundDelay;
 
@@ -18,11 +18,12 @@ public class StrangeSounds : MysticThings
     {
         if(autoPlay)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(soundPath);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(soundPath, this.gameObject);
         }
         else
         {
             instance = FMODUnity.RuntimeManager.CreateInstance(soundPath);
+            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
             instance.start();
         }
     }
