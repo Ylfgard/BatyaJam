@@ -5,13 +5,8 @@ using TMPro;
 using UnityEngine;
 
 public class SummonUi : MonoBehaviour {
-    public delegate void OnSummonSuccess();
-    public OnSummonSuccess onSummonSuccessCallback;
-
     [SerializeField] private GameObject[] _herbValuesText;
     [SerializeField] private GameObject[] _herbInputValues;
-
-    [SerializeField] private BossPreset _bossPreset;
 
     private PlayerInventory _inventory;
 
@@ -47,28 +42,11 @@ public class SummonUi : MonoBehaviour {
 
     public void TrySummon()
     {
-        int bloodyCount = Int32.Parse(_herbInputValues[0].GetComponent<TextMeshProUGUI>().text);
-        int creackyCount = Int32.Parse(_herbInputValues[1].GetComponent<TextMeshProUGUI>().text);
-        int linthyCount = Int32.Parse(_herbInputValues[2].GetComponent<TextMeshProUGUI>().text);
-
-        if (bloodyCount == 0 & creackyCount == 0 & linthyCount == 0) return;
-
-        if(bloodyCount == _bossPreset.bloodyToSummon && creackyCount == _bossPreset.creackyToSummon && linthyCount == _bossPreset.linthyToSummon)
-        {
-            int[] herbsToUse = new int[] { bloodyCount, creackyCount, linthyCount };
-            _inventory.UseHerbs(herbsToUse);
-
-            // ѕризвать босса
-            onSummonSuccessCallback?.Invoke();
-
-            GameObject summonTable = GameObject.Find("SummonTable");
-            summonTable.GetComponent<SummonTable>().CloseInteraction();
-            Destroy(summonTable);
-        }
-        else
-        {
-            // ќтн€ть у игрока 50% здоровь€
-        }
+        // ѕроверка на возможность призыва босса
+        // Ќичего не делать, если подношени€ нулевые
+      
+        // ≈сли услови€ подношени€ не соблюдены, отн€ть у игрока 50% здоровь€
+        // ≈сли услови€ подношени€ соблюдены, удалить использованные травы и призвать босса
     }
 
     private void UpdateHerbValues()
