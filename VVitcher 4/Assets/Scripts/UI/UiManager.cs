@@ -10,6 +10,7 @@ public class UiManager : MonoBehaviour {
     [SerializeField] private GameObject _herbPanel;
     [SerializeField] private GameObject _boltPanel;
     [SerializeField] private GameObject _craftingPanel;
+    [SerializeField] private GameObject _summonPanel;
 
     [SerializeField] private GameObject[] _herbValuesText;
     [SerializeField] private GameObject[] _boltValuesText;
@@ -33,6 +34,11 @@ public class UiManager : MonoBehaviour {
         _inventory.onBoltChangedCallback += SwitchBolt;
 
         _playerInput.onCraftModChangedCallback += SwitchCraftMod;
+    }
+
+    public void OpenSummonPanel(bool open)
+    {
+        _summonPanel.SetActive(open);
     }
 
     private void UpdateHerbInventoryUi()
