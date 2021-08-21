@@ -26,6 +26,7 @@ public class AttackBehavior : StateMachineBehaviour {
     {
         // Уменьшать здоровье игрока
         int damage = animator.GetComponent<ServantStats>().GetDamage();
+        _player.GetComponent<PlayerMain>().TakeDamage(damage);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
