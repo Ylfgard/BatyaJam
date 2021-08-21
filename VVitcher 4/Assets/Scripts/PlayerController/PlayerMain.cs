@@ -10,12 +10,18 @@ public class PlayerMain : MonoBehaviour
     private float maxHealth = 100f;
     [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
+    [Header("Input tags:")]
+    [SerializeField]
+    private string powerupHPTag;
 
     private MoveVelocity moveVelocityScript;
-    private float _currentHealth;
+    private GameObject lastTriggeredGameobject;
+    private float _currentHealth = 60f;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
+
+    public bool isMaxHealth { get; private set; }
 
     public float health
     {
@@ -25,10 +31,15 @@ public class PlayerMain : MonoBehaviour
             if (value > 0)
             {
                 _currentHealth = value;
+                if (_currentHealth >= maxHealth)
+                {
+                    _currentHealth = maxHealth;
+                    isMaxHealth = true;
+                }
             }
             else
             {
-                Debug.LogWarning("Потрачено. Оформить похоронку.");
+                Debug.LogError("Потрачено. GAME OVER!");
             }
         }
     }
@@ -45,7 +56,7 @@ public class PlayerMain : MonoBehaviour
     {
         moveVelocityScript = GetComponent<MoveVelocity>();
 
-        health = maxHealth;
+        //health = maxHealth;
     }
 
     private void Update()
@@ -62,9 +73,17 @@ public class PlayerMain : MonoBehaviour
         return !canFire;
     }
 
+    public void AbsorbHealingPowerup(int hp)
+    {
+        Debug.Log(health + " + " + hp);
+        health += hp;
+        Debug.Log(health);
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
+        if (isMaxHealth) isMaxHealth = false;
     }
 
     static public WeaponDefinition GetWeaponDefinition(WeaponType wt)

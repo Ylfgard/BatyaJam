@@ -60,11 +60,12 @@ public class Weapon : MonoBehaviour
         if (!gameObject.activeInHierarchy) return;
         // Если между выстрелами прошло недостаточно много времени, выйти
         if (Time.time - lastShotTime < def.delayBetweenShots) return;
+        // Если нет выбранных болтов, выйти
+        if (!PlayerInventory.instance.UseBolt(GetActiveBolt())) return;
 
         Projectile p;
         Vector3 vel = transform.forward * def.velocity;
 
-        GetActiveBolt();
 
         switch (type)
         {
@@ -101,12 +102,13 @@ public class Weapon : MonoBehaviour
         return (p);
     }
 
-    public void GetActiveBolt()
+    public WeaponType GetActiveBolt()
     {
-        //HerbType ht = PlayerInventory.instance.;
+        WeaponType boltActive = PlayerInventory.instance.GetActiveBoltType();
 
-        WeaponType wt = WeaponType.linthyBolt;
-        type = wt;
+        //WeaponType wt = WeaponType.linthyBolt;
+        type = boltActive;
+        return boltActive;
 
         //Debug.LogWarning("Can't get bolt type from inventory.");
     }
