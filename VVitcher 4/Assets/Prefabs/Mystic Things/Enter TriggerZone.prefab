@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6356008010427333724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6356008010427333728}
+  - component: {fileID: 6356008010427333729}
+  - component: {fileID: 6356008010427333726}
+  - component: {fileID: 6356008010427333727}
+  - component: {fileID: 6356008010427333731}
+  m_Layer: 0
+  m_Name: Enter TriggerZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6356008010427333728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356008010427333724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -37.557, y: 5.3, z: 8.009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6356008010427333729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356008010427333724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.80616, y: 2.1748004, z: 2.8827257}
+  m_Center: {x: 0.26931763, y: -0.5874002, z: 0.28158903}
+--- !u!114 &6356008010427333726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356008010427333724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781bfe3643ba743479e8adbd695f119a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneOff: 0
+  activateOnEnterMystics:
+  - {fileID: 6356008010427333727}
+  diactivateOnExitMystics: []
+--- !u!114 &6356008010427333727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356008010427333724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72dc6ab0afacca4999c0ae31ca3ac25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commentText: "\u041A\u043E\u0433\u0434\u0430 \u0442\u043E \u0437\u0434\u0435\u0441\u044C
+    \u043A\u0438\u043F\u0435\u043B\u0430 \u0436\u0438\u0437\u043D\u044C, \u043D\u043E
+    \u0442\u0435\u043F\u0435\u0440\u044C \u0434\u043E\u043C \u0434\u0430\u0432\u043D\u043E
+    \u0437\u0430\u0431\u0440\u043E\u0448\u0435\u043D."
+--- !u!114 &6356008010427333731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356008010427333724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPath: event:/SFX/Footsteps
+  autoPlay: 1
+  minSoundDelay: 0.3
+  maxSoundDelay: 0.5

@@ -8,13 +8,15 @@ public class DialogueHandler : MonoBehaviour
 {
     private int curNodeIndex = 0;
     private DialogueViewer curDialogue;
+    private Text commentText;
     private UnityEvent nextStep = new UnityEvent();
-    [SerializeField] private GameObject dialogueFrame;
-    [SerializeField] private Text commentText, speakerName, nodeText;
+    [SerializeField] private GameObject commentFrame, dialogueFrame;
+    [SerializeField] private Text speakerName, nodeText;
     [SerializeField] private float commentHideTime;
 
     private void Start() 
     {
+        commentText = commentFrame.GetComponentInChildren<Text>();
         HideComment();
         //EndDialogue();
     }
@@ -22,9 +24,8 @@ public class DialogueHandler : MonoBehaviour
     public void ShowComment(string comment)
     {
         commentText.text = "";
-        commentText.enabled = true;
-        foreach(char letter in comment)
-            StartCoroutine(TextByLetters(commentText, letter));
+        commentFrame.SetActive(true);
+        StartCoroutine(TextByLetters(commentText, comment, 0));
         nextStep.AddListener(HideComment);
         StartCoroutine(NextStepDelay(commentHideTime));
     }
@@ -32,7 +33,7 @@ public class DialogueHandler : MonoBehaviour
     public void HideComment()
     {
         nextStep.RemoveListener(HideComment);
-        commentText.enabled = false;
+        commentFrame.SetActive(false);
     }
 
     public void StartDialogue(TextAsset dialogue)
@@ -61,10 +62,13 @@ public class DialogueHandler : MonoBehaviour
         dialogueFrame.SetActive(false);
     }
 
-    IEnumerator TextByLetters(Text textObj, char letter)
+    IEnumerator TextByLetters(Text textObj, string text, int letterIndex)
     {
         yield return new WaitForEndOfFrame();
-        textObj.text += letter;
+        textObj.text += text[letterIndex];
+        letterIndex++;
+        if(letterIndex < text.Length)
+            StartCoroutine(TextByLetters(textObj, text, letterIndex));
     }
 
     IEnumerator NextStepDelay(float timeDelay)
