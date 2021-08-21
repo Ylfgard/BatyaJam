@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ServantStats : MonoBehaviour {
+    public float startFollowDistance;
+
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
 

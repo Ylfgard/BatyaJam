@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IdleBahavior : StateMachineBehaviour {
-    [SerializeField] private float _startFollowDistance;
-
+    private float _startFollowDistance;
     private Transform _player;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _startFollowDistance = animator.GetComponent<ServantStats>().startFollowDistance;
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
