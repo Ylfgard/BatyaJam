@@ -3,37 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FollowBehavior : StateMachineBehaviour {
-    [SerializeField] private float _attackDistance;
-
-    private Transform _player;
-
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+public class DeathBehavior : StateMachineBehaviour
+{
+    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator.GetComponent<NavMeshAgent>().isStopped = true;
+        animator.GetComponent<NavMeshAgent>().ResetPath();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        NavMeshAgent agent = animator.GetComponent<NavMeshAgent>();
-        animator.speed = agent.velocity.magnitude / agent.speed;
-
-        if (Vector3.Distance(animator.transform.position, _player.position) < _attackDistance)
-        {
-            animator.SetTrigger("attack");
-        }
-        animator.GetComponent<NavMeshAgent>().SetDestination(_player.position);
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<NavMeshAgent>().isStopped = true;
-        animator.GetComponent<NavMeshAgent>().ResetPath();
-
-        animator.speed = 1;
+        Destroy(animator.gameObject);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
