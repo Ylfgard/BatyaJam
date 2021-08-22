@@ -256,9 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Close book
   guid: 0b19b311fa2cc24f8af2d1fff667a2c0
-  Banks:
-  - {fileID: 7135969626704391722}
-  - {fileID: -1358647015458680151}
+  Banks: []
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -376,6 +374,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 0
+--- !u!114 &-8892012167931983578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/Condition
+  m_EditorClassIdentifier: 
+  Name: Condition
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 1
+  Exists: 1
 --- !u!114 &-8879499020752916370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,8 +455,8 @@ MonoBehaviour:
   Path: event:/SFX/shot_crossbow
   guid: 5c9ca81ee09bf54d890178decf628aaa
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -679,8 +699,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_7
   guid: ec5d23383041f24fa920ded8c0d82314
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -1011,8 +1031,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Demon 1
   guid: 61aefa863336b1448cae65427807f7f6
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1174,6 +1194,28 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Type: 1
+  IsGlobal: 1
+  Exists: 0
+--- !u!114 &-8452437994568485397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/HP BOSS
+  m_EditorClassIdentifier: 
+  Name: HP BOSS
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
   IsGlobal: 1
   Exists: 0
 --- !u!114 &-8451268223950365215
@@ -1750,6 +1792,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 0
+--- !u!114 &-7944635619534197840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/GG HP
+  m_EditorClassIdentifier: 
+  Name: GG HP
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
+  Exists: 0
 --- !u!114 &-7900995546618717707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1875,14 +1939,14 @@ MonoBehaviour:
   Path: event:/Voice/Audio_diarys/Diary_3
   guid: 48ca9519b19cc840bd2568e1b7184dd2
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 4
-  MaxDistance: 15
+  MinDistance: 3.4
+  MaxDistance: 9.2
   Length: 25285
 --- !u!114 &-7825723693058377152
 MonoBehaviour:
@@ -2076,10 +2140,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637652457861985554
+  lastModified: 637652590199299396
   FileSizes:
   - Name: 
-    Value: 3868
+    Value: 3872
   Exists: 1
 --- !u!114 &-7652900754071205543
 MonoBehaviour:
@@ -2162,8 +2226,8 @@ MonoBehaviour:
   Path: event:/SFX/open_book
   guid: db3f77cd1fe8d740930a6e776443fd2d
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3088,8 +3152,8 @@ MonoBehaviour:
   Path: event:/SFX/hit_gg
   guid: db72b6fb301de948a1d33893b2633184
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3449,6 +3513,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &-6738230899574727701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/Condition
+  m_EditorClassIdentifier: 
+  Name: Condition
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 1
+  Exists: 0
 --- !u!114 &-6719297174454246665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3618,8 +3704,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 7
   guid: a57ca290d6fc8149bbc1abe345725da8
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4771,8 +4857,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 2
   guid: d1de97210fa984438fae8093e7cb1509
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4949,8 +5035,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_4
   guid: 59ae22b277c68b4387171bd0b31ceade
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -6580,8 +6666,8 @@ MonoBehaviour:
   Path: event:/SFX/Change_bolt
   guid: 610576ac19b0fd4aa38755083ef826fc
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6802,8 +6888,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Adrian 2
   guid: e18d3fdf14c04142bf84fd619879e69e
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6826,8 +6912,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 11
   guid: 4efec0d3bf312642b03de539e1bb87bb
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7774,8 +7860,8 @@ MonoBehaviour:
   Path: event:/SFX/Portraits_loop_MONO
   guid: c43e26ef5961d54b9437fb6137cf0805
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -7827,6 +7913,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 0
+--- !u!114 &-3877273534247708089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/HP BOSS
+  m_EditorClassIdentifier: 
+  Name: HP BOSS
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
+  Exists: 1
 --- !u!114 &-3870383899548914734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8090,6 +8198,28 @@ MonoBehaviour:
     data2: 0
   Type: 1
   IsGlobal: 0
+  Exists: 0
+--- !u!114 &-3725635192798204436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/GG HP
+  m_EditorClassIdentifier: 
+  Name: GG HP
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
   Exists: 0
 --- !u!114 &-3714065602875367873
 MonoBehaviour:
@@ -8524,8 +8654,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Demon 3
   guid: a7426169d190054e8aa8ed0dcfa490c5
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9120,8 +9250,8 @@ MonoBehaviour:
   Path: event:/SFX/attack_henchman
   guid: f42a22bb972f5a448939fedb5d361f8a
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -9430,8 +9560,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_3
   guid: 9fa7af5767744249b1140c5e0b965b4d
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9528,6 +9658,28 @@ MonoBehaviour:
   IsGlobal: 1
   Exists: 0
 --- !u!114 &-2785268242516596502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 2
+  Default: 2
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 0
+--- !u!114 &-2759466202189744171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9762,8 +9914,8 @@ MonoBehaviour:
   Path: event:/SFX/hit_demon_voice
   guid: 46a0ab22493b674ebbb6853c18033c61
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -9969,6 +10121,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 0
+--- !u!114 &-2473221033492787680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Surface
+  m_EditorClassIdentifier: 
+  Name: Surface
+  Min: 0
+  Max: 2
+  Default: 2
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-2430516720121663368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10028,13 +10202,13 @@ MonoBehaviour:
   Path: event:/SFX/Footsteps
   guid: 0eb5d87757309b4db0d2fd03058aa9c1
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 1140903547645863819}
+  - {fileID: -2473221033492787680}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -11800,6 +11974,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 0
+--- !u!114 &-1363511233327531147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/GG HP
+  m_EditorClassIdentifier: 
+  Name: GG HP
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
+  Exists: 1
 --- !u!114 &-1358647015458680151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11815,7 +12011,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637652466876661164
+  lastModified: 637652590199269394
   FileSizes: []
   Exists: 1
 --- !u!114 &-1352868462474686518
@@ -11877,14 +12073,14 @@ MonoBehaviour:
   Path: event:/Voice/Audio_diarys/Diary_2
   guid: f1946f9279772447a5fadbfb19d31967
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 4
-  MaxDistance: 15
+  MinDistance: 3.4
+  MaxDistance: 9.2
   Length: 27704
 --- !u!114 &-1340762588277169598
 MonoBehaviour:
@@ -11923,8 +12119,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Demon 4
   guid: ee0753d13330f9408d15465c28fe42b8
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -12343,8 +12539,8 @@ MonoBehaviour:
   Path: event:/SFX/hit_demon
   guid: 6017fef13f46a44faa660eb8c9f88482
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -12807,8 +13003,8 @@ MonoBehaviour:
   Path: event:/SFX/Portraits
   guid: 2f7aa487920f5a48a3a75c82a45a1559
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -13711,8 +13907,8 @@ MonoBehaviour:
   Path: event:/SFX/death_demon
   guid: 4bf7eaec8fbb3442989e131d02024077
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -13779,15 +13975,15 @@ MonoBehaviour:
   Path: event:/Music/game_music
   guid: 70be9108da3f0e4c9b2b0761f0fd8572
   Banks:
-  - {fileID: 7450986965738781042}
   - {fileID: -1358647015458680151}
+  - {fileID: 7450986965738781042}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 5928547105509173981}
-  - {fileID: 6469994499170838898}
-  - {fileID: 2772401960134765761}
+  - {fileID: 5292530086841039504}
+  - {fileID: 6250995106606746954}
+  - {fileID: -1363511233327531147}
   MinDistance: 0
   MaxDistance: 0
   Length: 295757
@@ -13896,8 +14092,8 @@ MonoBehaviour:
   Path: event:/SFX/Pages_book
   guid: f28ace4f56c48342867a04bdef7fdb72
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -13967,7 +14163,6 @@ MonoBehaviour:
   - {fileID: -6445899828928669345}
   - {fileID: 7249005882402891497}
   - {fileID: -3896712743077558782}
-  - {fileID: -8950941007215301252}
   - {fileID: 2335984049429058032}
   - {fileID: 2054550654684580001}
   - {fileID: 688193116262690406}
@@ -14009,6 +14204,7 @@ MonoBehaviour:
   - {fileID: 2863555477261708074}
   - {fileID: -3046146808708583541}
   - {fileID: -7726839311273381288}
+  - {fileID: 4897822387394545775}
   EditorParameters:
   - {fileID: -1750163828100522775}
   - {fileID: -1427300672423555082}
@@ -14017,7 +14213,7 @@ MonoBehaviour:
   - {fileID: -1358647015458680151}
   StringsBanks:
   - {fileID: -7690648778318398533}
-  stringsBankWriteTime: 637652457861985554
+  stringsBankWriteTime: 637652590199299396
   cacheVersion: 8
 --- !u!114 &37177438905410105
 MonoBehaviour:
@@ -15483,8 +15679,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Demon 2
   guid: 3439f58c5241fa48bb6b430541f43995
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -15705,14 +15901,14 @@ MonoBehaviour:
   Path: event:/Voice/Audio_diarys/Diary_4
   guid: 4aab53396693594bab5a228ac34db3d4
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 4
-  MaxDistance: 15
+  MinDistance: 3.4
+  MaxDistance: 9.2
   Length: 35602
 --- !u!114 &795198419500945057
 MonoBehaviour:
@@ -15839,8 +16035,8 @@ MonoBehaviour:
   Path: event:/SFX/Craft_crovyak
   guid: a8c6dac45a32a644b3dd98fa9b9ad982
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -15863,8 +16059,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_1
   guid: a2df410b68c5cd47803cad7926822b1f
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -16069,7 +16265,7 @@ MonoBehaviour:
     data2: 0
   Type: 1
   IsGlobal: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &1145905337820954518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16305,8 +16501,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 1
   guid: 69b91f8408d0f04491afab338a06ff67
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -17341,8 +17537,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 10
   guid: c7e478835d6f314c8dec3dfb27a23bcd
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -17585,8 +17781,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 3
   guid: 2713ea9b35e88544ae6aa6ed171ef823
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -17810,6 +18006,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &2271392023085600052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/Condition
+  m_EditorClassIdentifier: 
+  Name: Condition
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 1
+  Exists: 0
 --- !u!114 &2279377897517161792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17979,8 +18197,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 8
   guid: 0e9f59522104ef44aa4adc3af932bc07
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -18003,8 +18221,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_5
   guid: bb14c1deedf6214d84ad558f989945fc
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -18649,7 +18867,7 @@ MonoBehaviour:
     data2: 0
   Type: 0
   IsGlobal: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &2775731357610546365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18731,8 +18949,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 6
   guid: 7274d21ffc85e748b83d13f85542d422
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -18755,8 +18973,8 @@ MonoBehaviour:
   Path: event:/SFX/death_henchman
   guid: 7747771999877f43b34988279b7a3903
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -20608,8 +20826,8 @@ MonoBehaviour:
   Path: event:/SFX/loot flower
   guid: aee3b2e6d8ac924bac6afce0fd7fd574
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -20808,8 +21026,8 @@ MonoBehaviour:
   Path: event:/SFX/Craft_lintiya
   guid: b77b0a74f658fe44b07647eddc8cd1a2
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -21426,8 +21644,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_6
   guid: 5da9e707e78fee498ac92476eb397822
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -21567,6 +21785,33 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &4897822387394545775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/game_music_2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/game_music_2
+  guid: 006ee5ccaec4fd4eb6d96f9c84032f93
+  Banks:
+  - {fileID: -1358647015458680151}
+  - {fileID: 7450986965738781042}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5324313769675702892}
+  - {fileID: -8892012167931983578}
+  - {fileID: -3877273534247708089}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 295757
 --- !u!114 &4899925470454166094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21890,8 +22135,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 9
   guid: 7bca04826724874fa6b59024f651ee76
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -21899,6 +22144,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2642
+--- !u!114 &5111264862091129626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/HP BOSS
+  m_EditorClassIdentifier: 
+  Name: HP BOSS
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
+  Exists: 0
 --- !u!114 &5119389110324336690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22200,8 +22467,8 @@ MonoBehaviour:
   Path: event:/Voice/Comics/Comics_2
   guid: 992367604848f749a569d00805d2dc16
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -22209,6 +22476,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 20483
+--- !u!114 &5292530086841039504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/HP BOSS
+  m_EditorClassIdentifier: 
+  Name: HP BOSS
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
+  Exists: 1
 --- !u!114 &5293756914353785035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22274,6 +22563,28 @@ MonoBehaviour:
     data2: 0
   Type: 1
   IsGlobal: 0
+  Exists: 1
+--- !u!114 &5324313769675702892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music_2/GG HP
+  m_EditorClassIdentifier: 
+  Name: GG HP
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 1
   Exists: 1
 --- !u!114 &5325286147264914658
 MonoBehaviour:
@@ -22642,14 +22953,14 @@ MonoBehaviour:
   Path: event:/Voice/Audio_diarys/Diary_1
   guid: 6a01328c86d25646973cc7907966deec
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 4
-  MaxDistance: 15
+  MinDistance: 3.4
+  MaxDistance: 9.2
   Length: 23643
 --- !u!114 &5540640162772949537
 MonoBehaviour:
@@ -22909,8 +23220,8 @@ MonoBehaviour:
   Path: event:/SFX/Craft_proskrip
   guid: 03eadde7201ec5419c76b3a8efa3e4a0
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -23131,7 +23442,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 637652466877071188
+  lastModified: 637652590200789481
   FileSizes: []
   Exists: 1
 --- !u!114 &5884719476304958971
@@ -23221,7 +23532,7 @@ MonoBehaviour:
     data2: 0
   Type: 0
   IsGlobal: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &5929968361443960223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23261,8 +23572,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 5
   guid: 67aeaf8410b3214097bd7deef6de124d
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -23556,6 +23867,28 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 1
   Exists: 1
+--- !u!114 &6250995106606746954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_music/Condition
+  m_EditorClassIdentifier: 
+  Name: Condition
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 1
+  Exists: 1
 --- !u!114 &6303657758285290121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23665,7 +23998,7 @@ MonoBehaviour:
     data2: 0
   Type: 1
   IsGlobal: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &6473736202858225135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24099,8 +24432,8 @@ MonoBehaviour:
   Path: event:/Music/Menu
   guid: 87181e4761f15849b801feb5ba335bd9
   Banks:
-  - {fileID: 7450986965738781042}
   - {fileID: -1358647015458680151}
+  - {fileID: 7450986965738781042}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -24541,7 +24874,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637652466876821173
+  lastModified: 637652590200549468
   FileSizes: []
   Exists: 1
 --- !u!114 &7136285672974895468
@@ -24801,8 +25134,8 @@ MonoBehaviour:
   Path: event:/SFX/Portraits_loop_STEREO
   guid: 662361d4df17c14587fbe4d827d39459
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -24891,8 +25224,8 @@ MonoBehaviour:
   Path: event:/Voice/GG_Replices/Replice 4
   guid: d40395c87810654d9fa9cbfd880f93c9
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -25113,7 +25446,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637652397410007899
+  lastModified: 637652590200379458
   FileSizes: []
   Exists: 1
 --- !u!114 &7479731666351753517
@@ -25857,8 +26190,8 @@ MonoBehaviour:
   Path: event:/SFX/reload_crossbow
   guid: 94e7f982a9a3bd4995f4606e88940333
   Banks:
-  - {fileID: 7135969626704391722}
   - {fileID: -1358647015458680151}
+  - {fileID: 7135969626704391722}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -26828,8 +27161,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Adrian 4
   guid: 71413d6d6571ac46b145d465da9bfc6e
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -27182,8 +27515,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Adrian 1
   guid: 3df9be6ad5931c4ca1794c140b33563c
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -27294,8 +27627,8 @@ MonoBehaviour:
   Path: event:/Voice/Devil_and_gg_Dialogue/Adrian 3
   guid: 3b2b552b1d28394aa7a457720589d92a
   Banks:
-  - {fileID: 5839298445942498091}
   - {fileID: -1358647015458680151}
+  - {fileID: 5839298445942498091}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
