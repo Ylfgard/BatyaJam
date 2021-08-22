@@ -109,12 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c60c828c017bb842a6029af201e2e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  averageSpeed: 1
+  averageSpeed: 1.5
   minSpeedMultiplayer: 1
-  maxSpeedMultiplayer: 1
+  maxSpeedMultiplayer: 1.2
   gravity: 0
   tilt: 0
-  damage: 2
+  damage: 5
 --- !u!1001 &6389674225152416925
 PrefabInstance:
   m_ObjectHideFlags: 0

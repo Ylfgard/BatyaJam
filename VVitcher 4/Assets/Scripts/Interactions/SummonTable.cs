@@ -21,9 +21,4 @@ public class SummonTable : MonoBehaviour, IInteractable {
     {
         _uiManager.OpenSummonPanel(false);
     }
-
-    private void OnDestroy()
-    {
-        CloseInteraction();
-    }
 }
