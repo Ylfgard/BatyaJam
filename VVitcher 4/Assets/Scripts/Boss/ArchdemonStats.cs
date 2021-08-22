@@ -58,6 +58,7 @@ public class ArchdemonStats : MonoBehaviour {
         if (_health <= 0)
         {
             onBossDeadCallback?.Invoke();
+            GetComponent<Animator>().SetTrigger("death");
             return;
         }
         onBossHealthChangedCallback?.Invoke(_health);
