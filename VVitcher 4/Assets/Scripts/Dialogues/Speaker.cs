@@ -44,7 +44,7 @@ public class Speaker : MonoBehaviour
     {
         if(other.gameObject == player)
         {
-            if(Input.GetKeyDown(KeyCode.E) && !wasUsed)
+            if(Input.GetKeyDown(KeyCode.F) && !wasUsed)
             {
                 UseObject();
                 advice.HideAdvice();
