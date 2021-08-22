@@ -15,7 +15,7 @@ public class ArchdemonStats : MonoBehaviour {
     [SerializeField] private int _startHealth;
 
     private int _health;
-    private float _offsetProjectiles = 2f;
+    private float _offsetProjectiles = 5f;
 
     void Start()
     {
