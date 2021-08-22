@@ -2376,6 +2376,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 852228529, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: _bossPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2be479c950dead94e84e0f1f201f9d6a, type: 2}
     - target: {fileID: 862930945, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2383,6 +2387,10 @@ PrefabInstance:
     - target: {fileID: 862930945, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007612957, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: m_Name
+      value: SummonButton
       objectReference: {fileID: 0}
     - target: {fileID: 1157974372, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
       propertyPath: m_Value
@@ -2848,7 +2856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664706504107131271, guid: a935b80d8e23e6a418fd680b5d8c8f01, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4664706504107131272, guid: a935b80d8e23e6a418fd680b5d8c8f01, type: 3}
       propertyPath: m_RootOrder
@@ -2951,17 +2959,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archdemon
       objectReference: {fileID: 0}
-    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: _startHealth
-      value: 100
+    - target: {fileID: 5342860360919460362, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: fanCastNumber
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: fanProjectiles
-      value: 
-      objectReference: {fileID: 6585700764758112911, guid: 61623b6d947126949a0eab5d42c30ff1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
