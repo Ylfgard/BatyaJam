@@ -50,6 +50,7 @@ public class PlayerMain : MonoBehaviour
                 onPlayerDeadCallback?.Invoke();
             }
 
+            Debug.Log((int)health);
             onHealthChangedCallback?.Invoke((int)health);
         }
     }
