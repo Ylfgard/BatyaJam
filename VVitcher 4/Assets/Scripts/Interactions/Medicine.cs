@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Medicine : MonoBehaviour, IInteractable {
-    [SerializeField] private PlayerMain player;
     [SerializeField] private int _healingPower;
+
+    private PlayerMain player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>();
+    }
 
     public void Interact()
     {
