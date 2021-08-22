@@ -54,7 +54,6 @@ public class DialogueHandler : MonoBehaviour
 
     public void NextNode()
     {
-        Debug.Log("Новый");
         StopAllCoroutines();
         if(curNodeIndex < curDialogue.nodes.Length)
         {
@@ -73,6 +72,8 @@ public class DialogueHandler : MonoBehaviour
 
     public void EndDialogue()
     {
+        if(curDialogue != null)
+            nodeText.text = curDialogue.nodes[curDialogue.nodes.Length-1].text;
         nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
         GamePauser.GameContinue();

@@ -128,6 +128,48 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4927094362163155838, guid: 30ac74c1d0bbed441944e82ac6cc8ac4, type: 3}
   m_PrefabInstance: {fileID: 1371652135}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &283951844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8002660430651828563, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+  m_PrefabInstance: {fileID: 8002660432565072244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283951845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283951844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/Menu
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &283951847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283951844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814b517edde2b244eaa66617d28e8cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseMenu: {fileID: 0}
+  _deathMenu: {fileID: 0}
 --- !u!114 &842745623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8002660431793895011, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
@@ -731,6 +773,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8002660430852414755, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660430852414755, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660430852414755, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8002660431389474338, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -770,6 +824,26 @@ PrefabInstance:
     - target: {fileID: 8002660431793895010, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660432164098693, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: soundPath.Array.data[0]
+      value: event:/Voice/Comics/Comics_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660432164098693, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: soundPath.Array.data[1]
+      value: event:/Voice/Comics/Comics_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660432164098693, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: soundPath.Array.data[2]
+      value: event:/Voice/Comics/Comics_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002660432164098693, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: comicsEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 283951847}
+    - target: {fileID: 8002660432164098693, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
+      propertyPath: comicsEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d721ecb5c7ac7f41b39e9fdb8838a7b, type: 3}
