@@ -32,6 +32,7 @@ public class MapRender : MonoBehaviour
 
     void OpenMap()
     {
+        GamePauser.GamePause();
         mapOpen.Invoke();
         map.SetActive(true);
     }
@@ -48,6 +49,7 @@ public class MapRender : MonoBehaviour
 
     void CloseMap()
     {
+        GamePauser.GameContinue();
         mapClose.Invoke();
         map.SetActive(false);
     }
