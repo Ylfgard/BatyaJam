@@ -20,6 +20,11 @@ public class PlayerAnimationStateController : MonoBehaviour
     private bool _isSpeededUp;
     private bool _isAgressive;
 
+    [SerializeField]
+    private GameObject crossbow;
+    private float _crossbowEnablerDelay = 0.1f;
+    //private bool _isCrossbowVisible;
+
     public bool isAgressive { get { return _isAgressive; } set { _isAgressive = value; } }
 
     private void Start()
@@ -37,6 +42,7 @@ public class PlayerAnimationStateController : MonoBehaviour
         {
             isAgressive = !isAgressive;
             animator.SetBool(agressiveStateHash, isAgressive);
+            StartCoroutine(CrossbowGOEnabler());
         }
 
         Vector3 directionVector = movePlayerScript.moveDirection;
@@ -55,6 +61,12 @@ public class PlayerAnimationStateController : MonoBehaviour
 
         animator.SetFloat(velocityXHash, velocityX, currDamp, Time.deltaTime);
         animator.SetFloat(velocityZHash, velocityZ, currDamp, Time.deltaTime);
+    }
+
+    IEnumerator CrossbowGOEnabler()
+    {
+        yield return new WaitForSeconds(_crossbowEnablerDelay);
+        crossbow.SetActive(isAgressive);
     }
 
     private void CheckSpeedUp()

@@ -16,9 +16,6 @@ public class PlayerMain : MonoBehaviour
     private float maxHealth = 100f;
     [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
-    [Header("Input tags:")]
-    [SerializeField]
-    private string powerupHPTag;
 
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
@@ -92,9 +89,7 @@ public class PlayerMain : MonoBehaviour
 
     public void AbsorbHealingPowerup(int hp)
     {
-        Debug.Log(health + " + " + hp);
         health += hp;
-        Debug.Log(health);
     }
 
     public void TakeDamage(float damage)

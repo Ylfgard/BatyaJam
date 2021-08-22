@@ -16,7 +16,7 @@ public class DialogueHandler : MonoBehaviour
     [SerializeField] private Text nodeText;
     [SerializeField] private float commentHideTime;
 
-    private void Start() 
+    private void Awake() 
     {
         gameObject.GetComponent<DialogueHandler>().
         writingFinished.AddListener(NextStepDelayCaller);
@@ -54,15 +54,11 @@ public class DialogueHandler : MonoBehaviour
 
     public void NextNode()
     {
+        Debug.Log("Новый");
         StopAllCoroutines();
         if(curNodeIndex < curDialogue.nodes.Length)
         {
             nodeText.text = "";
-            for(int i = 0; i < curNodeIndex; i++)
-            {
-                nodeText.text += "\n\t";
-                nodeText.text += curDialogue.nodes[i].text;
-            }
             nodeText.text += "\n\t";
             curStepTimeDelay = curDialogue.nodes[curNodeIndex].duration; 
             StartCoroutine(TextByLetters(nodeText, curDialogue.nodes[curNodeIndex].text, 0));
@@ -95,12 +91,12 @@ public class DialogueHandler : MonoBehaviour
         if(letterIndex < text.Length)
             StartCoroutine(TextByLetters(textObj, text, letterIndex));
         else
-            writingFinished?.Invoke();
+            writingFinished.Invoke();
     }
 
     IEnumerator NextStepDelay()
     {
         yield return new WaitForSecondsRealtime(curStepTimeDelay);
-        nextStep?.Invoke();
+        nextStep.Invoke();
     }
 }

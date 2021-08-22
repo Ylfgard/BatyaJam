@@ -10,22 +10,36 @@ public class MovePlayerDefault : MonoBehaviour
     [SerializeField]
     private float playerRotationSpeed = 8f;
 
-    //private Camera mainCam;
+    private Rigidbody rb;
     private PlayerMain playerMainScript;
     private MoveVelocity moveVelocityScript;
     private MovePlayer movePlayerScript;
+    private PlayerAnimationStateController playerAnimationStateControllerScript;
+
+    private const float rotationTreshold = 0.01f;
 
     private void Start()
     {
-        //mainCam = Camera.main;
+        rb = GetComponent<Rigidbody>();
         playerMainScript = GetComponent<PlayerMain>();
         moveVelocityScript = GetComponent<MoveVelocity>();
         movePlayerScript = GetComponent<MovePlayer>();
+        playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
     }
 
     private void Update()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed * Time.deltaTime);
+        Quaternion rot = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed * Time.deltaTime);
+        
+        if(playerAnimationStateControllerScript.isAgressive)
+        {
+            transform.rotation = rot;
+        }
+        else
+        {
+            if (rb.velocity.magnitude > rotationTreshold)
+                transform.rotation = rot;
+        }
     }
 
     public Vector3 LookDirection()
