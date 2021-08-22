@@ -29,6 +29,8 @@ public class MovePlayerDefault : MonoBehaviour
 
     private void Update()
     {
+        if (playerMainScript.isDead) return;
+
         Quaternion rot = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookDirection(), Vector3.up), playerRotationSpeed * Time.deltaTime);
         
         if(playerAnimationStateControllerScript.isAgressive)

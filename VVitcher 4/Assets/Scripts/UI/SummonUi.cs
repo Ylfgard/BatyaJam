@@ -55,7 +55,10 @@ public class SummonUi : MonoBehaviour {
         if (bloodyInput == _bossPreset.bloodyToSummon & creackyInput == _bossPreset.creackyToSummon & linthyInput == _bossPreset.linthyToSummon)
         {
             // Призвать босса
-            GameObject.FindGameObjectWithTag("Boss").SetActive(true);
+            GameObject table = GameObject.Find("SummonTable");
+            table.GetComponent<SummonTable>().boss.SetActive(true);
+
+            Destroy(table);
         }
         else
         {

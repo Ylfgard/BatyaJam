@@ -1309,11 +1309,11 @@ GameObject:
   - component: {fileID: 6595626494211685687}
   m_Layer: 0
   m_Name: Archdemon
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4714837373206065328
 Transform:
   m_ObjectHideFlags: 0
