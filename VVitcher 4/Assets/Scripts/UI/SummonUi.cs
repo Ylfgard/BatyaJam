@@ -5,12 +5,19 @@ using TMPro;
 using UnityEngine;
 
 public class SummonUi : MonoBehaviour {
+    private int curDialogue = 0;
+    private DialogueHandler dialogueHandler;
     [SerializeField] private BossPreset _bossPreset;
-
+    [SerializeField] private TextAsset[] dialogue;
+    [FMODUnity.EventRef] [SerializeField] private string[] dialoguePath; 
     [SerializeField] private GameObject[] _herbValuesText;
     [SerializeField] private GameObject[] _herbInputValues;
 
     private PlayerInventory _inventory;
+
+    private void Start() {
+        dialogueHandler = FindObjectOfType<DialogueHandler>();
+    }
 
     public void AddValue(int index)
     {
@@ -49,21 +56,37 @@ public class SummonUi : MonoBehaviour {
         int linthyInput = Int32.Parse(_herbInputValues[2].GetComponent<TextMeshProUGUI>().text);
 
         if (bloodyInput == 0 & creackyInput == 0 & linthyInput == 0) return;
-        // Проверка на возможность призыва босса
-        // Ничего не делать, если подношения нулевые
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
         if (bloodyInput == _bossPreset.bloodyToSummon & creackyInput == _bossPreset.creackyToSummon & linthyInput == _bossPreset.linthyToSummon)
         {
-            // Призвать босса
-            GameObject table = GameObject.Find("SummonTable");
-            table.GetComponent<SummonTable>().boss.SetActive(true);
-
-            Destroy(table);
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+            dialogueHandler.dialogueEnded.AddListener(SuccessSummon);
+            dialogueHandler.StartDialogue(dialogue[curDialogue]);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(dialoguePath[curDialogue], gameObject);
         }
         else
         {
             PlayerMain player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>();
             player.TakeDamage((int)player.health / 2);
+        }
+    }
+
+    void SuccessSummon()
+    {
+        curDialogue++;
+        if(curDialogue < dialogue.Length)
+        {
+            dialogueHandler.StartDialogue(dialogue[curDialogue]);
+            FMODUnity.RuntimeManager.PlayOneShotAttached(dialoguePath[curDialogue], gameObject);
+        }
+        else
+        {
+            dialogueHandler.dialogueEnded.RemoveListener(SuccessSummon);
+            GameObject table = GameObject.Find("SummonTable");
+            table.GetComponent<SummonTable>().boss.SetActive(true);
+            Destroy(table);
         }
     }
 
