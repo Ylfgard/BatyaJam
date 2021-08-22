@@ -55,13 +55,13 @@ public class SummonUi : MonoBehaviour {
         if (bloodyInput == _bossPreset.bloodyToSummon & creackyInput == _bossPreset.creackyToSummon & linthyInput == _bossPreset.linthyToSummon)
         {
             // ѕризвать босса
+            GameObject.FindGameObjectWithTag("Boss").SetActive(true);
         }
         else
         {
             PlayerMain player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>();
             player.TakeDamage((int)player.health / 2);
         }
-        // ≈сли услови€ подношени€ не соблюдены, отн€ть у игрока 50% здоровь€
     }
 
     private void UpdateHerbValues()
