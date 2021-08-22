@@ -1309,11 +1309,11 @@ GameObject:
   - component: {fileID: 6595626494211685687}
   m_Layer: 0
   m_Name: Archdemon
-  m_TagString: Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4714837373206065328
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,7 +1379,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5342860360919460362}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.41
   m_Height: 2.3208325
