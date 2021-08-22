@@ -8,6 +8,14 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _deathMenu;
 
+    private bool _isGamePaused;
+
+    public bool isGamePaused
+    {
+        get { return _isGamePaused; }
+        private set { _isGamePaused = value; }
+    }
+
     private void Start()
     {
         if(_pauseMenu != null)
@@ -44,16 +52,24 @@ public class MenuHandler : MonoBehaviour
     {
         GamePauser.GamePause();
         menu.SetActive(true);
+        isGamePaused = true;
     }
 
     public void CloseMenu(GameObject menu)
     {
         GamePauser.GameContinue();
         menu.SetActive(false);
+        isGamePaused = false;
     }
 
     private void DeathMenu()
     {
+        StartCoroutine(DeathMenuOpener());
+    }
+
+    IEnumerator DeathMenuOpener()
+    {
+        yield return new WaitForSeconds(2f);
         OpenMenu(_deathMenu);
     }
 }

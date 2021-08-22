@@ -62,11 +62,8 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        // ���� gameObject ���������, �����
         if (!gameObject.activeInHierarchy) return;
-        // ���� ����� ���������� ������ ������������ ����� �������, �����
         if (Time.time - lastShotTime < def.delayBetweenShots) return;
-        // ���� ��� ��������� ������, �����
         if (!PlayerInventory.instance.UseBolt(GetActiveBolt())) return;
 
         Projectile p;
@@ -100,8 +97,8 @@ public class Weapon : MonoBehaviour
                 p.rb.velocity = vel;
                 break;
         }
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/reload_crossbow");
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/reload_crossbow");
         playerAnimationStateControllerScript.PlayFiringAnim();
     }
 
