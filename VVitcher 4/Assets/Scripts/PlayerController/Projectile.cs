@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     private WeaponType _type;
     private float lifetime;
 
-    private int _damageToServant = 2;
+    private int _damageToServant = 5;
 
     public WeaponType type
     {
