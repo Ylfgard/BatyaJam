@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour
             }
 
             ArchdemonStats archedemon = other.GetComponent<ArchdemonStats>();
-            if (servant != null)
+            if (archedemon != null)
             {
                 archedemon.Damage(type);
             }
