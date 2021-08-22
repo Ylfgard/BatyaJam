@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8002660430651828572}
   - component: {fileID: 8002660430651828574}
   - component: {fileID: 8002660430651828573}
-  - component: {fileID: 8002660430651828575}
   m_Layer: 5
   m_Name: ComicsFone
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8002660430651828575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002660430651828563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 814b517edde2b244eaa66617d28e8cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pauseMenu: {fileID: 0}
-  _deathMenu: {fileID: 0}
 --- !u!1 &8002660430852414754
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +817,7 @@ MonoBehaviour:
   comicsEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8002660430651828575}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1

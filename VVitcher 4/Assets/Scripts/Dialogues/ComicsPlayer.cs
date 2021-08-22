@@ -27,7 +27,6 @@ public class ComicsPlayer : MonoBehaviour
 
     public void UseObject()
     {
-        Debug.Log("Вывел");
         if(curSlide < slide.Length)
         {
             if(!slideStarted)

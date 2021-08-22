@@ -62,11 +62,11 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        // Если gameObject неактивен, выйти
+        // пїЅпїЅпїЅпїЅ gameObject пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ
         if (!gameObject.activeInHierarchy) return;
-        // Если между выстрелами прошло недостаточно много времени, выйти
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ
         if (Time.time - lastShotTime < def.delayBetweenShots) return;
-        // Если нет выбранных болтов, выйти
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ
         if (!PlayerInventory.instance.UseBolt(GetActiveBolt())) return;
 
         Projectile p;
@@ -100,6 +100,7 @@ public class Weapon : MonoBehaviour
                 p.rb.velocity = vel;
                 break;
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/reload_crossbow");
 
         playerAnimationStateControllerScript.PlayFiringAnim();
     }
@@ -109,6 +110,7 @@ public class Weapon : MonoBehaviour
         //Vector3 directionToMouse = (mouseTarget.transform.position - transform.position).normalized;
         //directionToMouse = new Vector3(directionToMouse.x, 0, directionToMouse.z);
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/shot_crossbow");
         GameObject go = Instantiate(def.projectilePrefab, transform.position, Quaternion.LookRotation(directionToMouse));
         go.transform.SetParent(projectileAnchor, true);
 

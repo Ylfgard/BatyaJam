@@ -68,6 +68,7 @@ public class PlayerInventory : MonoBehaviour {
 
     public void SwitchBolt()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Change_bolt");
         onBoltChangedCallback?.Invoke(_activeBoltIndex);
 
         if (_activeBoltIndex < _herbsCount.Length) _activeBoltIndex++;
@@ -78,6 +79,7 @@ public class PlayerInventory : MonoBehaviour {
     {
         if (_herbsCount[typeIndex] <= 0) return;
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Craft_lintiya");
         _herbsCount[typeIndex]--;
         _boltsCount[typeIndex]++;
         onBoltInventoryChangedCallback?.Invoke();
@@ -90,7 +92,7 @@ public class PlayerInventory : MonoBehaviour {
 
         if (_boltsCount[(int)type - 1] <= 0)
         {
-            Debug.Log("Болты закончились");
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             return false;
         }
 
