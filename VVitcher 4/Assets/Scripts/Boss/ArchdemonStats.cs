@@ -71,6 +71,8 @@ public class ArchdemonStats : MonoBehaviour {
 
     private IEnumerator AttackPatternFan()
     {
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
+
         Quaternion offsetRotation = Quaternion.AngleAxis(0, transform.up);
 
         for (int index = 0; index < fanCastNumber; index++)
