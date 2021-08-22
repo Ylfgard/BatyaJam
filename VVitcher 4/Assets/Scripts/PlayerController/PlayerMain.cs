@@ -18,13 +18,12 @@ public class PlayerMain : MonoBehaviour
     private string powerupHPTag;
 
     private MoveVelocity moveVelocityScript;
-    private GameObject lastTriggeredGameobject;
+    private PlayerAnimationStateController playerAnimationStateControllerScript;
     private float _currentHealth = 60f;
+    private bool _canFire;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
-
-    public bool isMaxHealth { get; private set; }
 
     public float health
     {
@@ -47,6 +46,20 @@ public class PlayerMain : MonoBehaviour
             }
         }
     }
+    public bool isMaxHealth { get; private set; }
+    public bool canFire
+    {
+        get
+        {
+            if (moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
+                _canFire = false;
+            else
+                _canFire = true;
+
+            return _canFire;
+        }
+    }
+
 
     private void Awake()
     {
@@ -59,22 +72,17 @@ public class PlayerMain : MonoBehaviour
     private void Start()
     {
         moveVelocityScript = GetComponent<MoveVelocity>();
+        playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
 
-        //health = maxHealth;
+        health = maxHealth;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanFire())
+        if (Input.GetMouseButtonDown(0) && canFire)
         {
             fireDelegate();
         }
-    }
-
-    public bool CanFire()
-    {
-        bool canFire = moveVelocityScript.isRunning;
-        return !canFire;
     }
 
     public void AbsorbHealingPowerup(int hp)

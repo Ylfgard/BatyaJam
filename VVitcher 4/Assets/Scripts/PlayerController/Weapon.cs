@@ -33,7 +33,6 @@ public class Weapon : MonoBehaviour
     private WeaponDefinition def;
     private float lastShotTime;
 
-
     public WeaponType type
     {
         get { return (_type); }

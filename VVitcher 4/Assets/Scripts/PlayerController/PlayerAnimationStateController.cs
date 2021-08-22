@@ -6,21 +6,21 @@ public class PlayerAnimationStateController : MonoBehaviour
 {
     private Animator animator;
 
-    //private int isWalkingForwardHash = Animator.StringToHash("isWalkingForward_b");
-    //private int isWalkingBackwardHash = Animator.StringToHash("isWalkingBackward_b");
-    //private int isStrafingToLeftHash = Animator.StringToHash("isStrafingToLeft_b");
-    //private int isStrafingToRightHash = Animator.StringToHash("isStrafingToRight_b");
-
     private int velocityXHash = Animator.StringToHash("velocityX_f");
     private int velocityZHash = Animator.StringToHash("velocityZ_f");
+    private int agressiveStateHash = Animator.StringToHash("isAgressive_b");
 
-    private Vector3 playerVelocity;
+    //private Vector3 playerVelocity;
     private MovePlayer movePlayerScript;
     private MoveVelocity moveVelocityScript;
 
-    private float defAnimSpeed;
-    private float animSpeedMultiplier = 2f;
-    private bool isAnimSpeeded;
+    //private float _defAnimSpeed;
+    private float _speedMultiplier = 2f;
+    private float dampTime = 0.1f;
+    private bool _isSpeededUp;
+    private bool _isAgressive;
+
+    public bool isAgressive { get { return _isAgressive; } set { _isAgressive = value; } }
 
     private void Start()
     {
@@ -28,41 +28,40 @@ public class PlayerAnimationStateController : MonoBehaviour
         movePlayerScript = GetComponent<MovePlayer>();
         moveVelocityScript = GetComponent<MoveVelocity>();
 
-        defAnimSpeed = animator.speed;
+        //_defAnimSpeed = animator.speed;
     }
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.W)) animator.SetBool(isWalkingForwardHash, true);
-        //if (Input.GetKeyUp(KeyCode.W)) animator.SetBool(isWalkingForwardHash, false);
+        if (Input.GetMouseButtonDown(1))
+        {
+            isAgressive = !isAgressive;
+            animator.SetBool(agressiveStateHash, isAgressive);
+        }
 
-        //if (Input.GetKeyDown(KeyCode.A)) animator.SetBool(isStrafingToLeftHash, true);
-        //if (Input.GetKeyUp(KeyCode.A)) animator.SetBool(isStrafingToLeftHash, false);
+        Vector3 directionVector = movePlayerScript.moveDirection;
 
-        //if (Input.GetKeyDown(KeyCode.S)) animator.SetBool(isWalkingBackwardHash, true);
-        //if (Input.GetKeyUp(KeyCode.S)) animator.SetBool(isWalkingBackwardHash, false);
+        float velocityX = Vector3.Dot(directionVector.normalized, transform.right);
+        float velocityZ = Vector3.Dot(directionVector.normalized, transform.forward);
+        float currDamp = dampTime;
 
-        //if (Input.GetKeyDown(KeyCode.D)) animator.SetBool(isStrafingToRightHash, true);
-        //if (Input.GetKeyUp(KeyCode.D)) animator.SetBool(isStrafingToRightHash, false);
+        CheckSpeedUp();
+        if(_isSpeededUp)
+        {
+            velocityX *= _speedMultiplier;
+            velocityZ *= _speedMultiplier;
+            currDamp *= _speedMultiplier;
+        }
 
-        //IncreaseAnimSpeedWhenRunning();
-
-        Vector3 vs = movePlayerScript.moveDirection;
-
-        float velocityX = Vector3.Dot(vs.normalized, transform.right);
-        float velocityZ = Vector3.Dot(vs.normalized, transform.forward);
-
-        animator.SetFloat(velocityXHash, velocityX, 0.1f, Time.deltaTime);
-        animator.SetFloat(velocityZHash, velocityZ, 0.1f, Time.deltaTime);
+        animator.SetFloat(velocityXHash, velocityX, currDamp, Time.deltaTime);
+        animator.SetFloat(velocityZHash, velocityZ, currDamp, Time.deltaTime);
     }
 
-    private void IncreaseAnimSpeedWhenRunning()
+    private void CheckSpeedUp()
     {
-        if (moveVelocityScript.isRunning && !isAnimSpeeded)
-            Debug.Log("Speed up anim");
-            //animator.speed *= animSpeedMultiplier;
-        if (!moveVelocityScript.isRunning && isAnimSpeeded)
-            Debug.Log("Speed down anim");
-        //animator.speed = defAnimSpeed;
+        if (moveVelocityScript.isRunning && !_isSpeededUp)
+            _isSpeededUp = true;
+        if (!moveVelocityScript.isRunning && _isSpeededUp)
+            _isSpeededUp = false;
     }
 }
