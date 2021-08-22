@@ -85,6 +85,11 @@ public class PlayerMain : MonoBehaviour
         {
             fireDelegate();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(15);
+        }
     }
 
     public void AbsorbHealingPowerup(int hp)
@@ -96,6 +101,8 @@ public class PlayerMain : MonoBehaviour
     {
         health -= damage;
         if (isMaxHealth) isMaxHealth = false;
+
+        playerAnimationStateControllerScript.PlayHitReactionAnim();
     }
 
     static public WeaponDefinition GetWeaponDefinition(WeaponType wt)

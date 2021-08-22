@@ -36,6 +36,8 @@ public class Weapon : MonoBehaviour
     private float lastShotTime;
     private Vector3 directionToMouse;
 
+    private PlayerAnimationStateController playerAnimationStateControllerScript;
+
     public WeaponType type
     {
         get { return (_type); }
@@ -51,6 +53,8 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        playerAnimationStateControllerScript = player.GetComponent<PlayerAnimationStateController>();
+
         SetType(_type);
 
         player.GetComponent<PlayerMain>().fireDelegate += Fire;
@@ -96,6 +100,8 @@ public class Weapon : MonoBehaviour
                 p.rb.velocity = vel;
                 break;
         }
+
+        playerAnimationStateControllerScript.PlayFiringAnim();
     }
 
     public Projectile MakeProjectile()

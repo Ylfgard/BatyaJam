@@ -8,7 +8,12 @@ public class PlayerAnimationStateController : MonoBehaviour
 
     private int velocityXHash = Animator.StringToHash("velocityX_f");
     private int velocityZHash = Animator.StringToHash("velocityZ_f");
+
     private int agressiveStateHash = Animator.StringToHash("isAgressive_b");
+
+    private int fireTriggerHash = Animator.StringToHash("hitReact_trig");
+    private int hitReactTriggerHash = Animator.StringToHash("fire_trig");
+    private int dyingTriggerHash = Animator.StringToHash("dying_trig");
 
     //private Vector3 playerVelocity;
     private MovePlayer movePlayerScript;
@@ -75,5 +80,20 @@ public class PlayerAnimationStateController : MonoBehaviour
             _isSpeededUp = true;
         if (!moveVelocityScript.isRunning && _isSpeededUp)
             _isSpeededUp = false;
+    }
+
+    public void PlayFiringAnim()
+    {
+        animator.SetTrigger(fireTriggerHash);
+    }
+
+    public void PlayHitReactionAnim()
+    {
+        animator.SetTrigger(hitReactTriggerHash);
+    }
+
+    public void PlayDyingAnim()
+    {
+        animator.SetTrigger(dyingTriggerHash);
     }
 }
