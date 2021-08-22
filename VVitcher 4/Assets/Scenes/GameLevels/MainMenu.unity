@@ -517,13 +517,33 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 6091125961386064975, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6384219435924235612, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6786203012129367509, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970500367756720, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970500705910683, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 146
+      objectReference: {fileID: 0}
     - target: {fileID: 7113970500890219721, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_Text
       value: "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970500893746512, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 331
       objectReference: {fileID: 0}
     - target: {fileID: 7113970500893746513, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_Name
@@ -532,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 7113970500893746527, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970501587331610, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -262
       objectReference: {fileID: 0}
     - target: {fileID: 7113970501681326616, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_Pivot.x
@@ -620,6 +644,14 @@ PrefabInstance:
     - target: {fileID: 7113970501681326617, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_Name
       value: MenuHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970501681326823, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: _deathMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113970501681326823, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
+      propertyPath: _pauseMenu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7127371012339104437, guid: 811e23e6dab35664890e38facfe561d5, type: 3}
       propertyPath: m_IsActive

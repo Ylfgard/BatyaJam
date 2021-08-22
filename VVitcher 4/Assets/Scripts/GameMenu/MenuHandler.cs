@@ -23,15 +23,19 @@ public class MenuHandler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) && _pauseMenu != null)
         {
-            if(_pauseMenu.activeSelf)
-                CloseMenu(_pauseMenu);
-            else
-                OpenMenu(_pauseMenu);
+            if(_pauseMenu != null)
+            {
+                if(_pauseMenu.activeSelf)
+                    CloseMenu(_pauseMenu);
+                else
+                    OpenMenu(_pauseMenu);
+            }
         }    
     }
 
     public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     public void NewGame() => SceneManager.LoadScene(1);
+    public void StartGame() => SceneManager.LoadScene(2);
     public void MainMenuButton() => SceneManager.LoadScene(0);
     public void ExitButton() => Application.Quit();
 
