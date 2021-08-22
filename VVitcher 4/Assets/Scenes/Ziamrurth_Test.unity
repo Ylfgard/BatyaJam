@@ -987,6 +987,7 @@ GameObject:
   - component: {fileID: 769590051}
   - component: {fileID: 769590057}
   - component: {fileID: 769590058}
+  - component: {fileID: 769590060}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1139,6 +1140,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &769590060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769590050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4580af9df653a25498a06b9ff332e53c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  weaponDefinitions: []
+  powerupHPTag: 
 --- !u!1 &797126533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1423,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4664706504107131272, guid: a935b80d8e23e6a418fd680b5d8c8f01, type: 3}
   m_PrefabInstance: {fileID: 4664706504744147984}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157974372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1157974372, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+  m_PrefabInstance: {fileID: 3784549442657957662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273967348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2251,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 862930945, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862930945, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157974372, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465075614538193350, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
+      propertyPath: _slider
+      value: 
+      objectReference: {fileID: 1157974372}
     - target: {fileID: 3784549442063355424, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2328,7 +2371,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3784549442657957665, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 96dd6f07e68e0a84aa0b0983a7182632, type: 3}
 --- !u!1001 &4664706504744147984
 PrefabInstance:
