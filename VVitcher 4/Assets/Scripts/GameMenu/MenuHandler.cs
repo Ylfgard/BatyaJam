@@ -10,15 +10,18 @@ public class MenuHandler : MonoBehaviour
 
     private void Start()
     {
-        CloseMenu(_pauseMenu);
-        CloseMenu(_deathMenu);
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>().onPlayerDeadCallback += DeathMenu;
+        if(_pauseMenu != null)
+            CloseMenu(_pauseMenu);
+        if(_deathMenu != null)
+        {
+            CloseMenu(_deathMenu);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>().onPlayerDeadCallback += DeathMenu;
+        }  
     }
 
     private void Update() 
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && _pauseMenu != null)
         {
             if(_pauseMenu.activeSelf)
                 CloseMenu(_pauseMenu);
@@ -28,6 +31,7 @@ public class MenuHandler : MonoBehaviour
     }
 
     public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void NewGame() => SceneManager.LoadScene(1);
     public void MainMenuButton() => SceneManager.LoadScene(0);
     public void ExitButton() => Application.Quit();
 
