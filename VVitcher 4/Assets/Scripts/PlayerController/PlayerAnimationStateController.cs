@@ -11,8 +11,8 @@ public class PlayerAnimationStateController : MonoBehaviour
 
     private int agressiveStateHash = Animator.StringToHash("isAgressive_b");
 
-    private int fireTriggerHash = Animator.StringToHash("hitReact_trig");
-    private int hitReactTriggerHash = Animator.StringToHash("fire_trig");
+    private int fireTriggerHash = Animator.StringToHash("fire_trig");
+    private int hitReactTriggerHash = Animator.StringToHash("hitReact_trig");
     private int dyingTriggerHash = Animator.StringToHash("dying_trig");
 
     //private Vector3 playerVelocity;

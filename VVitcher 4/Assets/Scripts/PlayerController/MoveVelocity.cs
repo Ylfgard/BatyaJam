@@ -15,6 +15,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     [SerializeField]
     private float runCooldown = 1f;
 
+    private PlayerMain playerMainScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private Rigidbody rb;
     private Vector3 velocity;
@@ -40,6 +41,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void Start()
     {
+        playerMainScript = GetComponent<PlayerMain>();
         playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
 
         rb = GetComponent<Rigidbody>();
@@ -47,6 +49,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void FixedUpdate()
     {
+        if (playerMainScript.isDead) return;
+
         if(velocity.magnitude > 0)
             rb.velocity = velocity * walkSpeed * (isRunning ? runSpeedMultiplier : defaultSpeed) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
     }

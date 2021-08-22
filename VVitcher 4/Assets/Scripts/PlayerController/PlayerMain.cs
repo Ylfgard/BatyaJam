@@ -17,14 +17,17 @@ public class PlayerMain : MonoBehaviour
     [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
 
+    private PlayerMain playerMainScript;
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private float _currentHealth = 60f;
     private bool _canFire;
+    private bool _isDead;
 
     public delegate void WeaponFireDelegate();
     public WeaponFireDelegate fireDelegate;
 
+    public bool isDead { get { return _isDead; } }
     public float health
     {
         get { return _currentHealth; }
@@ -41,8 +44,10 @@ public class PlayerMain : MonoBehaviour
             }
             else
             {
+                _isDead = true;
+                playerAnimationStateControllerScript.PlayDyingAnim();
+
                 onPlayerDeadCallback?.Invoke();
-                Debug.LogError("Потрачено. GAME OVER!");
             }
 
             onHealthChangedCallback?.Invoke((int)health);
@@ -53,6 +58,8 @@ public class PlayerMain : MonoBehaviour
     {
         get
         {
+            if (isDead) return false;
+
             if (moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
                 _canFire = false;
             else
