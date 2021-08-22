@@ -9,6 +9,9 @@ public class PlayerMain : MonoBehaviour
 
     public delegate void OnHealthChanged(int health);
     public OnHealthChanged onHealthChangedCallback;
+    
+    public delegate void WeaponFireDelegate();
+    public WeaponFireDelegate fireDelegate;
 
     public static Dictionary<WeaponType, WeaponDefinition> WEAPON_DICT;
 
@@ -17,15 +20,13 @@ public class PlayerMain : MonoBehaviour
     [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
 
-    private PlayerMain playerMainScript;
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
+    private MenuHandler menuHandlerScript;
     private float _currentHealth = 60f;
     private bool _canFire;
     private bool _isDead;
 
-    public delegate void WeaponFireDelegate();
-    public WeaponFireDelegate fireDelegate;
 
     public bool isDead { get { return _isDead; } }
     public float health
@@ -83,15 +84,21 @@ public class PlayerMain : MonoBehaviour
     {
         moveVelocityScript = GetComponent<MoveVelocity>();
         playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
+        menuHandlerScript = FindObjectOfType<MenuHandler>();
 
         health = maxHealth;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canFire)
+        if (!menuHandlerScript.isGamePaused && Input.GetMouseButtonDown(0) && canFire)
         {
             fireDelegate();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
         }
     }
 
