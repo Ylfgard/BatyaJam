@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     private WeaponType _type;
     private float lifetime;
 
+    private int _damageToServant = 2;
+
     public WeaponType type
     {
         get
@@ -53,6 +55,18 @@ public class Projectile : MonoBehaviour
 
         if (other.gameObject.CompareTag(enemyTag))
         {
+            ServantStats servant = other.GetComponent<ServantStats>();
+            if(servant != null)
+            {
+                servant.Damage(_damageToServant);
+            }
+
+            ArchdemonStats archedemon = other.GetComponent<ArchdemonStats>();
+            if (servant != null)
+            {
+                archedemon.Damage(type);
+            }
+
             Debug.LogWarning("Projectile hits Enemy. Do something...");
         }
         else

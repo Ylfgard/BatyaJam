@@ -1397,7 +1397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a5a4a736f13cb4891d8f0d903ae1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 0
+  fanProjectiles: {fileID: 6585700764758112911, guid: 61623b6d947126949a0eab5d42c30ff1, type: 3}
+  fanCastNumber: 3
+  _startHealth: 100
 --- !u!1 &5358497149894612996
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,9 +25,33 @@ public class ArchdemonStats : MonoBehaviour {
         GetComponent<Animator>().SetInteger("health", _startHealth);
     }
 
-    public void Damage(int damage)
+    public void Damage(WeaponType type)
     {
-        _health -= damage;
+        switch (type)
+        {
+            case WeaponType.simpleBolt:
+                {
+                    _health -= 2;
+                    break;
+                }
+            case WeaponType.bloodyBolt:
+                {
+                    _health -= 10;
+                    break;
+                }
+            case WeaponType.creakyBolt:
+                {
+                    break;
+                }
+            case WeaponType.linthyBolt:
+                {
+                    if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                    {
+                        GetComponent<Animator>().SetTrigger("stun");
+                    }
+                    break;
+                }
+        }
 
         GetComponent<Animator>().SetInteger("health", _health);
 
