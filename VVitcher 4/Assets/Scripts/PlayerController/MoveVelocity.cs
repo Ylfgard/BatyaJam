@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveVelocity : MonoBehaviour, IMoveVelocity
 {
-    private const float defaultRunSpeedMutiplier = 1f;
+    private const float defaultSpeed = 1f;
 
     [SerializeField]
     private float walkSpeed = 200f;
@@ -15,6 +15,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     [SerializeField]
     private float runCooldown = 1f;
 
+    private PlayerAnimationStateController playerAnimationStateControllerScript;
     private Rigidbody rb;
     private Vector3 velocity;
     private bool _canRun = true;
@@ -22,6 +23,15 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     private bool _isCooldown;
     private float _timerOfRun;
 
+    public bool canRun
+    {
+        get
+        {
+            //if (!playerAnimationStateControllerScript.isAgressive) return false;
+            return _canRun;
+        }
+        set { _canRun = value; }
+    }
     public bool isRunning
     {
         get { return _isRunning; }
@@ -30,13 +40,15 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void Start()
     {
+        playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
+
         rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
         if(velocity.magnitude > 0)
-            rb.velocity = velocity * walkSpeed * (_isRunning ? runSpeedMultiplier : defaultRunSpeedMutiplier) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
+            rb.velocity = velocity * walkSpeed * (isRunning ? runSpeedMultiplier : defaultSpeed) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
     }
 
     private void Update()
@@ -51,30 +63,49 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void PlayerRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && _canRun)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canRun)
         {
-            _canRun = false;
-            _isRunning = true;
+            canRun = false;
+            isRunning = true;
             _timerOfRun = Time.time + runContinuance;
+            Debug.Log("Run!");
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) && _isRunning)
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && isRunning)
         {
-            _isRunning = false;
+            isRunning = false;
             _isCooldown = true;
             _timerOfRun = Time.time + runCooldown;
         }
 
-        if (_isRunning && _timerOfRun < Time.time)
+        if (isRunning)
         {
-            _isRunning = false;
-            _isCooldown = true;
-            _timerOfRun = Time.time + runCooldown;
+            if (!playerAnimationStateControllerScript.isAgressive || _timerOfRun < Time.time)
+            {
+                AbortRunning();
+            }
         }
+
+        //if (isRunning && !canRun)
+        //{
+        //    StopRunning();
+        //}
+
+        //if (isRunning && _timerOfRun < Time.time)
+        //{
+        //    StopRunning();
+        //}
 
         if (_isCooldown && _timerOfRun < Time.time)
         {
             _isCooldown = false;
-            _canRun = true;
+            canRun = true;
         }
+    }
+
+    private void AbortRunning()
+    {
+        isRunning = false;
+        _isCooldown = true;
+        _timerOfRun = Time.time + runCooldown;
     }
 }
