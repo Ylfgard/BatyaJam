@@ -1154,7 +1154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   weaponDefinitions: []
-  powerupHPTag: 
 --- !u!1 &797126533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Servant
       objectReference: {fileID: 0}
+    - target: {fileID: 2013870543758109362, guid: 776d7d71eb77d2c45af959291dbcc330, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 776d7d71eb77d2c45af959291dbcc330, type: 3}
 --- !u!1001 &3320775950474487809
@@ -2914,7 +2917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714837373206065328, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.887
+      value: -0.8870001
       objectReference: {fileID: 0}
     - target: {fileID: 4714837373206065328, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
       propertyPath: m_LocalRotation.w
