@@ -92,11 +92,6 @@ public class PlayerMain : MonoBehaviour
         {
             fireDelegate();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(15);
-        }
     }
 
     public void AbsorbHealingPowerup(int hp)
