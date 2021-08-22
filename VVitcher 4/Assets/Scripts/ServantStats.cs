@@ -24,6 +24,7 @@ public class ServantStats : MonoBehaviour {
             return;
         }
         GetComponent<Animator>().SetTrigger("damage");
+        GetComponent<Animator>().SetBool("isFollowing", true);
     }
 
     public int GetDamage()
