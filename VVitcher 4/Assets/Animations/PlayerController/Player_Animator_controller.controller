@@ -102,7 +102,7 @@ BlendTree:
     m_Motion: {fileID: -203655887218126122, guid: 11d599404daaf02478df052a19a04d5d, type: 3}
     m_Threshold: 0.083333336
     m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
+    m_TimeScale: 1.1
     m_CycleOffset: 0
     m_DirectBlendParameter: velocityX_f
     m_Mirror: 0
@@ -110,7 +110,7 @@ BlendTree:
     m_Motion: {fileID: -203655887218126122, guid: 4a75166ed05d4fa40a18ebbff5e705f2, type: 3}
     m_Threshold: 0.16666667
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.8
     m_CycleOffset: 0
     m_DirectBlendParameter: velocityX_f
     m_Mirror: 0
@@ -126,7 +126,7 @@ BlendTree:
     m_Motion: {fileID: -203655887218126122, guid: 8332328751f3aeb4d99a8da468523dbd, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 0.8
     m_CycleOffset: 0
     m_DirectBlendParameter: velocityX_f
     m_Mirror: 0
@@ -134,7 +134,7 @@ BlendTree:
     m_Motion: {fileID: -203655887218126122, guid: 9f4bbd99f43e9bc4fa4f98818b5c85c4, type: 3}
     m_Threshold: 0.41666666
     m_Position: {x: 0, y: 2}
-    m_TimeScale: 0.7
+    m_TimeScale: 0.75
     m_CycleOffset: 0
     m_DirectBlendParameter: velocityX_f
     m_Mirror: 0
@@ -381,43 +381,43 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWalkingBackward_b
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isStrafingToLeft_b
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isStrafingToRight_b
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: velocityX_f
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: velocityZ_f
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAgressive_b
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

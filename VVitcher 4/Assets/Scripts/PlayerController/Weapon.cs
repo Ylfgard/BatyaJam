@@ -27,11 +27,14 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
+    private GameObject mouseTarget;
+    [SerializeField]
     private Transform projectileAnchor;
 
     private WeaponType _type = WeaponType.simpleBolt;
     private WeaponDefinition def;
     private float lastShotTime;
+    private Vector3 directionToMouse;
 
     public WeaponType type
     {
@@ -63,7 +66,12 @@ public class Weapon : MonoBehaviour
         if (!PlayerInventory.instance.UseBolt(GetActiveBolt())) return;
 
         Projectile p;
-        Vector3 vel = transform.forward * def.velocity;
+
+        //directionToMouse = (mouseTarget.transform.position - transform.position).normalized;
+        directionToMouse = player.transform.forward;
+        directionToMouse = new Vector3(directionToMouse.x, 0, directionToMouse.z);
+
+        Vector3 vel = directionToMouse * def.velocity;
 
 
         switch (type)
@@ -92,7 +100,10 @@ public class Weapon : MonoBehaviour
 
     public Projectile MakeProjectile()
     {
-        GameObject go = Instantiate(def.projectilePrefab, transform.position, transform.rotation);
+        //Vector3 directionToMouse = (mouseTarget.transform.position - transform.position).normalized;
+        //directionToMouse = new Vector3(directionToMouse.x, 0, directionToMouse.z);
+
+        GameObject go = Instantiate(def.projectilePrefab, transform.position, Quaternion.LookRotation(directionToMouse));
         go.transform.SetParent(projectileAnchor, true);
 
         Projectile p = go.GetComponent<Projectile>();
