@@ -12,6 +12,7 @@ public class Medicine : MonoBehaviour, IInteractable {
         if (!player.isMaxHealth)
         {
             player.AbsorbHealingPowerup(_healingPower);
+            Destroy(gameObject);
         }
         else
         {
@@ -20,6 +21,6 @@ public class Medicine : MonoBehaviour, IInteractable {
 
         Debug.Log("Interaction with medicine");
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

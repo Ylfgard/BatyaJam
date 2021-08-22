@@ -7,6 +7,9 @@ public class PlayerMain : MonoBehaviour
     public delegate void OnPlayerDead();
     public OnPlayerDead onPlayerDeadCallback;
 
+    public delegate void OnHealthChanged(int health);
+    public OnHealthChanged onHealthChangedCallback;
+
     public static Dictionary<WeaponType, WeaponDefinition> WEAPON_DICT;
 
     [SerializeField]
@@ -41,6 +44,8 @@ public class PlayerMain : MonoBehaviour
                 onPlayerDeadCallback?.Invoke();
                 Debug.LogError("Потрачено. GAME OVER!");
             }
+
+            onHealthChangedCallback?.Invoke((int)health);
         }
     }
     public bool isMaxHealth { get; private set; }
@@ -103,4 +108,8 @@ public class PlayerMain : MonoBehaviour
         return (new WeaponDefinition());
     }
 
+    public int GetMaxHealth()
+    {
+        return (int)maxHealth;
+    }
 }
