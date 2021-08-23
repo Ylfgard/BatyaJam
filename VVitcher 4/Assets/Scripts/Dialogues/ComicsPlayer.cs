@@ -59,6 +59,5 @@ public class ComicsPlayer : MonoBehaviour
         instance.release();
         slideStarted = false;
         dialogHandler.EndDialogue();
-        
     }
 }

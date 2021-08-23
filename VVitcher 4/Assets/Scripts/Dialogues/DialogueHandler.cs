@@ -11,7 +11,7 @@ public class DialogueHandler : MonoBehaviour
     private DialogueViewer curDialogue;
     private Text commentText;
     private UnityEvent nextStep = new UnityEvent(), writingFinished = new UnityEvent();
-    public UnityEvent dialogueEnded = new UnityEvent();
+    public UnityEvent dialogueEnded = new UnityEvent(), summonDialogue = new UnityEvent();
     [SerializeField] private GameObject commentFrame, dialogueFrame, dialogueCloseButton;
     [SerializeField] private Text nodeText;
     [SerializeField] private float commentHideTime;
@@ -57,8 +57,7 @@ public class DialogueHandler : MonoBehaviour
         StopAllCoroutines();
         if(curNodeIndex < curDialogue.nodes.Length)
         {
-            nodeText.text = "";
-            nodeText.text += "\n\t";
+            nodeText.text = "\t";
             curStepTimeDelay = curDialogue.nodes[curNodeIndex].duration; 
             StartCoroutine(TextByLetters(nodeText, curDialogue.nodes[curNodeIndex].text, 0));
             curNodeIndex++;
@@ -73,10 +72,11 @@ public class DialogueHandler : MonoBehaviour
     public void EndDialogue()
     {
         if(curDialogue != null)
-            nodeText.text = curDialogue.nodes[curDialogue.nodes.Length-1].text;
+            nodeText.text = "\t"+curDialogue.nodes[curDialogue.nodes.Length-1].text;
         nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
         GamePauser.GameContinue();
+        summonDialogue.Invoke();
     }
 
     void NextStepDelayCaller()

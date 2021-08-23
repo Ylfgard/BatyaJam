@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 
 public class SummonUi : MonoBehaviour {
+    private FMOD.Studio.EventInstance instance;
     private int curDialogue = 0;
     private DialogueHandler dialogueHandler;
     [SerializeField] private BossPreset _bossPreset;
@@ -62,9 +63,12 @@ public class SummonUi : MonoBehaviour {
         if (bloodyInput == _bossPreset.bloodyToSummon & creackyInput == _bossPreset.creackyToSummon & linthyInput == _bossPreset.linthyToSummon)
         {
             // �������� �����
-            dialogueHandler.dialogueEnded.AddListener(SuccessSummon);
+            FindObjectOfType<SummonTable>().CloseInteraction();
+            dialogueHandler.summonDialogue.AddListener(SuccessSummon);
             dialogueHandler.StartDialogue(dialogue[curDialogue]);
-            FMODUnity.RuntimeManager.PlayOneShotAttached(dialoguePath[curDialogue], gameObject);
+            instance = FMODUnity.RuntimeManager.CreateInstance(dialoguePath[curDialogue]);
+            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            instance.start();
         }
         else
         {
@@ -78,15 +82,17 @@ public class SummonUi : MonoBehaviour {
         curDialogue++;
         if(curDialogue < dialogue.Length)
         {
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance.release();
             dialogueHandler.StartDialogue(dialogue[curDialogue]);
-            FMODUnity.RuntimeManager.PlayOneShotAttached(dialoguePath[curDialogue], gameObject);
+            instance = FMODUnity.RuntimeManager.CreateInstance(dialoguePath[curDialogue]);
+            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            instance.start();
         }
         else
         {
-            dialogueHandler.dialogueEnded.RemoveListener(SuccessSummon);
-            GameObject table = GameObject.Find("SummonTable");
-            table.GetComponent<SummonTable>().boss.SetActive(true);
-            Destroy(table);
+            dialogueHandler.summonDialogue.RemoveListener(SuccessSummon);
+            FindObjectOfType<SummonTable>().boss.SetActive(true);
         }
     }
 
