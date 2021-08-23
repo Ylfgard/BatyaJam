@@ -28,6 +28,12 @@ public class StrangeSounds : MysticThings
         }
     }
 
+    private void OnDestroy() 
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.release();
+    }
+
     public override void EndMystic()
     {
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);

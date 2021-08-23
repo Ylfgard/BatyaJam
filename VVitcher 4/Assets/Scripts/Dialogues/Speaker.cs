@@ -8,6 +8,7 @@ public class Speaker : MonoBehaviour
     private DialogueHandler dialogHandler;
     private GameObject player; 
     private Advice advice;
+    private FMOD.Studio.EventInstance instance;
     [SerializeField] private TextAsset dialogues;
     [SerializeField] private Transform adviceTransform;
     [SerializeField] private bool playSound, onlyAudio;
@@ -24,12 +25,24 @@ public class Speaker : MonoBehaviour
     {
         if(!wasUsed)
         {
+            
             wasUsed = true;
             if(!onlyAudio)
                 dialogHandler.StartDialogue(dialogues);
             if(playSound || onlyAudio)
-                FMODUnity.RuntimeManager.PlayOneShotAttached(soundPath, this.gameObject);
+            {
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance = FMODUnity.RuntimeManager.CreateInstance(soundPath);
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                instance.start();
+            }
         }
+    }
+
+    private void OnDestroy()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.release();
     }
 
     private void OnTriggerEnter(Collider other)
