@@ -10,6 +10,7 @@ public class MapRender : MonoBehaviour
     [SerializeField] private GameObject map;
     public static UnityEvent mapOpen = new UnityEvent(), mapClose = new UnityEvent();
 
+
     private void Start()
     {
         mapCamera = gameObject.GetComponent<Camera>();    
