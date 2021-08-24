@@ -18,15 +18,20 @@ public class PlayerMain : MonoBehaviour
     [SerializeField]
     private float maxHealth = 100f;
     [SerializeField]
+    private float delayFireAndAnim = 0.2f;
+    [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
 
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private MenuHandler menuHandlerScript;
     private float _currentHealth = 60f;
+    private float _reloadingTimer;
     private bool _canFire;
+    private bool _isFiring;
     private bool _isDead;
 
+    public float reloadTime { get; set; }
 
     public bool isDead { get { return _isDead; } }
     public float health
@@ -62,7 +67,7 @@ public class PlayerMain : MonoBehaviour
         {
             if (isDead) return false;
 
-            if (moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
+            if (_isFiring || IsReloading() || moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
                 _canFire = false;
             else
                 _canFire = true;
@@ -93,13 +98,29 @@ public class PlayerMain : MonoBehaviour
     {
         if (!menuHandlerScript.isGamePaused && Input.GetMouseButtonDown(0) && canFire)
         {
-            fireDelegate();
+            _isFiring = true;
+            StartCoroutine(AimThenFire());
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+    IEnumerator AimThenFire()
+    {
+        playerAnimationStateControllerScript.PlayFiringAnim();
+        yield return new WaitForSeconds(delayFireAndAnim);
+        fireDelegate();
+        _isFiring = false;
+
+        InitReloading();
+    }
+
+    public void InitReloading()
+    {
+        _reloadingTimer = Time.time + reloadTime;
+    }
+
+    private bool IsReloading()
+    {
+        return _reloadingTimer > Time.time;
     }
 
     public void AbsorbHealingPowerup(int hp)

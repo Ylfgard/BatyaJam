@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MovePlayerDefault : MonoBehaviour
+public class MovePlayerFarCam : MonoBehaviour
 {
     [SerializeField]
     private GameObject mouseTarget;

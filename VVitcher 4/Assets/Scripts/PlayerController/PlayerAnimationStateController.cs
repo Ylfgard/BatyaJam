@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationStateController : MonoBehaviour
+public class PlayerAnimationStateController : MonoBehaviour, IPlayerCameraMode
 {
+    [SerializeField]
+    private GameObject crossbow;
+    [SerializeField]
+    private float _crossbowEnablerDelay = 0.1f;
+    //private bool _isCrossbowVisible;
+    
     private Animator animator;
 
     private int velocityXHash = Animator.StringToHash("velocityX_f");
@@ -20,17 +26,14 @@ public class PlayerAnimationStateController : MonoBehaviour
     private MoveVelocity moveVelocityScript;
 
     //private float _defAnimSpeed;
+    private CameraMode cameraMode;
     private float _speedMultiplier = 2f;
     private float dampTime = 0.1f;
     private bool _isSpeededUp;
     private bool _isAgressive;
+    private bool _isModeChanged;
 
-    [SerializeField]
-    private GameObject crossbow;
-    private float _crossbowEnablerDelay = 0.1f;
-    //private bool _isCrossbowVisible;
-
-    public bool isAgressive { get { return _isAgressive; } set { _isAgressive = value; } }
+    public bool isAgressive { get { return _isAgressive; } private set { _isAgressive = value; } }
 
     private void Start()
     {
@@ -43,11 +46,13 @@ public class PlayerAnimationStateController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (_isModeChanged)
         {
-            isAgressive = !isAgressive;
+            StopCoroutine(CrossbowGOEnabler());
+            
             animator.SetBool(agressiveStateHash, isAgressive);
             StartCoroutine(CrossbowGOEnabler());
+            _isModeChanged = false;
         }
 
         Vector3 directionVector = movePlayerScript.moveDirection;
@@ -95,5 +100,20 @@ public class PlayerAnimationStateController : MonoBehaviour
     public void PlayDyingAnim()
     {
         animator.SetTrigger(dyingTriggerHash);
+    }
+
+    public void CurrentCameraMode(CameraMode mode)
+    {
+        cameraMode = mode;
+        _isModeChanged = true;
+
+        if (cameraMode == CameraMode.WalkMode)
+        {
+            isAgressive = false;
+        }
+        else
+        {
+            isAgressive = true;
+        }
     }
 }

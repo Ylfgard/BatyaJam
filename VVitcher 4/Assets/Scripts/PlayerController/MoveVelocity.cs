@@ -89,16 +89,6 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
             }
         }
 
-        //if (isRunning && !canRun)
-        //{
-        //    StopRunning();
-        //}
-
-        //if (isRunning && _timerOfRun < Time.time)
-        //{
-        //    StopRunning();
-        //}
-
         if (_isCooldown && _timerOfRun < Time.time)
         {
             _isCooldown = false;

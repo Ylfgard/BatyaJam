@@ -10,6 +10,7 @@ public class MouseTargetPosition : MonoBehaviour
     private LayerMask mouseTargetLayer;
 
     private Camera mainCam;
+    private const float lengthOfRay = 300f;
 
     private void Start()
     {
@@ -25,8 +26,8 @@ public class MouseTargetPosition : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, float.MaxValue, mouseTargetLayer))
+        
+        if (Physics.Raycast(ray, out hit, lengthOfRay, mouseTargetLayer))
         {
             transform.position = hit.point;
         }

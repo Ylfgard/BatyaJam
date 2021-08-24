@@ -8,6 +8,8 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _deathMenu;
 
+    [SerializeField] private float deathMenuDelay = 3f;
+
     private bool _isGamePaused;
 
     public bool isGamePaused

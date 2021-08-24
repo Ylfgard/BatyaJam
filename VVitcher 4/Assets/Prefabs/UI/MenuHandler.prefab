@@ -1764,6 +1764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 7113970500707802446}
   _deathMenu: {fileID: 2104861112564642404}
+  deathMenuDelay: 4
 --- !u!1 &7628139655833188103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +1952,18 @@ PrefabInstance:
     - target: {fileID: 2177594412078913705, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616055568560795702, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616055568560795702, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616055568560795702, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 5046053809421173643, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
       propertyPath: m_AnchoredPosition.y
