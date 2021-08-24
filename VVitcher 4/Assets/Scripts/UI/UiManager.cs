@@ -38,7 +38,8 @@ public class UiManager : MonoBehaviour {
 
     public void OpenSummonPanel(bool open)
     {
-        _summonPanel.SetActive(open);
+        if(_summonPanel.gameObject != null)
+            _summonPanel.SetActive(open);
     }
 
     private void UpdateHerbInventoryUi()
