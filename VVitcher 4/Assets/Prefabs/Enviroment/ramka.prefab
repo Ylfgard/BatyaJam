@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 4450086752205145980}
   - component: {fileID: 751601717142030553}
   - component: {fileID: 3281662389799615507}
+  - component: {fileID: 422216122}
   m_Layer: 0
   m_Name: ramka
   m_TagString: Untagged
@@ -106,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3930009692652985798}
-  m_LocalRotation: {x: 0.0000043311748, y: 0.000004415189, z: 0.70776707, w: 0.7064459}
+  m_LocalRotation: {x: 0.000006162729, y: 0.000006151231, z: 0.7077667, w: 0.70644623}
   m_LocalPosition: {x: -104.142, y: 5.451, z: -3.074}
-  m_LocalScale: {x: 0.24202055, y: 0.30082467, z: 0.24202052}
+  m_LocalScale: {x: 0.44105345, y: 0.50899714, z: 0.50899714}
   m_Children:
   - {fileID: 9089512563473745059}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.001, z: 90.107}
 --- !u!33 &751601717142030553
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -163,3 +164,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &422216122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3930009692652985798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPath: event:/SFX/Portraits_loop_STEREO
+  autoPlay: 1
+  autoStop: 1
+  minSoundDelay: 20
+  maxSoundDelay: 30

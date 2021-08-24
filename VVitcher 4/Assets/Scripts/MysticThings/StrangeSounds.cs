@@ -6,7 +6,7 @@ public class StrangeSounds : MysticThings
 {
     private FMOD.Studio.EventInstance instance;
     [FMODUnity.EventRef] [SerializeField] private string soundPath;
-    [SerializeField] private bool autoPlay;
+    [SerializeField] private bool autoPlay, autoStop;
     [SerializeField] private float minSoundDelay, maxSoundDelay;
 
     private void Start()
@@ -16,16 +16,9 @@ public class StrangeSounds : MysticThings
 
     public override void StartMystic()
     {
-        if(autoPlay)
-        {
-            FMODUnity.RuntimeManager.PlayOneShotAttached(soundPath, this.gameObject);
-        }
-        else
-        {
-            instance = FMODUnity.RuntimeManager.CreateInstance(soundPath);
-            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
-            instance.start();
-        }
+        instance = FMODUnity.RuntimeManager.CreateInstance(soundPath);
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
+        instance.start();
     }
 
     private void OnDestroy() 
@@ -44,6 +37,11 @@ public class StrangeSounds : MysticThings
     {
         yield return new WaitForSeconds(Random.Range(minSoundDelay, maxSoundDelay));
         StartMystic();
+        if(autoStop)
+        {
+            yield return new WaitForSeconds(5);
+            EndMystic();
+        }
         StartCoroutine(SoundDelay());
     }
 }
