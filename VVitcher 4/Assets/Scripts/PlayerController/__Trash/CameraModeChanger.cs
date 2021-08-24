@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
 public enum CameraMode { WalkMode, AimMode }
 
@@ -26,6 +24,8 @@ public class CameraModeChanger : MonoBehaviour
 
     private void Update()
     {
+        if (GamePauser.isGamePaused) return;
+
         if (Input.GetMouseButtonDown(1))
         {
             SetCameraMode(CameraMode.AimMode);
@@ -33,8 +33,8 @@ public class CameraModeChanger : MonoBehaviour
 
             aimTargetPositionScript.enabled = true;
             aimTargetPositionOffScript.enabled = false;
-            //Cursor.lockState = CursorLockMode.Locked;
-            //Debug.Log("On: " + aimTargetPositionScript.isActiveAndEnabled + "; Off: " + aimTargetPositionOffScript.isActiveAndEnabled);
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else if (Input.GetMouseButtonUp(1))
         {
@@ -43,8 +43,8 @@ public class CameraModeChanger : MonoBehaviour
 
             aimTargetPositionScript.enabled = false;
             aimTargetPositionOffScript.enabled = true;
-            //Cursor.lockState = CursorLockMode.None;
-            //Debug.Log("On: " + aimTargetPositionScript.isActiveAndEnabled + "; Off: " + aimTargetPositionOffScript.isActiveAndEnabled);
+
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

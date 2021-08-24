@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseTargetPosition : MonoBehaviour
 {
-    [SerializeField]
-    private Transform player;
     [SerializeField]
     private LayerMask mouseTargetLayer;
 

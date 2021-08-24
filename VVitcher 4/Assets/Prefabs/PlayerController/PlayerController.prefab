@@ -3677,11 +3677,11 @@ MonoBehaviour:
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
   m_CameraRadius: 0.1
-  m_Strategy: 1
+  m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0
-  m_Damping: 0
-  m_DampingWhenOccluded: 0
+  m_SmoothingTime: 0.2
+  m_Damping: 0.2
+  m_DampingWhenOccluded: 0.2
   m_OptimalTargetDistance: 0
 --- !u!1 &2373070763544579859
 GameObject:
@@ -4067,7 +4067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1793
   m_IgnoreTag: Player
   m_TransparentLayers:
     serializedVersion: 2
@@ -4076,12 +4076,12 @@ MonoBehaviour:
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
-  m_CameraRadius: 0.1
-  m_Strategy: 1
+  m_CameraRadius: 0.2
+  m_Strategy: 0
   m_MaximumEffort: 4
-  m_SmoothingTime: 0
-  m_Damping: 0
-  m_DampingWhenOccluded: 0
+  m_SmoothingTime: 0.1
+  m_Damping: 1
+  m_DampingWhenOccluded: 1
   m_OptimalTargetDistance: 0
 --- !u!1 &2373070763858552805
 GameObject:
@@ -6054,7 +6054,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155777966365762881}
-  m_LocalRotation: {x: -0.1556362, y: -0.058724552, z: -0.0014092217, w: 0.98606634}
+  m_LocalRotation: {x: -0.15563624, y: -0.058724552, z: -0.0014092231, w: 0.98606634}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6851,7 +6851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a260f59c48418e14fa7bceb78af941bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2373070762899403740}
   mouseTargetLayer:
     serializedVersion: 2
     m_Bits: 1024

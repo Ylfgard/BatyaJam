@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
 public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
 {
-    //[SerializeField]
-    //private GameObject mouseTarget;
     [SerializeField]
     private CinemachineFreeLook walkCam;
     [SerializeField]
@@ -16,16 +12,11 @@ public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
     [SerializeField]
     private float sensitivityY = 3f;
 
-    private Camera mainCam;
-    private MouseTargetPosition mouseTargetPositionScript;
     private MovePlayer movePlayerScript;
     private CameraMode cameraMode;
-    //private bool isAiming;
 
     private void Start()
     {
-        mainCam = Camera.main;
-        //mouseTargetPositionScript = mouseTarget.GetComponent<MouseTargetPosition>();
         movePlayerScript = GetComponent<MovePlayer>();
 
         walkCam.m_XAxis.m_MaxSpeed *= sensitivityX;
@@ -34,7 +25,7 @@ public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
 
     private void FixedUpdate()
     {
-        if (cameraMode == CameraMode.WalkMode)
+        if (!GamePauser.isGamePaused && cameraMode == CameraMode.WalkMode)
         {
             if (Input.GetKey(KeyCode.W) ||
                 Input.GetKey(KeyCode.A) ||

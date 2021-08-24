@@ -8,7 +8,6 @@ public class PlayerAnimationStateController : MonoBehaviour, IPlayerCameraMode
     private GameObject crossbow;
     [SerializeField]
     private float _crossbowEnablerDelay = 0.1f;
-    //private bool _isCrossbowVisible;
     
     private Animator animator;
 

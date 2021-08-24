@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using UnityEngine;
 
 public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
 {
@@ -19,18 +17,15 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
     private float sensitivityY = 3f;
 
     private Camera mainCam;
-    private Animator animator;
     private Transform camPosAnchor;
     private CameraMode cameraMode;
 
     private const float distanceOfRay = 300f;
 
-
     private void Start()
     {
         mainCam = Camera.main;
         camPosAnchor = GetComponentInChildren<CameraPositionAnchor>().gameObject.transform;
-        animator = GetComponentInChildren<Animator>();
 
         aimCam.m_XAxis.m_MaxSpeed *= sensitivityX;
         aimCam.m_YAxis.m_MaxSpeed *= sensitivityY;
@@ -38,7 +33,7 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
 
     private void FixedUpdate()
     {
-        if (cameraMode == CameraMode.AimMode)
+        if (!GamePauser.isGamePaused && cameraMode == CameraMode.AimMode)
         {
             Vector3 lookRotation = new Vector3(camPosAnchor.forward.x, 0, camPosAnchor.forward.z);
             Quaternion rot = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lookRotation, Vector3.up), playerRotationSpeed);

@@ -24,7 +24,6 @@ public class PlayerMain : MonoBehaviour
 
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
-    private MenuHandler menuHandlerScript;
     private float _currentHealth = 60f;
     private float _reloadingTimer;
     private bool _canFire;
@@ -67,7 +66,7 @@ public class PlayerMain : MonoBehaviour
         {
             if (isDead) return false;
 
-            if (_isFiring || IsReloading() || moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
+            if (GamePauser.isGamePaused || _isFiring || IsReloading() || moveVelocityScript.isRunning || !playerAnimationStateControllerScript.isAgressive)
                 _canFire = false;
             else
                 _canFire = true;
@@ -89,14 +88,13 @@ public class PlayerMain : MonoBehaviour
     {
         moveVelocityScript = GetComponent<MoveVelocity>();
         playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
-        menuHandlerScript = FindObjectOfType<MenuHandler>();
 
         health = maxHealth;
     }
 
     private void Update()
     {
-        if (!menuHandlerScript.isGamePaused && Input.GetMouseButtonDown(0) && canFire)
+        if (Input.GetMouseButtonDown(0) && canFire)
         {
             _isFiring = true;
             StartCoroutine(AimThenFire());

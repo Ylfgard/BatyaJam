@@ -6,6 +6,7 @@ public class CameraPositionAnchor : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+
     private Camera mainCam;
 
     private void Start()
