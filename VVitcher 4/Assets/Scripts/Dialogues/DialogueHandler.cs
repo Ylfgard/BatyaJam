@@ -44,7 +44,7 @@ public class DialogueHandler : MonoBehaviour
     {
         Debug.LogWarning("Can't use pause on dialog: comics and ingame notes has the same StartDialogue()");
         //Time.timeScale = 0;
-        //GamePauser.GamePause();
+        GamePauser.GamePause();
         nodeText.text = "";
         dialogueCloseButton.SetActive(false);
         curDialogue = DialogueViewer.Load(dialogue);
@@ -78,7 +78,7 @@ public class DialogueHandler : MonoBehaviour
         nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
         //Time.timeScale = 1;
-        //GamePauser.GameContinue();
+        GamePauser.GameContinue();
         summonDialogue.Invoke();
     }
 
