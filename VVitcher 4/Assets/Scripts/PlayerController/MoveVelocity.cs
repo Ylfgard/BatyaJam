@@ -18,7 +18,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     private PlayerMain playerMainScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private Rigidbody rb;
-    private Vector3 velocity;
+    private Vector3 dirVector;
     private bool _canRun = true;
     private bool _isRunning;
     private bool _isCooldown;
@@ -28,7 +28,6 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     {
         get
         {
-            //if (!playerAnimationStateControllerScript.isAgressive) return false;
             return _canRun;
         }
         set { _canRun = value; }
@@ -51,8 +50,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     {
         if (playerMainScript.isDead) return;
 
-        if(velocity.magnitude > 0)
-            rb.velocity = velocity * walkSpeed * (isRunning ? runSpeedMultiplier : defaultSpeed) * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f);
+        if (dirVector.magnitude > 0)
+            rb.velocity = dirVector * walkSpeed * (isRunning ? runSpeedMultiplier : defaultSpeed) * Time.fixedDeltaTime + new Vector3(0, rb.velocity.y, 0);
     }
 
     private void Update()
@@ -60,9 +59,9 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
         PlayerRun();
     }
 
-    public void SetMoveVelocity(Vector3 velocityVector)
+    public void SetMoveVelocity(Vector3 moveDirection)
     {
-        velocity = velocityVector;
+        dirVector = moveDirection;
     }
 
     private void PlayerRun()
@@ -72,7 +71,6 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
             canRun = false;
             isRunning = true;
             _timerOfRun = Time.time + runContinuance;
-            Debug.Log("Run!");
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) && isRunning)
         {

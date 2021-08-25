@@ -31,7 +31,6 @@ public class PlayerMain : MonoBehaviour
     private bool _isDead;
 
     public float reloadTime { get; set; }
-
     public bool isDead { get { return _isDead; } }
     public float health
     {

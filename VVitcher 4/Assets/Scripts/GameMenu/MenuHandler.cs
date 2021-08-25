@@ -8,14 +8,12 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _deathMenu;
 
-    [SerializeField] private float deathMenuDelay = 3f;
+    [SerializeField] private float deathMenuDelay = 4f;
 
-    private bool _isGamePaused;
-
-    public bool isGamePaused
+    private void Awake()
     {
-        get { return _isGamePaused; }
-        private set { _isGamePaused = value; }
+        QualitySettings.vSyncCount = 2;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void Start()
@@ -54,14 +52,12 @@ public class MenuHandler : MonoBehaviour
     {
         GamePauser.GamePause();
         menu.SetActive(true);
-        isGamePaused = true;
     }
 
     public void CloseMenu(GameObject menu)
     {
         GamePauser.GameContinue();
         menu.SetActive(false);
-        isGamePaused = false;
     }
 
     private void DeathMenu()
@@ -71,7 +67,7 @@ public class MenuHandler : MonoBehaviour
 
     IEnumerator DeathMenuOpener()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(deathMenuDelay);
         OpenMenu(_deathMenu);
     }
 }

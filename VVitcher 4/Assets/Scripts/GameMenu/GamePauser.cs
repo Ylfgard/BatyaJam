@@ -10,12 +10,14 @@ public class GamePauser : MonoBehaviour
     public static void GamePause()
     {
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
         isGamePaused = true;
     }
 
     public static void GameContinue()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
         isGamePaused = false;
     }
 }

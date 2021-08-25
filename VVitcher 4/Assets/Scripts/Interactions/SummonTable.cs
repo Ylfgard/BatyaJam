@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 public class SummonTable : MonoBehaviour, IInteractable {
     public GameObject boss;
     private UiManager _uiManager;
+    private CameraModeChanger _cameraModeChanger;
 
     private void Start()
     {
         _uiManager = GameObject.FindGameObjectWithTag("GameUi").GetComponent<UiManager>();
+        _cameraModeChanger = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraModeChanger>();
     }
 
     public void Interact()
     {
         _uiManager.OpenSummonPanel(true);
+        _cameraModeChanger.SetPlayerWalkMode();
     }
 
     public void CloseInteraction()

@@ -10,8 +10,14 @@ public class Advice : MonoBehaviour
     private void Start()
     {
         adviceText = gameObject.GetComponent<MeshRenderer>();
-        _transform = gameObject.GetComponent<Transform>();   
+        _transform = gameObject.GetComponent<Transform>();
+
         HideAdvice(); 
+    }
+
+    private void Update()
+    {
+        FaceCamera();
     }
 
     public void ShowAdvice(Vector3 advicePosition)
@@ -23,5 +29,11 @@ public class Advice : MonoBehaviour
     public void HideAdvice()
     {
         adviceText.enabled = false;
+    }
+
+    private void FaceCamera()
+    {
+        if (adviceText.enabled)
+            _transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
     }
 }

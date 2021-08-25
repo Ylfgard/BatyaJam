@@ -21,6 +21,20 @@ public class UiManager : MonoBehaviour {
 
     private PlayerInventory _inventory;
     private bool _inCraftMod;
+    private bool _atSummonTable;
+
+    public bool IsUsingUI()
+    {
+        return _inCraftMod || _atSummonTable;
+    }
+
+    public void ShowCursor(bool show)
+    {
+        if (show)
+            Cursor.lockState = CursorLockMode.None;
+        else
+            Cursor.lockState = CursorLockMode.Locked;
+    }
 
     void Start()
     {
@@ -40,6 +54,9 @@ public class UiManager : MonoBehaviour {
     {
         if(_summonPanel.gameObject != null)
             _summonPanel.SetActive(open);
+
+        ShowCursor(open);
+        _atSummonTable = open;
     }
 
     private void UpdateHerbInventoryUi()
