@@ -63,12 +63,14 @@ public class Projectile : MonoBehaviour
             ServantStats servant = other.GetComponent<ServantStats>();
             if(servant != null)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hit_crossbow");
                 servant.Damage(_damageToServant);
             }
 
             ArchdemonStats archedemon = other.GetComponent<ArchdemonStats>();
             if (archedemon != null)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hit_crossbow");
                 archedemon.Damage(type);
             }
 
