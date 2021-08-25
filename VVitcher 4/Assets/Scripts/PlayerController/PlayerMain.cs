@@ -100,11 +100,6 @@ public class PlayerMain : MonoBehaviour
             _isFiring = true;
             StartCoroutine(AimThenFire());
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
     }
 
     IEnumerator AimThenFire()
