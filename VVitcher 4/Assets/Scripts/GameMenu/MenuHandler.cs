@@ -10,15 +10,18 @@ public class MenuHandler : MonoBehaviour
 
     [SerializeField] private float deathMenuDelay = 4f;
 
-    private void Awake()
-    {
-        QualitySettings.vSyncCount = 2;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
     private void Start()
     {
-        if(_pauseMenu != null)
+        if(Screen.currentResolution.refreshRate <= 60)
+            QualitySettings.vSyncCount = 1;
+        else
+            QualitySettings.vSyncCount = 2;
+
+        Debug.Log("Note: VSync was set by MenuHandler.cs");
+
+        Cursor.lockState = CursorLockMode.None;
+
+        if (_pauseMenu != null)
             CloseMenu(_pauseMenu);
         if(_deathMenu != null)
         {

@@ -49,12 +49,17 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         ProjectileDestroy();
+        Debug.Log("Projectile hits collider: " + collision.gameObject.name);
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag(enemyTag))
         {
+            ProjectileDestroy();
             ServantStats servant = other.GetComponent<ServantStats>();
             if(servant != null)
             {
@@ -67,11 +72,11 @@ public class Projectile : MonoBehaviour
                 archedemon.Damage(type);
             }
 
-            Debug.LogWarning("Projectile hits Enemy. Do something...");
+            Debug.Log("Projectile hits Enemy: " + other.name);
         }
         else
         {
-            Debug.Log("Projectile hits obstacle: " + other.name);
+            Debug.Log("Projectile crossed trigger: " + other.name);
         }
     }
 
