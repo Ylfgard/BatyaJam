@@ -38,6 +38,7 @@ public class UiManager : MonoBehaviour {
 
     void Start()
     {
+        GamePauser.GameContinue();
         ResetInventoryUi();
 
         _inCraftMod = false;
