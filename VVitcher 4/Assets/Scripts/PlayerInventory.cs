@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour {
     #region Singleton
     public static PlayerInventory instance;
+    [SerializeField] private bool giveHerbs;
 
     void Awake()
     {
@@ -37,6 +38,16 @@ public class PlayerInventory : MonoBehaviour {
         _boltsCount = new int[Enum.GetNames(typeof(HerbType)).Length];
 
         _activeBoltIndex = 0;
+
+        if(giveHerbs)
+        {
+            for(int i=0; i<6; i++)
+            {
+                AddHerb(HerbType.bloody);
+                AddHerb(HerbType.creaky);
+                AddHerb(HerbType.linthy);
+            }
+        }
     }
 
     public void AddHerb(HerbType type)
