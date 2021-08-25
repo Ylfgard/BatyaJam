@@ -26,11 +26,13 @@ public class Bestiary : MonoBehaviour
     {
         GamePauser.GamePause();
         bestiaryFone.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/open_book");
     }
 
     public void CloseBestiary()
     {
         GamePauser.GameContinue();
         bestiaryFone.SetActive(false);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/close_book");
     }
 }
