@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             _inventory.SwitchBolt();
         }
