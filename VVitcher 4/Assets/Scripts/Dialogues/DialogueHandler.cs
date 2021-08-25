@@ -42,7 +42,8 @@ public class DialogueHandler : MonoBehaviour
 
     public void StartDialogue(TextAsset dialogue)
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        GamePauser.GamePause();
         nodeText.text = "";
         dialogueCloseButton.SetActive(false);
         curDialogue = DialogueViewer.Load(dialogue);
@@ -75,7 +76,8 @@ public class DialogueHandler : MonoBehaviour
             nodeText.text = "\t"+curDialogue.nodes[curDialogue.nodes.Length-1].text;
         nextStep.RemoveListener(NextNode);
         dialogueFrame.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        GamePauser.GameContinue();
         summonDialogue.Invoke();
     }
 

@@ -16,6 +16,8 @@ public class PlayerMain : MonoBehaviour
     public static Dictionary<WeaponType, WeaponDefinition> WEAPON_DICT;
 
     [SerializeField]
+    private bool GODMode;
+    [SerializeField]
     private float maxHealth = 100f;
     [SerializeField]
     private float delayFireAndAnim = 0.2f;
@@ -98,6 +100,11 @@ public class PlayerMain : MonoBehaviour
             _isFiring = true;
             StartCoroutine(AimThenFire());
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
     }
 
     IEnumerator AimThenFire()
@@ -127,18 +134,18 @@ public class PlayerMain : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (isMaxHealth) isMaxHealth = false;
+        if (isDead) return;
 
+        if(!GODMode) health -= damage;
         playerAnimationStateControllerScript.PlayHitReactionAnim();
+        
+        if (isMaxHealth) isMaxHealth = false;
     }
 
     static public WeaponDefinition GetWeaponDefinition(WeaponType wt)
     {
         if (WEAPON_DICT.ContainsKey(wt))
-        {
             return (WEAPON_DICT[wt]);
-        }
         
         return (new WeaponDefinition());
     }
