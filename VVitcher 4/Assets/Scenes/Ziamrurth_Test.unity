@@ -329,50 +329,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &170101081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 170101083}
-  - component: {fileID: 170101082}
-  m_Layer: 0
-  m_Name: LaserBeamsAttack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &170101082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170101081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828810a8be9fa7f469e2f9e854917334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _laserBeam: {fileID: 7926043574958759609, guid: 215b26e397836cb41865eaaa0e0d011c, type: 3}
---- !u!4 &170101083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170101081}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &418714635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4580af9df653a25498a06b9ff332e53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GODMode: 0
   maxHealth: 100
   delayFireAndAnim: 0.2
   weaponDefinitions: []
@@ -2108,6 +2065,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3320775949020529539, guid: 021f338add8145d43939969bf5a6cd3c, type: 3}
   m_PrefabInstance: {fileID: 2008259002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &288275840515826084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 288275840350185725, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_Name
+      value: LaserBeamsAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185725, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185726, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: beamDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288275840350185727, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
 --- !u!1001 &1388407839022348458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3016,6 +3038,14 @@ PrefabInstance:
     - target: {fileID: 5342860360919460362, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
+      propertyPath: beamAttack
+      value: 
+      objectReference: {fileID: 288275840350185726, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
+      propertyPath: startHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}

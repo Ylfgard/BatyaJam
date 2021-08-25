@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828810a8be9fa7f469e2f9e854917334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selfDestroyTimer: 15
   _laserBeam: {fileID: 7926043574958759609, guid: 215b26e397836cb41865eaaa0e0d011c, type: 3}

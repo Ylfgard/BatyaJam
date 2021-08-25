@@ -27,7 +27,19 @@ public class BossIdleBehavior : StateMachineBehaviour {
         if (timeRemaining <= 0)
         {
             timeRemaining = reloadTime;
-            animator.SetTrigger("Stage1");
+
+            if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth > 0.75f)
+            {
+                animator.SetTrigger("Stage1");
+            }
+            if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth <= 0.75f)
+            {
+                int rnd = Random.Range(1, 3);
+                if (rnd == 1)
+                    animator.SetTrigger("Stage1");
+                if (rnd == 2)
+                    animator.SetTrigger("Stage2");
+            }
         }
     }
 
