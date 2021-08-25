@@ -3987,7 +3987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -5956,7 +5956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -7710,7 +7710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -9489,7 +9489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -10931,7 +10931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -12042,7 +12042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460200236259863573, guid: 151fcdc3692580f4b88ebee56bb9e7f3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03273039
+      value: 0.032730397
       objectReference: {fileID: 0}
     - target: {fileID: 2460200236259863573, guid: 151fcdc3692580f4b88ebee56bb9e7f3, type: 3}
       propertyPath: m_LocalRotation.y
@@ -12050,7 +12050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460200236259863573, guid: 151fcdc3692580f4b88ebee56bb9e7f3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.05757399
+      value: -0.057573978
       objectReference: {fileID: 0}
     - target: {fileID: 2460200236259863573, guid: 151fcdc3692580f4b88ebee56bb9e7f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12956,7 +12956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -13901,7 +13901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -14694,7 +14694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4155777967133497403, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.12485393
+      value: -0.12485394
       objectReference: {fileID: 0}
     - target: {fileID: 4155777967133497403, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.z
@@ -14722,7 +14722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199312190717076225, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00000006705522
+      value: -0.000000076368444
       objectReference: {fileID: 0}
     - target: {fileID: 5199312190717076225, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.y
@@ -14730,7 +14730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199312190717076225, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000024214383
+      value: 0.000000031664964
       objectReference: {fileID: 0}
     - target: {fileID: 5742163399203467193, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_DeadZoneHeight
@@ -14754,15 +14754,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6181777976199057567, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.036325026
+      value: -0.03632503
       objectReference: {fileID: 0}
     - target: {fileID: 6181777976199057567, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000011920929
+      value: -0.00000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 6181777976199057567, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000014901161
+      value: 0.000000022351742
       objectReference: {fileID: 0}
     - target: {fileID: 7935366395461395470, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19972,7 +19972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
@@ -23562,7 +23562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565008189395e74fa139a7f8b0681a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPath: event:/SFX/servant_voice
+  soundPath: event:/SFX/claws
   autoPlay: 1
   autoStop: 0
   minSoundDelay: 20
