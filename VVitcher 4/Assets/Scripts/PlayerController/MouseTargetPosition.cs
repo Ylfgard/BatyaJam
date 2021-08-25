@@ -26,6 +26,7 @@ public class MouseTargetPosition : MonoBehaviour
         if (Physics.Raycast(ray, out hit, lengthOfRay, mouseTargetLayer))
         {
             transform.position = hit.point;
+            Gizmos.DrawRay(mainCam.transform.position, mainCam.transform.forward);
         }
     }
 }

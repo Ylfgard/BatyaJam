@@ -115,7 +115,9 @@ public class UiManager : MonoBehaviour {
     private void SwitchCraftMod()
     {
         _inCraftMod = !_inCraftMod;
-        ShowCursor(IsUsingUI());
+        //ShowCursor(IsUsingUI());
+        if (_inCraftMod) GamePauser.GamePause();
+        else GamePauser.GameContinue();
 
         _herbPanel.SetActive(!_inCraftMod);
         _boltPanel.SetActive(!_inCraftMod);
