@@ -1903,7 +1903,6 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 8ea57f5c0c5f47d4e9c0c03725e376f4, type: 3}
   - {fileID: 4900000, guid: be45c06744a6bde419365b9b7e9eb4e3, type: 3}
   - {fileID: 4900000, guid: 95523046c53619a4cbb5c05d4d417fe9, type: 3}
-  - {fileID: 4900000, guid: d0c1ee3eef9f03f4ea9773ef16ce9327, type: 3}
   - {fileID: 4900000, guid: 03c5b680f6040d24c9495119b9ef6bb3, type: 3}
   - {fileID: 4900000, guid: a892880cc0ba74546b5f24c967c1f17e, type: 3}
   - {fileID: 4900000, guid: 27e58042002c4454ab8e61941a577088, type: 3}
@@ -1913,7 +1912,6 @@ MonoBehaviour:
   - event:/Voice/Devil_and_gg_Dialogue/Demon 1
   - event:/Voice/Devil_and_gg_Dialogue/Adrian 1
   - event:/Voice/Devil_and_gg_Dialogue/Demon 2
-  - event:/Voice/Devil_and_gg_Dialogue/Adrian 2
   - event:/Voice/Devil_and_gg_Dialogue/Demon 3
   - event:/Voice/Devil_and_gg_Dialogue/Adrian 3
   - event:/Voice/Devil_and_gg_Dialogue/Demon 4
@@ -7446,7 +7444,6 @@ GameObject:
   - component: {fileID: 3784549442787336218}
   - component: {fileID: 3784549442787336221}
   - component: {fileID: 3784549442787336217}
-  - component: {fileID: 10205512}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: GameUi
@@ -7582,29 +7579,6 @@ MonoBehaviour:
   - {fileID: 3784549443284627305}
   - {fileID: 3784549442086106985}
   - {fileID: 3784549441992105004}
---- !u!114 &10205512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3784549442787336220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Music/game_music
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &3784549442797880038
 GameObject:
   m_ObjectHideFlags: 0
