@@ -12,17 +12,19 @@ public class ArchdemonStats : MonoBehaviour {
     public FanProjectiles fanProjectiles;
     public int fanCastNumber;
 
-    [SerializeField] private int _startHealth;
+    public BeamAttack beamAttack;
 
-    private int _health;
+    [SerializeField] public int startHealth;
+
+    public int health;
     private float _offsetProjectiles = 5f;
 
     void Start()
     {
-        _health = _startHealth;
+        health = startHealth;
 
-        GetComponent<Animator>().SetInteger("maxHealth", _startHealth);
-        GetComponent<Animator>().SetInteger("health", _startHealth);
+        GetComponent<Animator>().SetInteger("maxHealth", startHealth);
+        GetComponent<Animator>().SetInteger("health", startHealth);
     }
 
     public void Damage(WeaponType type)
@@ -31,12 +33,12 @@ public class ArchdemonStats : MonoBehaviour {
         {
             case WeaponType.simpleBolt:
                 {
-                    _health -= 2;
+                    health -= 2;
                     break;
                 }
             case WeaponType.bloodyBolt:
                 {
-                    _health -= 10;
+                    health -= 10;
                     break;
                 }
             case WeaponType.creakyBolt:
@@ -53,25 +55,30 @@ public class ArchdemonStats : MonoBehaviour {
                 }
         }
 
-        GetComponent<Animator>().SetInteger("health", _health);
+        GetComponent<Animator>().SetInteger("health", health);
 
-        if (_health <= 0)
+        if (health <= 0)
         {
             onBossDeadCallback?.Invoke();
             GetComponent<Animator>().SetTrigger("death");
             return;
         }
-        onBossHealthChangedCallback?.Invoke(_health);
+        onBossHealthChangedCallback?.Invoke(health);
     }
 
-    public void Attack()
+    public void Attack1()
     {
         StartCoroutine(AttackPatternFan());
     }
 
+    public void Attack2()
+    {
+        Instantiate(beamAttack, transform.position + Vector3.up, transform.rotation);
+    }
+
     private IEnumerator AttackPatternFan()
     {
-        GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        //GetComponent<FMODUnity.StudioEventEmitter>().Play();
 
         Quaternion offsetRotation = Quaternion.AngleAxis(0, transform.up);
 

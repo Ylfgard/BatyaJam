@@ -1400,7 +1400,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fanProjectiles: {fileID: 6585700764758112911, guid: 61623b6d947126949a0eab5d42c30ff1, type: 3}
   fanCastNumber: 3
-  _startHealth: 100
+  beamAttack: {fileID: 288275840350185726, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+  startHealth: 100
+  health: 0
 --- !u!114 &5396927398029734447
 MonoBehaviour:
   m_ObjectHideFlags: 0
