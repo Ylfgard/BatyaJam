@@ -41,8 +41,8 @@ GameObject:
   - component: {fileID: 699141862572322256}
   - component: {fileID: 5523333281936178226}
   - component: {fileID: 3643363781231668066}
-  - component: {fileID: 620764023}
-  - component: {fileID: 620764024}
+  - component: {fileID: 1672552670}
+  - component: {fileID: 1672552671}
   m_Layer: 0
   m_Name: Old Record Player
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &620764023
+--- !u!65 &1672552670
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,9 +125,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6972976, y: 0.96637094, z: 3.5732484}
-  m_Center: {x: -0.2928834, y: 0.27396852, z: -0.38287354}
---- !u!114 &620764024
+  m_Size: {x: 3.3055093, y: 0.96637094, z: 3.2008018}
+  m_Center: {x: 0.011222244, y: 0.27396852, z: -0.033548534}
+--- !u!114 &1672552671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,4 +143,4 @@ MonoBehaviour:
   adviceTransform: {fileID: 315976245}
   playSound: 1
   onlyAudio: 1
-  soundPath: event:/Voice/Audio_diarys/Diary_3
+  soundPath: event:/Voice/Audio_diarys/Diary_2
