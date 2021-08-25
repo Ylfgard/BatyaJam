@@ -18,6 +18,12 @@ public class GamePauser : MonoBehaviour
         }
     }
 
+    public static void UnpauseGame()
+    {
+        pauseCounter = 0;    
+        GameContinue();
+    }
+
     public static void GamePause()
     {
         SceneManager.activeSceneChanged += UnpauseGame;
