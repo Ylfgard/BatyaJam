@@ -12,6 +12,8 @@ public class UiManager : MonoBehaviour {
     [SerializeField] private GameObject _craftingPanel;
     [SerializeField] private GameObject _summonPanel;
 
+    [SerializeField] private GameObject _crossbair;
+
     [SerializeField] private GameObject[] _herbValuesText;
     [SerializeField] private GameObject[] _boltValuesText;
     [SerializeField] private Transform[] _boltSprites;
@@ -19,6 +21,7 @@ public class UiManager : MonoBehaviour {
     [SerializeField] private GameObject[] _herbValuesTextCraft;
     [SerializeField] private GameObject[] _boltValuesTextCraft;
 
+    private CameraModeChanger _cameraModeChanger;
     private PlayerInventory _inventory;
     private bool _inCraftMod;
     private bool _atSummonTable;
@@ -36,12 +39,20 @@ public class UiManager : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void ShowCrossbair(bool show)
+    {
+        _crossbair.SetActive(show);
+    }
+
     void Start()
     {
         GamePauser.GameContinue();
         ResetInventoryUi();
 
         _inCraftMod = false;
+
+        _cameraModeChanger = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraModeChanger>();
+        _cameraModeChanger.crossbairEnable += ShowCrossbair;
 
         _inventory = PlayerInventory.instance;
         _inventory.onHerbInventoryChangedCallback += UpdateHerbInventoryUi;
