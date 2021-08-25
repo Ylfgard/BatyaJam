@@ -10,6 +10,7 @@ public class ComicsPlayer : MonoBehaviour
     private DialogueHandler dialogHandler;
     private FMOD.Studio.EventInstance instance;
     public UnityEvent comicsEnded = new UnityEvent();
+
     [SerializeField] private bool playOnStart;
     [SerializeField] private GameObject[] slide;
     [SerializeField] private TextAsset[] dialogues;
@@ -17,6 +18,7 @@ public class ComicsPlayer : MonoBehaviour
 
     void Start() 
     {
+        GamePauser.GamePause();
         slideStarted = false;
         curSlide = 0;
         dialogHandler = FindObjectOfType<DialogueHandler>();
@@ -59,5 +61,6 @@ public class ComicsPlayer : MonoBehaviour
         instance.release();
         slideStarted = false;
         dialogHandler.EndDialogue();
+        GamePauser.GamePause();
     }
 }

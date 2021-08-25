@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 1671923185595074644}
   - component: {fileID: 1671923185595074642}
   - component: {fileID: 919132147737663348}
+  - component: {fileID: 6992242803384468661}
   m_Layer: 14
   m_Name: ServantPrefab
   m_TagString: Enemy
@@ -479,6 +480,18 @@ MonoBehaviour:
   startFollowDistance: 7
   _health: 5
   _damage: 5
+--- !u!114 &6992242803384468661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013870543758109362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b440ee66a66834e8da0e984e2ebf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2311848945643744511
 GameObject:
   m_ObjectHideFlags: 0

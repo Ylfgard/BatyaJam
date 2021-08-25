@@ -44,9 +44,17 @@ public class MenuHandler : MonoBehaviour
         }    
     }
 
-    public void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GamePauser.GameContinue();
+    } 
     public void NewGame() => SceneManager.LoadScene(1);
-    public void StartGame() => SceneManager.LoadScene(2);
+    public void StartGame()
+    {
+        SceneManager.LoadScene(2);
+        GamePauser.GameContinue();
+    } 
     public void EndGame() => SceneManager.LoadScene(4);
     public void MainMenuButton() => SceneManager.LoadScene(0);
     public void ExitButton() => Application.Quit();
