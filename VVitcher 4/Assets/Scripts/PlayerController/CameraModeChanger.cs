@@ -21,12 +21,13 @@ public class CameraModeChanger : MonoBehaviour
     public delegate void CrossbairEnablerDelegate(bool canEnable);
     public CrossbairEnablerDelegate crossbairEnable;
 
+    public bool isAiming { get; set; }
+
     private void Start()
     {
         aimTargetPositionScript = GetComponentInChildren<AimTargetPosition>();
         aimTargetPositionOffScript = GetComponentInChildren<AimTargetPositionOff>();
         uiManagerScript = FindObjectOfType<UiManager>().gameObject.GetComponent<UiManager>();
-
 
         aimTargetPositionScript.enabled = false;
         aimTargetPositionOffScript.enabled = false;
@@ -43,13 +44,18 @@ public class CameraModeChanger : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            isAiming = !isAiming;
+            ChangeMode();
+        }
+        
+    }
+
+    private void ChangeMode()
+    {
+        if (isAiming)
             SetPlayerAimMode();
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
+        else
             SetPlayerWalkMode();
-            
-        }
     }
 
     public void SetPlayerWalkMode()

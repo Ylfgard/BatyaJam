@@ -67,8 +67,9 @@ public class UiManager : MonoBehaviour {
         if(_summonPanel.gameObject != null)
             _summonPanel.SetActive(open);
 
-        ShowCursor(open);
         _atSummonTable = open;
+        ShowCursor(open);
+        if(open) _cameraModeChanger.isAiming = false;
     }
 
     private void UpdateHerbInventoryUi()
@@ -127,7 +128,7 @@ public class UiManager : MonoBehaviour {
     private void SwitchCraftMod()
     {
         _inCraftMod = !_inCraftMod;
-        //ShowCursor(IsUsingUI());
+
         if (_inCraftMod) GamePauser.GamePause();
         else GamePauser.GameContinue();
 

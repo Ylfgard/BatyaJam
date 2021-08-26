@@ -531,7 +531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211526461686385246}
-  m_LocalRotation: {x: -0.0000000018626451, y: -0, z: 0.0000000055879354, w: 1}
+  m_LocalRotation: {x: 0.000000052154068, y: -0.39337164, z: 0.052449506, w: 0.91788226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -689,7 +689,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 120.76419
+    Value: 74.00102
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -2335,7 +2335,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106325057051010320}
-  m_LocalRotation: {x: -0.036324978, y: -0.000000029802322, z: 0.000000011175871, w: 0.99934006}
+  m_LocalRotation: {x: -0.033341967, y: -0.39501727, z: 0.038125694, w: 0.9172765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3292,7 +3292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimCamera: {fileID: 2373070763504137601}
-  crossbairDelay: 1
+  crossbairDelay: 0.3
 --- !u!114 &5666114768953930700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,28 +3347,28 @@ MonoBehaviour:
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
     projectileColor: {r: 0.5377358, g: 0.346477, b: 0.11921501, a: 0}
     emissive: 0
-    velocity: 80
+    velocity: 60
     damageOnHit: 5
     delayBetweenShots: 2
   - type: 1
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
     projectileColor: {r: 0.028, g: 0.44, b: 0.793, a: 0}
     emissive: 1
-    velocity: 90
+    velocity: 70
     damageOnHit: 15
     delayBetweenShots: 2
   - type: 2
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
     projectileColor: {r: 0.16780408, g: 0.7169812, b: 0, a: 0}
     emissive: 1
-    velocity: 100
+    velocity: 75
     damageOnHit: 20
     delayBetweenShots: 2
   - type: 3
     projectilePrefab: {fileID: 7342291272061938543, guid: 8506e890017e8324e99a35e8b11b0602, type: 3}
     projectileColor: {r: 0.5754717, g: 0, b: 0, a: 0}
     emissive: 1
-    velocity: 110
+    velocity: 80
     damageOnHit: 25
     delayBetweenShots: 2
 --- !u!114 &9108423713497542067
@@ -4100,8 +4100,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373070763821172018}
-  m_LocalRotation: {x: 0.032730408, y: 0.867432, z: -0.057574056, w: 0.49312854}
-  m_LocalPosition: {x: -2.5778394, y: 1.8, z: 1.5345179}
+  m_LocalRotation: {x: 0.032730386, y: 0.86743194, z: -0.057573967, w: 0.4931286}
+  m_LocalPosition: {x: -2.8837998, y: 1.8, z: -0.82686067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2749330641413553346}
@@ -4170,7 +4170,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 120.76419
+    Value: 74.00102
     m_SpeedMode: 0
     m_MaxSpeed: 100
     m_AccelTime: 0.1
@@ -4827,7 +4827,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 120.76419
+    Value: 74.00102
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -8489,7 +8489,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6684766923754602976}
-  m_LocalRotation: {x: -0.0000000018626451, y: -0, z: 0.0000000055879354, w: 1}
+  m_LocalRotation: {x: 0.00000006519259, y: -0.39337164, z: 0.052449513, w: 0.91788226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9604,7 +9604,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 120.76419
+    Value: 74.00102
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
