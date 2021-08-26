@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTime: 3
+  rotationSpeed: 5
 --- !u!1101 &4196545428057665343
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

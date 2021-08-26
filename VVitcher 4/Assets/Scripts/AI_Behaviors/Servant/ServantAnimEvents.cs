@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDamage : MonoBehaviour
+public class ServantAnimEvents : MonoBehaviour
 {
     private PlayerMain player;
     private Animator animator;
@@ -17,5 +17,19 @@ public class AttackDamage : MonoBehaviour
     {
         int damage = animator.GetComponent<ServantStats>().GetDamage();
         player.TakeDamage(damage);
+    }
+
+    private void ServantFalls()
+    {
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false; ;
+        gameObject.AddComponent<Rigidbody>();
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.down * 1.5f;
+        StartCoroutine(ServantDestroy());
+    }
+
+    IEnumerator ServantDestroy()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }

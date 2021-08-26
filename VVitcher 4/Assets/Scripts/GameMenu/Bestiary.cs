@@ -6,11 +6,6 @@ public class Bestiary : MonoBehaviour
 {
     [SerializeField] private GameObject bestiaryFone;
 
-    private void Start()
-    {
-        CloseBestiary();   
-    }
-    
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.V))
