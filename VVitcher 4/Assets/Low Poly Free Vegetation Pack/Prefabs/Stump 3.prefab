@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6779651030015360124}
   - component: {fileID: 3467624821405806091}
   - component: {fileID: 2504445313462417632}
+  - component: {fileID: -7471684146873357771}
   m_Layer: 0
   m_Name: Stump 3
   m_TagString: Untagged
@@ -55,6 +56,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &2504445313462417632
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -89,7 +93,34 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2051754371284127699, guid: 480d29c512ed7c94c84fd730bfb23246, type: 3}
+--- !u!205 &-7471684146873357771
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803495133056919301}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0027101636, y: 0.26018167, z: -0.055734992}
+  m_Size: 0.8608929
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.33258206
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3467624821405806091}
+  - screenRelativeHeight: 0.0894301
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3467624821405806091}
+  - screenRelativeHeight: 0.014402054
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3467624821405806091}
+  m_Enabled: 1
