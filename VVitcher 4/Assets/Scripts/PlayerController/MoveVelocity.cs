@@ -20,16 +20,12 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     private Rigidbody rb;
     private Vector3 dirVector;
     private bool _canRun = true;
-    private bool _isRunning;
-    private bool _isCooldown;
-    private float _timerOfRun;
+    private bool _isRunning, _isCooldown, _isRollback;
+    private float _runningTimer, _rollbackTimer;
 
     public bool canRun
     {
-        get
-        {
-            return _canRun;
-        }
+        get { return _canRun; }
         set { _canRun = value; }
     }
     public bool isRunning
@@ -68,26 +64,34 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && canRun)
         {
-            canRun = false;
+            if (_isRollback && _rollbackTimer - Time.time > 0)
+            {
+                float t = _rollbackTimer - Time.time;
+                _runningTimer = runContinuance - t + Time.time;
+            }
+            else
+            {
+                _runningTimer = Time.time + runContinuance;
+            }
+
+            _isRollback = false;
             isRunning = true;
-            _timerOfRun = Time.time + runContinuance;
+            canRun = false;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) && isRunning)
         {
-            isRunning = false;
-            _isCooldown = true;
-            _timerOfRun = Time.time + runCooldown;
+            AbortRunning();
         }
 
         if (isRunning)
         {
-            if (!playerAnimationStateControllerScript.isAgressive || _timerOfRun < Time.time)
+            if (!playerAnimationStateControllerScript.isAgressive || _runningTimer < Time.time)
             {
                 AbortRunning();
             }
         }
 
-        if (_isCooldown && _timerOfRun < Time.time)
+        if (_isCooldown && _runningTimer < Time.time)
         {
             _isCooldown = false;
             canRun = true;
@@ -97,7 +101,19 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     private void AbortRunning()
     {
         isRunning = false;
-        _isCooldown = true;
-        _timerOfRun = Time.time + runCooldown;
+
+        float t = runContinuance - (_runningTimer - Time.time);
+
+        if (runContinuance / 2 > t )
+        {
+            _rollbackTimer = Time.time + t;
+            _isRollback = true;
+            canRun = true;
+        }
+        else
+        {
+            _runningTimer = Time.time + runCooldown;
+            _isCooldown = true;
+        }
     }
 }
