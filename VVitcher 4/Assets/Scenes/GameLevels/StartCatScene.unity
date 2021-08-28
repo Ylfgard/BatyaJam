@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,13 +140,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283951844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 814b517edde2b244eaa66617d28e8cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startMenu: {fileID: 0}
+  _settingsMenu: {fileID: 0}
+  _controlsMenu: {fileID: 0}
   _pauseMenu: {fileID: 0}
-  _deathMenu: {fileID: 0}
+  _gameOverMenu: {fileID: 0}
+  vSliders:
+    _masterVolumeSlider: {fileID: 0}
+    _musicVolumeSlider: {fileID: 0}
+    _SFXVolumeSlider: {fileID: 0}
+    _UIVolumeSlider: {fileID: 0}
+    _voiceVolumeSlider: {fileID: 0}
   deathMenuDelay: 4
 --- !u!114 &842745623 stripped
 MonoBehaviour:

@@ -480,6 +480,7 @@ MonoBehaviour:
   startFollowDistance: 7
   _health: 5
   _damage: 5
+  _attackRange: 1.7
 --- !u!114 &6992242803384468661
 MonoBehaviour:
   m_ObjectHideFlags: 0

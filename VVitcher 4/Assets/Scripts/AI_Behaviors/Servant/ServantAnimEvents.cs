@@ -6,17 +6,23 @@ public class ServantAnimEvents : MonoBehaviour
 {
     private PlayerMain player;
     private Animator animator;
+    private float _attackRange;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerMain>().GetComponent<PlayerMain>();
+
+        _attackRange = animator.GetComponent<ServantStats>().attackRange;
     }
 
     private void ServantAttack()
     {
-        int damage = animator.GetComponent<ServantStats>().GetDamage();
-        player.TakeDamage(damage);
+        if (Vector3.Distance(animator.transform.position, player.transform.position) < _attackRange)
+        {
+            int damage = animator.GetComponent<ServantStats>().GetDamage();
+            player.TakeDamage(damage);
+        }
     }
 
     private void ServantFalls()

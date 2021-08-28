@@ -3,7 +3,11 @@ using UnityEngine;
 public class MoveVelocity : MonoBehaviour, IMoveVelocity
 {
     private const float defaultSpeed = 1f;
+    private const float normalGravity = -9.81f;
+    //[SerializeField] private float groundCheckRadius = 0.22f;
 
+    [SerializeField]
+    private GameObject groundCheck;
     [SerializeField]
     private float walkSpeed = 200f;
     [SerializeField]
@@ -17,9 +21,11 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private Rigidbody rb;
     private Vector3 dirVector;
+    private float _runningTimer, _rollbackTimer;
     private bool _canRun = true;
     private bool _isRunning, _isCooldown, _isRollback;
-    private float _runningTimer, _rollbackTimer;
+    //private bool _isGrounded, _isHighGravity;
+    RaycastHit hit;
 
     public bool canRun
     {
@@ -44,18 +50,50 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     {
         if (playerMainScript.isDead) return;
 
+        //GroundCheck();
+
         if (dirVector.magnitude > 0)
+        {
+            //if (_isGrounded && _isHighGravity)
+            //{
+            //    Physics.gravity = new Vector3(0, normalGravity, 0);
+            //    _isHighGravity = false;
+            //    Debug.Log("Low...");
+            //}
+            //else if (!_isGrounded && !_isHighGravity)
+            //{
+            //    Physics.gravity *= 2;
+            //    _isHighGravity = true;
+            //    Debug.Log("HIGH!");
+            //}
+
             rb.velocity = dirVector * walkSpeed * (isRunning ? runSpeedMultiplier : defaultSpeed) * Time.fixedDeltaTime + new Vector3(0, rb.velocity.y, 0);
+        }
+    }
+
+    //private void GroundCheck()
+    //{
+    //    _isGrounded = Physics.SphereCast(groundCheck.transform.position, groundCheckRadius, Vector3.down, out hit, 0, 12, QueryTriggerInteraction.Ignore);
+    //    Debug.Log("Ground checked: " + hit.point);
+    //}
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.cyan;
+    //    Gizmos.DrawWireSphere(groundCheck.transform.position, groundCheckRadius);
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(hit.point, groundCheckRadius);
+    //    Gizmos.color = Color.white;
+    //}
+
+    public void SetMoveVelocity(Vector3 moveDirection)
+    {
+        dirVector = moveDirection;
     }
 
     private void Update()
     {
         PlayerRun();
-    }
-
-    public void SetMoveVelocity(Vector3 moveDirection)
-    {
-        dirVector = moveDirection;
     }
 
     private void PlayerRun()
@@ -71,7 +109,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
             {
                 _runningTimer = Time.time + runContinuance;
             }
-
+            
+            Physics.gravity *= 2;
             _isRollback = false;
             isRunning = true;
             canRun = false;
@@ -98,8 +137,9 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void AbortRunning()
     {
+        Physics.gravity = new Vector3(0, normalGravity, 0);
         isRunning = false;
-
+        
         float t = runContinuance - (_runningTimer - Time.time);
 
         if (runContinuance / 2 > t )

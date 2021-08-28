@@ -39,14 +39,17 @@ public class MenuHandler : MonoBehaviour
         LoadVolumeLevels();
         #endregion
 
-        //if (_startMenu != null)
-        //    ClosePauseMenu(_startMenu);
-        //if(_gameOverMenu != null)
+        //if (_pauseMenu != null)
+        //    ClosePauseMenu(_pauseMenu);
+        //if (_gameOverMenu != null)
         //{
-        //    ClosePauseMenu(_gameOverMenu);
+        //    //ClosePauseMenu(_gameOverMenu);
         //    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>().onPlayerDeadCallback += GameOverMenu;
         //}
-        
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) player.GetComponent<PlayerMain>().onPlayerDeadCallback += GameOverMenu;
+
         Cursor.lockState = CursorLockMode.None;
     }
 

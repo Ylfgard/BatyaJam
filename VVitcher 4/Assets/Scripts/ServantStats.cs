@@ -7,8 +7,11 @@ public class ServantStats : MonoBehaviour {
 
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+    [SerializeField] private float _attackRange;
 
     private int _currentHealth;
+
+    public float attackRange { get { return _attackRange; } }
 
     void Start()
     {

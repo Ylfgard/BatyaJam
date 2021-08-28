@@ -17,7 +17,7 @@ public class AttackBehavior : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _lookRotation = Quaternion.LookRotation(_player.position - animator.transform.position);
+        _lookRotation = Quaternion.LookRotation(_player.position - animator.transform.position).normalized;
         animator.transform.rotation = Quaternion.RotateTowards(animator.transform.rotation, _lookRotation, _rotateSpeed * Time.deltaTime); 
     }
 

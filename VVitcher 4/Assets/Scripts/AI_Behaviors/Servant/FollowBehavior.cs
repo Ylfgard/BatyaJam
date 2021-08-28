@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class FollowBehavior : StateMachineBehaviour {
-    [SerializeField] private float _attackDistance;
 
     private Transform _player;
 
@@ -20,7 +19,7 @@ public class FollowBehavior : StateMachineBehaviour {
         NavMeshAgent agent = animator.GetComponent<NavMeshAgent>();
         animator.speed = agent.velocity.magnitude / agent.speed;
 
-        if (Vector3.Distance(animator.transform.position, _player.position) < _attackDistance)
+        if (Vector3.Distance(animator.transform.position, _player.position) < animator.GetComponent<ServantStats>().attackRange)
         {
             animator.SetTrigger("attack");
         }
