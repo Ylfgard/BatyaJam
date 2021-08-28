@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -75,6 +73,7 @@ public class MenuHandler : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         if(Time.timeScale != 1) GamePauser.GameContinue();
+        Cursor.lockState = CursorLockMode.Locked;
     } 
 
     public void MainMenuButton() => SceneManager.LoadScene(0);
