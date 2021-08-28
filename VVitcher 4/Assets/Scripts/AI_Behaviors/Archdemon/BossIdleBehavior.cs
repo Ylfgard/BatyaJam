@@ -28,12 +28,13 @@ public class BossIdleBehavior : StateMachineBehaviour {
         if (_timeRemaining <= 0)
         {
             _timeRemaining = reloadTime;
-
-            if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth > 0.75f)
+            float healthPercent = (float)animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth;
+            
+            if (healthPercent > 0.75f)
             {
                 animator.SetTrigger("Stage1");
             }
-            if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth <= 0.75f)
+            if(healthPercent <= 0.75f)
             {
                 //int rnd = Random.Range(1, 3);
                 //if (rnd == 1)
@@ -49,6 +50,22 @@ public class BossIdleBehavior : StateMachineBehaviour {
                     animator.SetTrigger("Stage1");
                 }
             }
+            //if(healthPercent <= 0.5f)
+            //{
+            //    if (GameObject.Find("LaserBeamsAttack(Clone)") == null)
+            //    {
+            //        animator.SetTrigger("Stage2");
+            //    }
+            //    else
+            //    {
+            //        //int rnd = Random.Range(1, 3);
+            //        //if (rnd == 1)
+            //        //    animator.SetTrigger("Stage1");
+            //        //if (rnd == 2)
+            //        //    animator.SetTrigger("Stage3");
+            //        animator.SetTrigger("Stage1");
+            //    }
+            //}
         }
     }
 

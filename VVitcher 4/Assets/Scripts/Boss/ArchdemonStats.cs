@@ -13,6 +13,7 @@ public class ArchdemonStats : MonoBehaviour {
     public int fanCastNumber;
 
     public BeamAttack beamAttack;
+    public SphereProjectiles sphereProjectiles;
 
     [SerializeField] public int startHealth;
 
@@ -76,6 +77,11 @@ public class ArchdemonStats : MonoBehaviour {
         Instantiate(beamAttack, transform.position + Vector3.up, transform.rotation);
     }
 
+    public void Attack3()
+    {
+        StartCoroutine(AttackPatternSphere());
+    }
+
     private IEnumerator AttackPatternFan()
     {
         //GetComponent<FMODUnity.StudioEventEmitter>().Play();
@@ -87,6 +93,19 @@ public class ArchdemonStats : MonoBehaviour {
             offsetRotation = Quaternion.AngleAxis(index * _offsetProjectiles, transform.up);
             FanProjectiles fan = Instantiate(fanProjectiles, transform.position + Vector3.up, transform.rotation);
             fan.SpawnProjectiles(offsetRotation);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    private IEnumerator AttackPatternSphere()
+    {
+        Quaternion offsetRotation = Quaternion.AngleAxis(0, transform.up);
+        int rnd = Random.Range(15, 20);
+
+        for (int index = 0; index < fanCastNumber; index++)
+        {
+            SphereProjectiles sphere = Instantiate(sphereProjectiles, transform.position + Vector3.up, transform.rotation);
+            sphere.SpawnProjectiles(offsetRotation, rnd);
             yield return new WaitForSeconds(0.5f);
         }
     }

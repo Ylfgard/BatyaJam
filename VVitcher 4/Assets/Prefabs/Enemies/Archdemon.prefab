@@ -1404,6 +1404,7 @@ MonoBehaviour:
   fanProjectiles: {fileID: 6585700764758112911, guid: 7ff969807d28fb148838b60aa2022c0c, type: 3}
   fanCastNumber: 4
   beamAttack: {fileID: 288275840350185726, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
+  sphereProjectiles: {fileID: 511002676107070198, guid: 61623b6d947126949a0eab5d42c30ff1, type: 3}
   startHealth: 100
   health: 0
 --- !u!114 &8170277779835286187

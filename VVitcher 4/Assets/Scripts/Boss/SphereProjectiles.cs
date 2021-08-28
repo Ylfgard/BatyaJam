@@ -9,16 +9,18 @@ public class SphereProjectiles : MonoBehaviour {
     public float spawnRadius;
     public float selfDestroyTimer;
 
-    List<Transform> projectiles = new List<Transform>();
+    private List<Transform> _projectiles = new List<Transform>();
+    private int _cutoutOffset = 6;
 
     void Start()
     {
-        //SpawnProjectiles();
+        //int rnd = Random.Range(5, 36);
+        //SpawnProjectiles(Quaternion.AngleAxis(0, transform.up), rnd);
     }
 
     private void Update()
     {
-        if(selfDestroyTimer > 0)
+        if (selfDestroyTimer > 0)
         {
             selfDestroyTimer -= Time.deltaTime;
         }
@@ -28,15 +30,15 @@ public class SphereProjectiles : MonoBehaviour {
         }
     }
 
-    public void SpawnProjectiles(Quaternion offsetRotation)
+    public void SpawnProjectiles(Quaternion offsetRotation, int cutoutPos)
     {
-        if (projectilesAmount > projectiles.Count)
+        if (projectilesAmount > _projectiles.Count)
         {
-            for (int projectileIndex = projectiles.Count; projectileIndex < projectilesAmount; projectileIndex++)
+            for (int projectileIndex = _projectiles.Count; projectileIndex < projectilesAmount; projectileIndex++)
             {
                 GameObject projectile = Instantiate(bossProjectile, Vector3.zero, Quaternion.identity);
                 projectile.transform.SetParent(transform);
-                projectiles.Add(projectile.transform);
+                _projectiles.Add(projectile.transform);
             }
         }
 
@@ -44,8 +46,12 @@ public class SphereProjectiles : MonoBehaviour {
         Vector3 vect3 = offsetRotation * Quaternion.Euler(0, -90, 0) * transform.forward * spawnRadius;
         for (int index = 0; index < projectilesAmount; index++)
         {
-            projectiles[index].position = transform.position + vect3;
-            projectiles[index].LookAt(transform);
+            _projectiles[index].position = transform.position + vect3;
+            _projectiles[index].LookAt(transform);
+            if (index>cutoutPos && index < cutoutPos+_cutoutOffset)
+            {
+                Destroy(_projectiles[index].gameObject);
+            }
             vect3 = quaternion * vect3;
         }
     }

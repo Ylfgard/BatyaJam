@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6501108481315008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.808516, y: 1.1204089, z: 2.018282}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754eee27ab6982241b08e2187e16e98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossProjectile: {fileID: 0}
-  projectilesAmount: 0
-  spawnRadius: 0
-  selfDestroyTimer: 0
+  bossProjectile: {fileID: 1388407837678014058, guid: 2cd1669ffad1a164584bd16d89c0a975, type: 3}
+  projectilesAmount: 40
+  spawnRadius: 0.7
+  selfDestroyTimer: 15
