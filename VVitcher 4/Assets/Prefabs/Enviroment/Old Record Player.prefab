@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3643363781231668066}
   - component: {fileID: 1672552670}
   - component: {fileID: 1672552671}
+  - component: {fileID: 218610885975569530}
   m_Layer: 0
   m_Name: Old Record Player
   m_TagString: Untagged
@@ -144,3 +145,16 @@ MonoBehaviour:
   playSound: 1
   onlyAudio: 1
   soundPath: event:/Voice/Audio_diarys/Diary_2
+--- !u!65 &218610885975569530
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834664223306780144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6569511, y: 0.96637094, z: 0.69659233}
+  m_Center: {x: -0.026975978, y: 0.27396852, z: 0.00008410216}
