@@ -3035,18 +3035,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archdemon
       objectReference: {fileID: 0}
-    - target: {fileID: 5342860360919460362, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: beamAttack
-      value: 
-      objectReference: {fileID: 288275840350185726, guid: ef9e032113bff3b4891819fc5a880719, type: 3}
-    - target: {fileID: 6595626494211685687, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
-      propertyPath: startHealth
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b8bfd00b5d38d4884ae077b8cfd0e7, type: 3}
 --- !u!1001 &7926043574813762090
