@@ -6,14 +6,14 @@ public class BossIdleBehavior : StateMachineBehaviour {
     public float reloadTime = 3f;
     public float rotationSpeed = 5f;
 
-    private float timeRemaining = 0f;
+    private float _timeRemaining = 0f;
 
     private Transform _player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timeRemaining = reloadTime;
+        _timeRemaining = reloadTime;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -23,10 +23,11 @@ public class BossIdleBehavior : StateMachineBehaviour {
         Quaternion lookRotation = Quaternion.LookRotation((_player.position - animator.transform.position).normalized);
         animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
 
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining <= 0)
+        _timeRemaining -= Time.deltaTime;
+
+        if (_timeRemaining <= 0)
         {
-            timeRemaining = reloadTime;
+            _timeRemaining = reloadTime;
 
             if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth > 0.75f)
             {
@@ -34,11 +35,19 @@ public class BossIdleBehavior : StateMachineBehaviour {
             }
             if(animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth <= 0.75f)
             {
-                int rnd = Random.Range(1, 3);
-                if (rnd == 1)
-                    animator.SetTrigger("Stage1");
-                if (rnd == 2)
+                //int rnd = Random.Range(1, 3);
+                //if (rnd == 1)
+                //    animator.SetTrigger("Stage1");
+                //if (rnd == 2)
+                //    animator.SetTrigger("Stage2");
+                if (GameObject.Find("LaserBeamsAttack(Clone)") == null)
+                {
                     animator.SetTrigger("Stage2");
+                }
+                else
+                {
+                    animator.SetTrigger("Stage1");
+                }
             }
         }
     }

@@ -53,7 +53,7 @@ public class BeamAttack : MonoBehaviour {
         else _canTravel = true;
         if (_canTravel && _beamTravelDistance > 0)
         {
-            Vector3 destination = _startPos + new Vector3(_beamTravelDistance, 0, 0);
+            Vector3 destination = _startPos + transform.rotation * new Vector3(_beamTravelDistance, 0, 0);
 
             if (transform.localPosition == destination)
             {
@@ -66,7 +66,7 @@ public class BeamAttack : MonoBehaviour {
         }
         if (_canTravel && _beamTravelDistance < 0)
         {
-            Vector3 destination = _startPos + new Vector3(_beamTravelDistance, 0, 0);
+            Vector3 destination = _startPos + transform.rotation * new Vector3(_beamTravelDistance, 0, 0);
 
             if (transform.localPosition == destination)
             {

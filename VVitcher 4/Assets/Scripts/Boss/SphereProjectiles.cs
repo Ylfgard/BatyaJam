@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FanProjectiles : MonoBehaviour {
+public class SphereProjectiles : MonoBehaviour {
     public GameObject bossProjectile;
 
     [Range(1, 100)] public int projectilesAmount;
