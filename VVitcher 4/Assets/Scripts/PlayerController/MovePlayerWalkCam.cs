@@ -12,11 +12,13 @@ public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
     [SerializeField]
     private float sensitivityY = 3f;
 
-    private MovePlayer movePlayerScript;
     private CameraMode cameraMode;
+    private PlayerMain playerMainScript;
+    private MovePlayer movePlayerScript;
 
     private void Start()
     {
+        playerMainScript = GetComponent<PlayerMain>();
         movePlayerScript = GetComponent<MovePlayer>();
 
         walkCam.m_XAxis.m_MaxSpeed *= sensitivityX;
@@ -25,7 +27,7 @@ public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
 
     private void Update()
     {
-        if (!GamePauser.isGamePaused && cameraMode == CameraMode.WalkMode)
+        if (!playerMainScript.isDead && !GamePauser.isGamePaused && cameraMode == CameraMode.WalkMode)
         {
             if (Input.GetKey(KeyCode.W) ||
                 Input.GetKey(KeyCode.A) ||

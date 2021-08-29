@@ -17,6 +17,7 @@ public class CameraModeChanger : MonoBehaviour
     private AimTargetPosition aimTargetPositionScript;
     private AimTargetPositionOff aimTargetPositionOffScript;
     private UiManager uiManagerScript;
+    private PlayerMain playerMainScript;
 
     public delegate void CrossbairEnablerDelegate(bool canEnable);
     public CrossbairEnablerDelegate crossbairEnable;
@@ -28,6 +29,7 @@ public class CameraModeChanger : MonoBehaviour
         aimTargetPositionScript = GetComponentInChildren<AimTargetPosition>();
         aimTargetPositionOffScript = GetComponentInChildren<AimTargetPositionOff>();
         uiManagerScript = FindObjectOfType<UiManager>().gameObject.GetComponent<UiManager>();
+        playerMainScript = GetComponent<PlayerMain>();
 
         aimTargetPositionScript.enabled = false;
         aimTargetPositionOffScript.enabled = false;
@@ -35,7 +37,7 @@ public class CameraModeChanger : MonoBehaviour
 
     public bool CanChangeMode()
     {
-        return !(GamePauser.isGamePaused || uiManagerScript.IsUsingUI());
+        return !(GamePauser.isGamePaused || uiManagerScript.IsUsingUI() || playerMainScript.isDead);
     }
 
     private void Update()
