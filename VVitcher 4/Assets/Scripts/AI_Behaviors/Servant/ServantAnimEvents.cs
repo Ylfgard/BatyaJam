@@ -35,7 +35,7 @@ public class ServantAnimEvents : MonoBehaviour
 
     IEnumerator ServantDestroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.2f);
         Destroy(gameObject);
     }
 }

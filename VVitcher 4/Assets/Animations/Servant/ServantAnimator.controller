@@ -81,7 +81,7 @@ AnimatorStateTransition:
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
   m_Solo: 0
-  m_Mute: 0
+  m_Mute: 1
   m_IsExit: 1
   serializedVersion: 3
   m_TransitionDuration: 0
@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087dd36e03dc4ff4084cccdc3fbdf3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDistance: 1.7
 --- !u!114 &-993845655503574728
 MonoBehaviour:
   m_ObjectHideFlags: 1

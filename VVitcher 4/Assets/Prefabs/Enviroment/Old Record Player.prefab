@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315976244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.877, z: 0}
+  m_LocalPosition: {x: 0, y: 0.506, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 699141862572322256}
@@ -41,9 +41,10 @@ GameObject:
   - component: {fileID: 699141862572322256}
   - component: {fileID: 5523333281936178226}
   - component: {fileID: 3643363781231668066}
+  - component: {fileID: 218610885975569530}
+  - component: {fileID: 4525890193021625192}
   - component: {fileID: 1672552670}
   - component: {fileID: 1672552671}
-  - component: {fileID: 218610885975569530}
   m_Layer: 0
   m_Name: Old Record Player
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6834664223306780144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2785157, y: -1.263231, z: 1.4042039}
+  m_LocalPosition: {x: 1.2785157, y: 0, z: 1.4042039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 315976245}
@@ -115,6 +116,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &218610885975569530
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834664223306780144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6569511, y: 0.96637094, z: 0.69659233}
+  m_Center: {x: -0.026975978, y: 0.27396852, z: 0.00008410216}
+--- !u!136 &4525890193021625192
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834664223306780144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.4
+  m_Height: 0.76
+  m_Direction: 1
+  m_Center: {x: -0.026975974, y: -0.15, z: 0.000084102154}
 --- !u!65 &1672552670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +152,7 @@ BoxCollider:
   m_GameObject: {fileID: 6834664223306780144}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 3.3055093, y: 0.96637094, z: 3.2008018}
   m_Center: {x: 0.011222244, y: 0.27396852, z: -0.033548534}
@@ -145,16 +173,3 @@ MonoBehaviour:
   playSound: 1
   onlyAudio: 1
   soundPath: event:/Voice/Audio_diarys/Diary_2
---- !u!65 &218610885975569530
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834664223306780144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6569511, y: 0.96637094, z: 0.69659233}
-  m_Center: {x: -0.026975978, y: 0.27396852, z: 0.00008410216}
