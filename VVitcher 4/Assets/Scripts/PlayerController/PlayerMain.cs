@@ -51,6 +51,7 @@ public class PlayerMain : MonoBehaviour
             else
             {
                 _isDead = true;
+                _currentHealth = 0;
                 playerAnimationStateControllerScript.PlayDyingAnim();
 
                 onPlayerDeadCallback?.Invoke();
