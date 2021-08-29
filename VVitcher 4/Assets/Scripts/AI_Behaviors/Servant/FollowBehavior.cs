@@ -16,6 +16,11 @@ public class FollowBehavior : StateMachineBehaviour {
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (_player.GetComponent<PlayerMain>().isDead)
+        {
+            animator.SetBool("playerDead", true);
+        }
+
         NavMeshAgent agent = animator.GetComponent<NavMeshAgent>();
         animator.speed = agent.velocity.magnitude / agent.speed;
 
