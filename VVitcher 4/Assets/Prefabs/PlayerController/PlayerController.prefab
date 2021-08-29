@@ -438,7 +438,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211526461686385246}
-  m_LocalRotation: {x: -0.000000003725289, y: -0.7844645, z: 0.15689291, w: 0.6}
+  m_LocalRotation: {x: 0.000000007450581, y: 0.000000012107196, z: -0.0000000024214388, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -596,7 +596,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 73.73979
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -2242,7 +2242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106325057051010320}
-  m_LocalRotation: {x: -0.041220482, y: -0.79338974, z: 0.10262887, w: 0.59858245}
+  m_LocalRotation: {x: -0.0687008, y: 0.000000014026578, z: -0.000000001814406, w: 0.9976373}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3593,7 +3593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373070763504137603}
   m_LocalRotation: {x: 0.066227235, y: -0.000000029612988, z: 0.0000000019654984, w: 0.9978046}
-  m_LocalPosition: {x: 0, y: 1.0673524, z: -1.4536211}
+  m_LocalPosition: {x: 0, y: 1.0673524, z: -1.4536209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2373070762288163236}
@@ -4009,7 +4009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373070763821172018}
   m_LocalRotation: {x: 0.0000000012787614, y: 0.99513334, z: -0.09853762, w: 0.000000012914246}
-  m_LocalPosition: {x: -2.88, y: 1.8, z: -0.8399999}
+  m_LocalPosition: {x: 0, y: 1.8, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2749330641413553346}
@@ -4078,7 +4078,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 73.73979
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 100
     m_AccelTime: 0.1
@@ -4778,7 +4778,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 73.73979
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -6091,7 +6091,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155777966351301555}
-  m_LocalRotation: {x: -0.20707574, y: -0.12457378, z: -0.009699624, w: 0.9703129}
+  m_LocalRotation: {x: -0.20707576, y: -0.12457383, z: -0.009699631, w: 0.97031283}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6165,7 +6165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155777966365762881}
-  m_LocalRotation: {x: -0.17081758, y: -0.05737874, z: -0.0022615734, w: 0.983628}
+  m_LocalRotation: {x: -0.17081761, y: -0.057378747, z: -0.0022615748, w: 0.983628}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6397,7 +6397,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155777967133497380}
-  m_LocalRotation: {x: -0.169759, y: -0.124853924, z: -0.0049210973, w: 0.97753215}
+  m_LocalRotation: {x: -0.16975902, y: -0.12485393, z: -0.0049211, w: 0.97753215}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8440,7 +8440,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6684766923754602976}
-  m_LocalRotation: {x: 6.661338e-16, y: -0.7844646, z: 0.15689291, w: 0.6}
+  m_LocalRotation: {x: 0.000000007450581, y: 0.000000024858915, z: -0.000000004971782, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9555,7 +9555,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 73.73979
+    Value: 180
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1

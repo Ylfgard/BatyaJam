@@ -8,9 +8,11 @@ public class DeathBehavior : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<NavMeshAgent>().isStopped = true;
         if (animator.GetComponent<NavMeshAgent>() != null)
+        {
+            animator.GetComponent<NavMeshAgent>().isStopped = true;
             animator.GetComponent<NavMeshAgent>().ResetPath();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
