@@ -9127,14 +9127,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1988823374809688956, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7113970501681326823}
     - target: {fileID: 2177594412078913705, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
       propertyPath: m_Name
       value: GameOverMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 2177594412078913705, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5342683356239014437, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7113970501681326823}
+    - target: {fileID: 8634724441001275427, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7113970501681326823}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce6893aed0325741a960e717ea9bba7, type: 3}
 --- !u!1 &2104861112564642404 stripped

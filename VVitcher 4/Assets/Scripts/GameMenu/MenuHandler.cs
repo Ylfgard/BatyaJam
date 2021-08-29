@@ -34,6 +34,7 @@ public class MenuHandler : MonoBehaviour
         SFXVca = FMODUnity.RuntimeManager.GetVCA("vca:/SFX");
         UIVca = FMODUnity.RuntimeManager.GetVCA("vca:/UI");
         voiceVca = FMODUnity.RuntimeManager.GetVCA("vca:/Voice");
+
         LoadVolumeLevels();
         #endregion
 
@@ -49,6 +50,7 @@ public class MenuHandler : MonoBehaviour
         if (player != null) player.GetComponent<PlayerMain>().onPlayerDeadCallback += GameOverMenu;
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -141,35 +143,49 @@ public class MenuHandler : MonoBehaviour
     }
     private void LoadVolumeLevels()
     {
-        if (PlayerPrefs.HasKey("MasterVolume"))
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+            _masterVolume = vSliders._masterVolumeSlider.value;
+        else
         {
             _masterVolume = PlayerPrefs.GetFloat("MasterVolume");
             vSliders._masterVolumeSlider.value = _masterVolume;
-            masterVca.setVolume(_masterVolume);
         }
-        if (PlayerPrefs.HasKey("MusicVolume"))
+        masterVca.setVolume(_masterVolume);
+
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+            _musicVolume = vSliders._musicVolumeSlider.value;
+        else
         {
             _musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             vSliders._musicVolumeSlider.value = _musicVolume;
-            musicVca.setVolume(_musicVolume);
         }
-        if (PlayerPrefs.HasKey("SFXVolume"))
+            musicVca.setVolume(_musicVolume);
+
+        if (!PlayerPrefs.HasKey("SFXVolume"))
+            _SFXVolume = vSliders._SFXVolumeSlider.value;
+        else
         {
             _SFXVolume = PlayerPrefs.GetFloat("SFXVolume");
             vSliders._SFXVolumeSlider.value = _SFXVolume;
-            SFXVca.setVolume(_SFXVolume);
         }
-        if (PlayerPrefs.HasKey("UIVolume"))
+            SFXVca.setVolume(_SFXVolume);
+
+        if (!PlayerPrefs.HasKey("UIVolume"))
+            _UIVolume = vSliders._UIVolumeSlider.value;
+        else
         {
             _UIVolume = PlayerPrefs.GetFloat("UIVolume");
             vSliders._UIVolumeSlider.value = _UIVolume;
-            UIVca.setVolume(_UIVolume);
         }
-        if (PlayerPrefs.HasKey("VoiceVolume"))
+            UIVca.setVolume(_UIVolume);
+
+        if (!PlayerPrefs.HasKey("VoiceVolume"))
+            _voiceVolume = vSliders._voiceVolumeSlider.value;
+        else
         {
             _voiceVolume = PlayerPrefs.GetFloat("VoiceVolume");
             vSliders._voiceVolumeSlider.value = _voiceVolume;
-            voiceVca.setVolume(_voiceVolume);
         }
+            voiceVca.setVolume(_voiceVolume);
     }
 }
