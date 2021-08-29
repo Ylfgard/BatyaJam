@@ -62,6 +62,8 @@ public class SummonUi : MonoBehaviour {
 
         if (bloodyInput == _bossPreset.bloodyToSummon & creackyInput == _bossPreset.creackyToSummon & linthyInput == _bossPreset.linthyToSummon)
         {
+            PlayerInventory.instance.UseHerbs(new int[] { bloodyInput, creackyInput, linthyInput });
+
             // �������� �����
             FindObjectOfType<SummonTable>().CloseInteraction();
             dialogueHandler.summonDialogue.AddListener(SuccessSummon);
@@ -93,6 +95,7 @@ public class SummonUi : MonoBehaviour {
         {
             dialogueHandler.summonDialogue.RemoveListener(SuccessSummon);
             FindObjectOfType<SummonTable>().boss.SetActive(true);
+            FindObjectOfType<SummonTable>().gameObject.SetActive(false);
         }
     }
 
