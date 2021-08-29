@@ -3127,6 +3127,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 3884303094108257026, guid: 99e76235384393c42938ed7b97e989cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.333
+      objectReference: {fileID: 0}
     - target: {fileID: 4017300667595129312, guid: 99e76235384393c42938ed7b97e989cb, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -15597,15 +15601,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749330641413553346, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000014901161
+      value: 0.000000007450581
       objectReference: {fileID: 0}
     - target: {fileID: 2749330641413553346, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000033113547
+      value: -0.0000000032604976
       objectReference: {fileID: 0}
     - target: {fileID: 2749330641413553346, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000066227077
+      value: 6.5210004e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4155777966351301554, guid: 93403e4aedf04874f8288a934fb56617, type: 3}
       propertyPath: m_LocalRotation.w
