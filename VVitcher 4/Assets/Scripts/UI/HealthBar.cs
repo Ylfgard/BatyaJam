@@ -15,14 +15,14 @@ public class HealthBar : MonoBehaviour {
         _slider.maxValue = _player.GetComponent<PlayerMain>().GetMaxHealth();
         _slider.value = _player.GetComponent<PlayerMain>().health;
 
-        Debug.Log("Start hp set");
+        //Debug.Log("Start hp set");
 
         _player.GetComponent<PlayerMain>().onHealthChangedCallback += SetHealth;
     }
 
     public void SetHealth(int health)
     {
-        Debug.Log($"hp set {health}");
+        //Debug.Log($"hp set {health}");
 
         if (health > 0)
             _slider.value = health;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArchdemonStats : MonoBehaviour {
+    public delegate void OnBossActive();
+    public OnBossActive onBossActiveCallback;
+    
     public delegate void OnBossDead();
     public OnBossDead onBossDeadCallback;
 
@@ -108,5 +111,10 @@ public class ArchdemonStats : MonoBehaviour {
             sphere.SpawnProjectiles(offsetRotation, rnd);
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private void OnEnable()
+    {
+        onBossActiveCallback?.Invoke();
     }
 }

@@ -20,6 +20,7 @@ public class ServantAnimEvents : MonoBehaviour
     {
         if (Vector3.Distance(animator.transform.position, player.transform.position) < _attackRange)
         {
+            //FMODUnity.RuntimeManager.CreateInstance("event:/SFX/damage_from_servants");
             int damage = animator.GetComponent<ServantStats>().GetDamage();
             player.TakeDamage(damage);
         }

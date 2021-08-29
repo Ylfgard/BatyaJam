@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private string enemyTag = "Enemy";
     [SerializeField]
+    private string bossTag = "Boss";
+    [SerializeField]
     private float projectileLifetime = 3f;
 
     private Rigidbody _rb;
@@ -66,15 +68,18 @@ public class Projectile : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hit_crossbow");
                 servant.Damage(_damageToServant);
             }
-
+            Debug.Log("Projectile hits " + enemyTag);
+        }
+        else if (other.gameObject.CompareTag(bossTag))
+        {
+            ProjectileDestroy();
             ArchdemonStats archedemon = other.GetComponent<ArchdemonStats>();
             if (archedemon != null)
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hit_crossbow");
                 archedemon.Damage(type);
             }
-
-            Debug.Log("Projectile hits Enemy: " + other.name);
+            Debug.Log("Projectile hits " + enemyTag);
         }
         else
         {
@@ -92,7 +97,7 @@ public class Projectile : MonoBehaviour
             _rend.material.SetColor("_EmissionColor", def.projectileColor);
             _rend.material.EnableKeyword("_EMISSION");
         }
-        Debug.Log(def.type);
+        //Debug.Log(def.type);
     }
 
     private void ProjectileDestroy()

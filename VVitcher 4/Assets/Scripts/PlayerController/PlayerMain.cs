@@ -53,11 +53,12 @@ public class PlayerMain : MonoBehaviour
                 _isDead = true;
                 _currentHealth = 0;
                 playerAnimationStateControllerScript.PlayDyingAnim();
+                GetComponent<Rigidbody>().Sleep();
 
                 onPlayerDeadCallback?.Invoke();
             }
 
-            Debug.Log((int)health);
+            //Debug.Log((int)health);
             onHealthChangedCallback?.Invoke((int)health);
         }
     }
