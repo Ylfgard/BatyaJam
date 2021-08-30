@@ -140,7 +140,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283951844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 814b517edde2b244eaa66617d28e8cc9, type: 3}
   m_Name: 
@@ -156,6 +156,7 @@ MonoBehaviour:
     _SFXVolumeSlider: {fileID: 0}
     _UIVolumeSlider: {fileID: 0}
     _voiceVolumeSlider: {fileID: 0}
+  versionText: {fileID: 0}
   deathMenuDelay: 4
 --- !u!1 &829921222
 GameObject:

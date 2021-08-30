@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable] public class VolumeSliders
 {
@@ -12,6 +13,7 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _startMenu, _settingsMenu, _controlsMenu, _pauseMenu, _gameOverMenu;
     [SerializeField] private VolumeSliders vSliders;
+    [SerializeField] private TextMeshProUGUI versionText;
 
     [SerializeField] private float deathMenuDelay = 4f;
 
@@ -20,6 +22,8 @@ public class MenuHandler : MonoBehaviour
 
     private void Start()
     {
+        if(versionText.isActiveAndEnabled) versionText.text = "v " + Application.version;
+
         #region QualitySettings
         Debug.Log("Note: VSync was set by MenuHandler.cs");
         if(Screen.currentResolution.refreshRate <= 60)
@@ -188,4 +192,6 @@ public class MenuHandler : MonoBehaviour
         }
             voiceVca.setVolume(_voiceVolume);
     }
+
+
 }
