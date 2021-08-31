@@ -23,6 +23,8 @@ public class ArchdemonStats : MonoBehaviour {
     public int health;
     private float _offsetProjectiles = 5f;
 
+    private FMOD.Studio.EventInstance instance;
+
     void Start()
     {
         health = startHealth;
@@ -74,15 +76,36 @@ public class ArchdemonStats : MonoBehaviour {
     {
         StartCoroutine(AttackPatternFan());
     }
+    public void Attak1Sound()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/demon_attack_1");
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        instance.start();
+    }
 
     public void Attack2()
     {
         Instantiate(beamAttack, transform.position + Vector3.up, transform.rotation);
     }
+    public void Attak2Sound()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/demon_attack_2");
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        instance.start();
+    }
 
     public void Attack3()
     {
         StartCoroutine(AttackPatternSphere());
+    }
+    public void Attak3Sound()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/demon_attack_3");
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        instance.start();
     }
 
     private IEnumerator AttackPatternFan()
