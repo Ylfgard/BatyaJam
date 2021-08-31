@@ -1317,7 +1317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4714837373206065328
 Transform:
   m_ObjectHideFlags: 0
@@ -2351,10 +2351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4714837373206065328}
     m_Modifications:
-    - target: {fileID: 3958200225435729010, guid: 0d67e97a03b572d45b0b591993c4486c, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4192626899163974480, guid: 0d67e97a03b572d45b0b591993c4486c, type: 3}
       propertyPath: m_Name
       value: SphereBossBarier
@@ -2403,6 +2399,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8106130396740396429, guid: 0d67e97a03b572d45b0b591993c4486c, type: 3}
+      propertyPath: archdemon
+      value: 
+      objectReference: {fileID: 4714837373206065328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d67e97a03b572d45b0b591993c4486c, type: 3}
 --- !u!4 &8338620 stripped
