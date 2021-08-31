@@ -5,6 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
+    private GameObject smokePrefab;
+    [SerializeField]
     private string enemyTag = "Enemy";
     [SerializeField]
     private string bossTag = "Boss";
@@ -54,6 +56,10 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         ProjectileDestroy();
+        GameObject smoke = Instantiate(smokePrefab);
+        smoke.transform.position = transform.position;
+        smoke.GetComponent<ParticleSystem>().Play();
+
         Debug.Log("Projectile hits collider: " + collision.gameObject.name);
     }
 
