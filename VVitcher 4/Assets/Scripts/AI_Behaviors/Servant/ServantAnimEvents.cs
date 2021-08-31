@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ServantAnimEvents : MonoBehaviour
 {
+    private FMOD.Studio.EventInstance instance;
     private PlayerMain player;
     private Animator animator;
     private float _attackRange;
@@ -20,6 +21,10 @@ public class ServantAnimEvents : MonoBehaviour
     {
         if (Vector3.Distance(animator.transform.position, player.transform.position) < _attackRange)
         {
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/damage_from_servants");
+            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            instance.start();
             //FMODUnity.RuntimeManager.CreateInstance("event:/SFX/damage_from_servants");
             int damage = animator.GetComponent<ServantStats>().GetDamage();
             player.TakeDamage(damage);

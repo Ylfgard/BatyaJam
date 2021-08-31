@@ -5,6 +5,7 @@ using UnityEngine;
 public class IdleBahavior : StateMachineBehaviour {
     private float _startFollowDistance;
     private Transform _player;
+    private FMOD.Studio.EventInstance instance;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,6 +21,11 @@ public class IdleBahavior : StateMachineBehaviour {
         if(distanceToPlayer < _startFollowDistance)
         {
             animator.SetBool("isFollowing", true);
+
+            instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/agr_servants");
+            instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(animator.gameObject));
+            instance.start();
         }
     }
 
