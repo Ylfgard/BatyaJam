@@ -24,6 +24,7 @@ public class PlayerMain : MonoBehaviour
     [SerializeField]
     private WeaponDefinition[] weaponDefinitions;
 
+    private FMOD.Studio.EventInstance instance;
     private MoveVelocity moveVelocityScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private float _currentHealth = 60f;
@@ -54,6 +55,11 @@ public class PlayerMain : MonoBehaviour
                 _currentHealth = 0;
                 playerAnimationStateControllerScript.PlayDyingAnim();
                 GetComponent<Rigidbody>().Sleep();
+
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/death_gg");
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+                instance.start();
 
                 onPlayerDeadCallback?.Invoke();
             }
