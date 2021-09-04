@@ -18,8 +18,8 @@ MonoBehaviour:
   m_Version: 1.1.0
   m_SourceFontFileGUID: 4e9ffa93c2808f6459db2b255c348104
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4e9ffa93c2808f6459db2b255c348104, type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 4e9ffa93c2808f6459db2b255c348104, type: 3}
-  m_AtlasPopulationMode: 1
+  m_SourceFontFile: {fileID: 0}
+  m_AtlasPopulationMode: 0
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: Mason Chronicles
@@ -1708,7 +1708,10 @@ MonoBehaviour:
           m_YAdvance: 0
       m_FeatureLookupFlags: 0
   fallbackFontAssets: []
-  m_FallbackFontAssetTable: []
+  m_FallbackFontAssetTable:
+  - {fileID: 11400000, guid: 82aecd3613731404c9bc8f25bab97b95, type: 2}
+  - {fileID: 11400000, guid: bfcdcd8d1ae965c40a4a4801c62743d1, type: 2}
+  - {fileID: 11400000, guid: f695df15784a1d24f9830c90e786f035, type: 2}
   m_CreationSettings:
     sourceFontFileName: 
     sourceFontFileGUID: 4e9ffa93c2808f6459db2b255c348104
@@ -1877,7 +1880,7 @@ Texture2D:
   m_MipsStripped: 0
   m_TextureFormat: 1
   m_MipCount: 1
-  m_IsReadable: 1
+  m_IsReadable: 0
   m_IsPreProcessed: 0
   m_IgnoreMasterTextureLimit: 0
   m_StreamingMipmaps: 0

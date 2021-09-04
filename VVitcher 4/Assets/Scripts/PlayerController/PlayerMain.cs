@@ -57,7 +57,7 @@ public class PlayerMain : MonoBehaviour
                 GetComponent<Rigidbody>().Sleep();
 
                 instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/death_gg");
+                instance = FMODUnity.RuntimeManager.CreateInstance("event:/UI/death_gg");
                 instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
                 instance.start();
 
