@@ -25,7 +25,7 @@ public class Medicine : MonoBehaviour, IInteractable {
             // Положить аптечку в инвентарь?
         }
 
-        Debug.Log("Interaction with medicine");
+        Debug.Log("Interaction with medicine. Nothing happens");
 
         //Destroy(gameObject);
     }

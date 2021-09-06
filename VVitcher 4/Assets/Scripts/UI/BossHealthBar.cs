@@ -8,31 +8,23 @@ public class BossHealthBar : MonoBehaviour
     [SerializeField] private Slider sliderLeft;
     [SerializeField] private Slider sliderRight;
 
-    private GameObject boss;
+    private ArchdemonStats bossStats;
     private float _startHealth;
     private float _health;
 
     private void Awake()
     {
-        boss = GameObject.FindGameObjectWithTag("Boss");
+        bossStats = GameObject.FindGameObjectWithTag("Boss").GetComponent<ArchdemonStats>();
 
-        //_startHealth = boss.GetComponent<ArchdemonStats>().startHealth;
-        //_health = boss.GetComponent<ArchdemonStats>().health;
+        bossStats.onBossActiveCallback += SetSliders;
+        bossStats.onBossHealthChangedCallback += SetHealth;
 
-        //sliderLeft.maxValue = _startHealth;
-        //sliderRight.maxValue = _startHealth;
-        //sliderLeft.value = _health;
-        //sliderRight.value = _health;
-
-        boss.GetComponent<ArchdemonStats>().onBossActiveCallback += SetSliders;
-        boss.GetComponent<ArchdemonStats>().onBossHealthChangedCallback += SetHealth;
-
-        boss.SetActive(false);
+        bossStats.gameObject.SetActive(false);
     }
 
     public void SetSliders()
     {
-        if (boss == null) return;
+        if (bossStats.gameObject == null) return;
         StartCoroutine(SetSlidersCoroutine());
     }
 
@@ -40,8 +32,8 @@ public class BossHealthBar : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        _startHealth = boss.GetComponent<ArchdemonStats>().startHealth;
-        _health = boss.GetComponent<ArchdemonStats>().health;
+        _startHealth = bossStats.startHealth;
+        _health = bossStats.health;
 
         sliderLeft.gameObject.SetActive(true);
         sliderRight.gameObject.SetActive(true);

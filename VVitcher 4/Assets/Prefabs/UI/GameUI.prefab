@@ -4417,7 +4417,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8264,6 +8264,8 @@ MonoBehaviour:
   _boltPanel: {fileID: 3784549443869141888}
   _craftingPanel: {fileID: 3784549443099291789}
   _summonPanel: {fileID: 852228525}
+  _healthBar: {fileID: 3888657863853084034}
+  _bossHealthBar: {fileID: 7458006056777139153}
   _crossbair: {fileID: 3066844630358122503}
   _herbValuesText:
   - {fileID: 3784549443718324626}
@@ -11489,7 +11491,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

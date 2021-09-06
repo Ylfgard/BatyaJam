@@ -97,4 +97,10 @@ public class CameraModeChanger : MonoBehaviour
             pCamMode.CurrentCameraMode(mode);
         }
     }
+
+    public void ChangeOnDied()
+    {
+        isAiming = false;
+        ChangeMode();
+    }
 }

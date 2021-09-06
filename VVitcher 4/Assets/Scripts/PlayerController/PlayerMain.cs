@@ -26,6 +26,7 @@ public class PlayerMain : MonoBehaviour
 
     private FMOD.Studio.EventInstance instance;
     private MoveVelocity moveVelocityScript;
+    private CameraModeChanger cameraModeChangerScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
     private float _currentHealth = 60f;
     private float _reloadingTimer;
@@ -53,6 +54,7 @@ public class PlayerMain : MonoBehaviour
             {
                 _isDead = true;
                 _currentHealth = 0;
+                cameraModeChangerScript.ChangeOnDied();
                 playerAnimationStateControllerScript.PlayDyingAnim();
                 GetComponent<Rigidbody>().Sleep();
 
@@ -96,6 +98,7 @@ public class PlayerMain : MonoBehaviour
     private void Start()
     {
         moveVelocityScript = GetComponent<MoveVelocity>();
+        cameraModeChangerScript = GetComponent<CameraModeChanger>();
         playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
 
         health = maxHealth;
