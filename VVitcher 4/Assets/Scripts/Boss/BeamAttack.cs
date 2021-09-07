@@ -42,7 +42,8 @@ public class BeamAttack : MonoBehaviour {
         else
         {
             ArchdemonStats stats = GameObject.Find("Archdemon").GetComponent<ArchdemonStats>();
-            if ((float)stats.health / stats.startHealth <= 0.5f)
+            float healthPercent = (float)stats.health / stats.startHealth;
+            if (healthPercent <= 0.5f && healthPercent > 0)
             {
                 stats.GetComponent<Animator>().SetTrigger("Stage3");
             }

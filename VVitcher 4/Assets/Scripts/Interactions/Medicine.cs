@@ -19,6 +19,7 @@ public class Medicine : MonoBehaviour, IInteractable {
         {
             player.AbsorbHealingPowerup(_healingPower);
             Destroy(gameObject);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Potion_heal");
         }
         else
         {

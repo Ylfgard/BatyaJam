@@ -29,7 +29,7 @@ public class BossIdleBehavior : StateMachineBehaviour {
         {
             _timeRemaining = reloadTime;
             float healthPercent = (float)animator.GetComponent<ArchdemonStats>().health / animator.GetComponent<ArchdemonStats>().startHealth;
-            
+
             if (healthPercent > 0.75f)
             {
                 animator.SetTrigger("Stage1");
