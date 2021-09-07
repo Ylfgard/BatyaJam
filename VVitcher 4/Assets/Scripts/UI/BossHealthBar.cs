@@ -15,6 +15,7 @@ public class BossHealthBar : MonoBehaviour
     private void Awake()
     {
         bossStats = GameObject.FindGameObjectWithTag("Boss").GetComponent<ArchdemonStats>();
+        Debug.Log(bossStats != null);
 
         bossStats.onBossActiveCallback += SetSliders;
         bossStats.onBossHealthChangedCallback += SetHealth;

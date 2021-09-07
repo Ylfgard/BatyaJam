@@ -18,6 +18,12 @@ public class ServantStats : MonoBehaviour {
         _currentHealth = _health;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = new Color(1, 1, 0, 0.5f);
+        Gizmos.DrawSphere(transform.position, startFollowDistance);
+    }
+
     public void Damage(int damage)
     {
         _currentHealth -= damage;

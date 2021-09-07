@@ -27,7 +27,7 @@ public class UiManager : MonoBehaviour {
     private PlayerInventory _inventory;
     private bool _inCraftMod;
     private bool _atSummonTable;
-    private bool _isUIActive;
+    //private bool _isUIActive;
 
     public bool IsUsingUI()
     {
@@ -53,7 +53,7 @@ public class UiManager : MonoBehaviour {
         ResetInventoryUi();
 
         _inCraftMod = false;
-        _isUIActive = true;
+        //_isUIActive = true;
 
         _cameraModeChanger = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraModeChanger>();
         _cameraModeChanger.crossbairEnable += ShowCrossbair;
@@ -66,10 +66,10 @@ public class UiManager : MonoBehaviour {
         _playerInput.onCraftModChangedCallback += SwitchCraftMod;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace)) HideShowGameUI();
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Backspace)) HideShowGameUI();
+    //}
 
     public void OpenSummonPanel(bool open)
     {
@@ -144,16 +144,19 @@ public class UiManager : MonoBehaviour {
         _herbPanel.SetActive(!_inCraftMod);
         _boltPanel.SetActive(!_inCraftMod);
         _craftingPanel.SetActive(_inCraftMod);
+		_healthBar.SetActive(!_inCraftMod);
+		if(_bossHealthBar.activeInHierarchy) _bossHealthBar.SetActive(!_inCraftMod);
+		if(_crossbair.activeInHierarchy) _crossbair.SetActive(!_inCraftMod);
     }
 
     public void HideShowGameUI()
     {
-        _isUIActive = !_isUIActive;
+        //_isUIActive = !_isUIActive;
 
-        _herbPanel.SetActive(_isUIActive);
-        _boltPanel.SetActive(_isUIActive);
-        _healthBar.SetActive(_isUIActive);
-        _bossHealthBar.SetActive(_isUIActive);
-        _crossbair.SetActive(_isUIActive);
+        //_herbPanel.SetActive(_isUIActive);
+        //_boltPanel.SetActive(_isUIActive);
+        //_healthBar.SetActive(_isUIActive);
+        //_bossHealthBar.SetActive(_isUIActive);
+        //_crossbair.SetActive(_isUIActive);
     }
 }
