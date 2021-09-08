@@ -19,6 +19,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private PlayerMain playerMainScript;
     private PlayerAnimationStateController playerAnimationStateControllerScript;
+    private CameraModeChanger cameraModeChangerScript;
+
     private Rigidbody rb;
     private Vector3 dirVector;
     private float _runningTimer, _rollbackTimer;
@@ -42,6 +44,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
     {
         playerMainScript = GetComponent<PlayerMain>();
         playerAnimationStateControllerScript = GetComponent<PlayerAnimationStateController>();
+        cameraModeChangerScript = GetComponent<CameraModeChanger>();
 
         rb = GetComponent<Rigidbody>();
     }
@@ -98,7 +101,7 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void PlayerRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canRun)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canRun && cameraModeChangerScript.currentCameraMode != CameraMode.WalkMode)
         {
             if (_isRollback && _rollbackTimer - Time.time > 0)
             {
@@ -109,7 +112,8 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
             {
                 _runningTimer = Time.time + runContinuance;
             }
-            
+
+            cameraModeChangerScript.SetPlayerRunAimMode();
             Physics.gravity *= 2;
             _isRollback = false;
             isRunning = true;
@@ -137,9 +141,12 @@ public class MoveVelocity : MonoBehaviour, IMoveVelocity
 
     private void AbortRunning()
     {
+        if(cameraModeChangerScript.currentCameraMode == CameraMode.RunAimMode)
+            cameraModeChangerScript.ChangeMode();
+
         Physics.gravity = new Vector3(0, normalGravity, 0);
         isRunning = false;
-        
+
         float t = runContinuance - (_runningTimer - Time.time);
 
         if (runContinuance / 2 > t )

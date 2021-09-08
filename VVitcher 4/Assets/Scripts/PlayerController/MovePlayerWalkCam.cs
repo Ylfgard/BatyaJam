@@ -27,7 +27,7 @@ public class MovePlayerWalkCam : MonoBehaviour, IPlayerCameraMode
 
     private void Update()
     {
-        if (!playerMainScript.isDead && !GamePauser.isGamePaused && cameraMode == CameraMode.WalkMode)
+        if (!playerMainScript.isDead && !GamePauser.isGamePaused && (cameraMode == CameraMode.WalkMode || cameraMode == CameraMode.RunAimMode))
         {
             if (Input.GetKey(KeyCode.W) ||
                 Input.GetKey(KeyCode.A) ||

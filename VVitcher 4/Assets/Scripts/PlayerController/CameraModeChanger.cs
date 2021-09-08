@@ -2,7 +2,7 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
-public enum CameraMode { WalkMode, AimMode }
+public enum CameraMode { WalkMode, AimMode, RunAimMode }
 
 public class CameraModeChanger : MonoBehaviour
 {
@@ -11,6 +11,8 @@ public class CameraModeChanger : MonoBehaviour
 
     [SerializeField]
     private CinemachineFreeLook aimCamera;
+    [SerializeField]
+    private CinemachineFreeLook runAimCamera;
     [SerializeField]
     private float crossbairDelay = 0.3f;
 
@@ -22,6 +24,7 @@ public class CameraModeChanger : MonoBehaviour
     public delegate void CrossbairEnablerDelegate(bool canEnable);
     public CrossbairEnablerDelegate crossbairEnable;
 
+    public CameraMode currentCameraMode { get; private set; }
     public bool isAiming { get; set; }
 
     private void Start()
@@ -52,7 +55,7 @@ public class CameraModeChanger : MonoBehaviour
         
     }
 
-    private void ChangeMode()
+    public void ChangeMode()
     {
         if (isAiming)
             SetPlayerAimMode();
@@ -62,8 +65,11 @@ public class CameraModeChanger : MonoBehaviour
 
     public void SetPlayerWalkMode()
     {
-        SetCameraMode(CameraMode.WalkMode);
+        currentCameraMode = CameraMode.WalkMode;
+
+        SetCameraMode(currentCameraMode);
         aimCamera.Priority = priorityAimValueDefault;
+        runAimCamera.Priority = priorityAimValueDefault;
 
         aimTargetPositionScript.enabled = false;
         aimTargetPositionOffScript.enabled = true;
@@ -74,13 +80,28 @@ public class CameraModeChanger : MonoBehaviour
 
     public void SetPlayerAimMode()
     {
-        SetCameraMode(CameraMode.AimMode);
+        currentCameraMode = CameraMode.AimMode;
+
+        SetCameraMode(currentCameraMode);
         aimCamera.Priority = priorityAimValueHigher;
+        runAimCamera.Priority = priorityAimValueDefault;
 
         aimTargetPositionScript.enabled = true;
         aimTargetPositionOffScript.enabled = false;
 
         StartCoroutine(PrepareCrossbair());
+    }
+
+    public void SetPlayerRunAimMode()
+    {
+        currentCameraMode = CameraMode.RunAimMode;
+
+        SetCameraMode(currentCameraMode);
+        aimCamera.Priority = priorityAimValueDefault;
+        runAimCamera.Priority = priorityAimValueHigher;
+
+        crossbairEnable(false);
+        StopAllCoroutines();
     }
 
     IEnumerator PrepareCrossbair()

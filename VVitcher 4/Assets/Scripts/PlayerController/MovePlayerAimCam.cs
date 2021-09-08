@@ -18,6 +18,7 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
 
     private Camera mainCam;
     private Transform camPosAnchor;
+    private CinemachineCameraOffset acOffset;
     private CameraMode cameraMode;
 
     private PlayerMain pMain;
@@ -27,6 +28,7 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
     private void Start()
     {
         mainCam = Camera.main;
+        acOffset = aimCam.gameObject.GetComponent<CinemachineCameraOffset>();
         camPosAnchor = GetComponentInChildren<CameraPositionAnchor>().gameObject.transform;
         pMain = GetComponent<PlayerMain>();
 
@@ -42,12 +44,7 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
             aimTargetOffset.position = SetAimTargetPosition(0);
 
             Vector3 lookRotation = new Vector3(camPosAnchor.forward.x, 0, camPosAnchor.forward.z);
-            Quaternion rot = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lookRotation, Vector3.up), playerRotationSpeed);
-            transform.rotation = rot;
-
-            //Vector3 lookAtPos = aimTarget.position;
-            //Quaternion rot = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation((lookAtPos - pMain.transform.position).normalized, Vector3.up), playerRotationSpeed);
-            //transform.rotation = rot;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(lookRotation, Vector3.up), playerRotationSpeed);
         }
     }
 
@@ -61,5 +58,12 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
     public void CurrentCameraMode(CameraMode mode)
     {
         cameraMode = mode;
+    }
+
+    public void AimCamFov(float fov)
+    {
+        //Vector3 offsetVector = acOffset.m_Offset;
+        //offsetVector = new Vector3(offsetVector.x, offsetVector.y, offset);
+        aimCam.m_Lens.FieldOfView = fov;
     }
 }

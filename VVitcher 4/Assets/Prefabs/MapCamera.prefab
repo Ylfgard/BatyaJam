@@ -65,7 +65,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 42423
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 82f8fcde7a06e474cbf09f5be1fce1e6, type: 2}
   m_TargetDisplay: 0
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11faf77e9e972a46a834bfc3a2a1f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  scrollSensivity: 200
+  speed: 30
+  scrollSensivity: 2000
 --- !u!114 &8512580179447857643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstFloorLayer:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 42423
   secondFloorLayer:
     serializedVersion: 2
-    m_Bits: 951
+    m_Bits: 42935
   map: {fileID: 0}
