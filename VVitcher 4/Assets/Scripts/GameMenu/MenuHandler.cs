@@ -13,26 +13,46 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _startMenu, _settingsMenu, _controlsMenu, _pauseMenu, _gameOverMenu;
     [SerializeField] private VolumeSliders vSliders;
+    [SerializeField] private Image _loadingImage;
+    [SerializeField] private Image _radialLoadingImage;
     [SerializeField] private TextMeshProUGUI versionText;
+    [SerializeField] private ComicsPlayer comicsPlayer;
+
+    [SerializeField] private TMP_Dropdown resolutionDropdown;
+    [SerializeField] private Toggle fullscreenToggle;
 
     [SerializeField] private float deathMenuDelay = 4f;
 
     private FMOD.Studio.VCA masterVca, musicVca, SFXVca, UIVca, voiceVca;
     private float _masterVolume, _musicVolume, _SFXVolume, _UIVolume, _voiceVolume;
 
+    private float t;
+    private float currentAlpha;
+    private float _fadeOutTime = 1f;
+    private bool _isFullscreen;
+
+    private Resolution[] resolutions;
+    private Resolution currentResolution;
+
     private void Start()
     {
-        if(versionText.isActiveAndEnabled) versionText.text = "v " + Application.version;
+        if (versionText != null && versionText.isActiveAndEnabled) versionText.text = "v " + Application.version;
 
-        #region QualitySettings
+        #region VideoQualitySettings
+
         Debug.Log("Note: VSync was set by MenuHandler.cs");
-        if(Screen.currentResolution.refreshRate <= 60)
+        if (Screen.currentResolution.refreshRate <= 60)
             QualitySettings.vSyncCount = 1;
         else
             QualitySettings.vSyncCount = 2;
+
+        LoadResolution();
+        InitResolutionVideoSettings();
+
         #endregion
 
         #region SoundSettings
+
         masterVca = FMODUnity.RuntimeManager.GetVCA("vca:/Master");
         musicVca = FMODUnity.RuntimeManager.GetVCA("vca:/Music");
         SFXVca = FMODUnity.RuntimeManager.GetVCA("vca:/SFX");
@@ -40,15 +60,8 @@ public class MenuHandler : MonoBehaviour
         voiceVca = FMODUnity.RuntimeManager.GetVCA("vca:/Voice");
 
         LoadVolumeLevels();
-        #endregion
 
-        //if (_pauseMenu != null)
-        //    ClosePauseMenu(_pauseMenu);
-        //if (_gameOverMenu != null)
-        //{
-        //    //ClosePauseMenu(_gameOverMenu);
-        //    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMain>().onPlayerDeadCallback += GameOverMenu;
-        //}
+        #endregion
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) player.GetComponent<PlayerMain>().onPlayerDeadCallback += GameOverMenu;
@@ -59,7 +72,7 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && _pauseMenu != null)
+        if(Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex == 2 && !_pauseMenu.activeInHierarchy)
         {
             if(_pauseMenu.activeSelf)
                 ClosePauseMenu(_pauseMenu);
@@ -68,11 +81,17 @@ public class MenuHandler : MonoBehaviour
         }    
     }
 
-    public void NewGame() => SceneManager.LoadScene(1);
+    public void NewGame()
+    {
+        StartCoroutine(FadeOutDelayToLoadSceneCoroutine(1));
+        //SceneManager.LoadScene(1);
+    }
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
-        if (Time.timeScale != 1) GamePauser.GameContinue();
+        if (Time.timeScale != 1) Time.timeScale = 1;
+        StartCoroutine(FadeOutDelayToLoadSceneCoroutine(2));
+        //SceneManager.LoadScene(2);
+        //if (Time.timeScale != 1) GamePauser.GameContinue();
     } 
     public void EndGame() => SceneManager.LoadScene(4);
     public void RestartGame()
@@ -106,8 +125,73 @@ public class MenuHandler : MonoBehaviour
     public void OpenSettingsMenu() => _settingsMenu.SetActive(true);
     public void CloseSettingsMenu()
     {
+        ApplyResolutionSettings();
         SaveVolumeLevels();
+
         _settingsMenu.SetActive(false);
+    }
+
+
+    private void LoadResolution()
+    {
+        int index = PlayerPrefs.GetInt("CurrentResolutionIndex", -1);
+
+        int width = PlayerPrefs.GetInt("Resolution_" + index + "_W", Screen.width);
+        int height = PlayerPrefs.GetInt("Resolution_" + index + "_H", Screen.height);
+        _isFullscreen = (PlayerPrefs.GetInt("FullscreenToggle", 1) == 1) ? true : false;
+        Screen.SetResolution(width, height, _isFullscreen);
+
+        if (index >= 0) resolutionDropdown.value = index;
+        currentResolution.width = width;
+        currentResolution.height = height;
+    }
+    private void InitResolutionVideoSettings()
+    {
+        resolutions = Screen.resolutions;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            Resolution res = resolutions[i];
+            resolutionDropdown.options[i].text = res.width + " x " + res.height + ", " + res.refreshRate + " hz";
+
+            PlayerPrefs.SetInt("Resolution_" + i + "_W", res.width);
+            PlayerPrefs.SetInt("Resolution_" + i + "_H", res.height);
+
+            resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(resolutionDropdown.options[i].text));
+
+            if (resolutions[i].width == currentResolution.width && resolutions[i].height == currentResolution.height)
+            {
+                resolutionDropdown.value = i;
+                currentResolution = res;
+            }
+        }
+
+        fullscreenToggle.isOn = _isFullscreen;
+
+        PlayerPrefs.SetInt("CurrentResolutionIndex", resolutionDropdown.value);
+        SaveCurrentResolutionSettings();
+    }
+    private void ApplyResolutionSettings()
+    {
+        int width = PlayerPrefs.GetInt("Resolution_" + resolutionDropdown.value + "_W", Screen.width);
+        int height = PlayerPrefs.GetInt("Resolution_" + resolutionDropdown.value + "_H", Screen.height);
+        _isFullscreen = fullscreenToggle.isOn;
+
+        if (width == currentResolution.width && height == currentResolution.height && _isFullscreen == Screen.fullScreen) return;
+
+        Screen.SetResolution(width, height, _isFullscreen);
+
+        currentResolution.width = width;
+        currentResolution.height = height;
+
+        PlayerPrefs.SetInt("CurrentResolutionIndex", resolutionDropdown.value);
+        SaveCurrentResolutionSettings();
+    }
+    private void SaveCurrentResolutionSettings()
+    {
+        PlayerPrefs.SetInt("CurrentResolution_W", currentResolution.width);
+        PlayerPrefs.SetInt("CurrentResolution_H", currentResolution.height);
+        PlayerPrefs.SetInt("FullscreenToggle", _isFullscreen ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
 
@@ -193,5 +277,47 @@ public class MenuHandler : MonoBehaviour
             voiceVca.setVolume(_voiceVolume);
     }
 
-    
+
+    IEnumerator FadeOutDelayToLoadSceneCoroutine(int ndx)
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        currentAlpha = 0;
+        t = 0;
+        StartCoroutine(FadeOutToLoadCoroutine(ndx));
+    }
+    IEnumerator FadeOutToLoadCoroutine(int ndx)
+    {
+        t += Time.deltaTime / _fadeOutTime;
+        currentAlpha = Mathf.Lerp(0, 1, t);
+        _loadingImage.color = new Color(0, 0, 0, currentAlpha);
+
+        if (currentAlpha >= 1)
+        {
+            StartCoroutine(LoadAsync(ndx));
+            yield break;
+        }
+
+        yield return null;
+
+        StartCoroutine(FadeOutToLoadCoroutine(ndx));
+    }
+    IEnumerator LoadAsync(int ndx)
+    {
+        AsyncOperation aLoad = SceneManager.LoadSceneAsync(ndx);
+        aLoad.allowSceneActivation = false;
+
+        while (!aLoad.isDone && !aLoad.allowSceneActivation)
+        {
+            _radialLoadingImage.fillAmount = Mathf.Clamp01(aLoad.progress / 0.9f);
+
+            if (aLoad.progress >= 0.9f)
+            {
+                if (Time.timeScale != 1) GamePauser.GameContinue();
+                yield return new WaitForSeconds(2);
+                aLoad.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+    }
 }

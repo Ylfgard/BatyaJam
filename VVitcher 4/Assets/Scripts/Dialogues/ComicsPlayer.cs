@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ComicsPlayer : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class ComicsPlayer : MonoBehaviour
     private FMOD.Studio.EventInstance instance;
     public UnityEvent comicsEnded = new UnityEvent();
 
+    [SerializeField] Button continueButton;
     [SerializeField] private bool playOnStart;
     [SerializeField] private GameObject[] slide;
     [SerializeField] private TextAsset[] dialogues;
-    [FMODUnity.EventRef] [SerializeField] private string[] soundPath; 
+    [FMODUnity.EventRef] [SerializeField] private string[] soundPath;
 
     void Start() 
     {
@@ -50,6 +52,7 @@ public class ComicsPlayer : MonoBehaviour
         }
         else
         {
+            continueButton.interactable = false;
             comicsEnded.Invoke();
         }
     }

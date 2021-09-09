@@ -26,7 +26,7 @@ public class BossDeadEpilogue : MonoBehaviour
         yield return new WaitForSeconds(finalSceneLoadDelay);
         SceneManager.LoadScene(3);
     }
-
+    
     IEnumerator FadeOutStartCoroutine()
     {
         yield return new WaitForSeconds(_fadeOutStart);

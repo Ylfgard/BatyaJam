@@ -62,8 +62,6 @@ public class MovePlayerAimCam : MonoBehaviour, IPlayerCameraMode
 
     public void AimCamFov(float fov)
     {
-        //Vector3 offsetVector = acOffset.m_Offset;
-        //offsetVector = new Vector3(offsetVector.x, offsetVector.y, offset);
         aimCam.m_Lens.FieldOfView = fov;
     }
 }
