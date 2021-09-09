@@ -19,7 +19,7 @@ public class AimTargetPosition : MonoBehaviour
         //animator.SetLookAtWeight(.5f, .5f, .5f, .5f, .5f);
         //animator.SetLookAtWeight(0, 0, 0, 0, 0);
 
-        animator.SetLookAtWeight(1, 0.5f, 1, 1, 1);
+        animator.SetLookAtWeight(0.5f, 0.5f, 0.5f, 0.5f, 0.5f);
         animator.SetLookAtPosition(aimTargetOffset.position);
     }
 }

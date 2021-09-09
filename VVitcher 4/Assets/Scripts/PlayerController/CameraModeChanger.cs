@@ -100,6 +100,9 @@ public class CameraModeChanger : MonoBehaviour
         aimCamera.Priority = priorityAimValueDefault;
         runAimCamera.Priority = priorityAimValueHigher;
 
+        aimTargetPositionScript.enabled = false;
+        aimTargetPositionOffScript.enabled = true;
+
         crossbairEnable(false);
         StopAllCoroutines();
     }
