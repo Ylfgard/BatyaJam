@@ -31,7 +31,6 @@ public class MenuHandler : MonoBehaviour
     private float _fadeOutTime = 1f;
     private bool _isFullscreen;
 
-    private Resolution[] resolutions;
     private Resolution currentResolution;
 
     private void Start()
@@ -138,33 +137,41 @@ public class MenuHandler : MonoBehaviour
 
         int width = PlayerPrefs.GetInt("Resolution_" + index + "_W", Screen.width);
         int height = PlayerPrefs.GetInt("Resolution_" + index + "_H", Screen.height);
+        int refreshRate = PlayerPrefs.GetInt("Resolution_" + index + "_RR", Screen.currentResolution.refreshRate);
         _isFullscreen = (PlayerPrefs.GetInt("FullscreenToggle", 1) == 1) ? true : false;
-        Screen.SetResolution(width, height, _isFullscreen);
+        Screen.SetResolution(width, height, _isFullscreen, refreshRate);
 
         if (index >= 0) resolutionDropdown.value = index;
         currentResolution.width = width;
         currentResolution.height = height;
+        currentResolution.refreshRate = refreshRate;
     }
     private void InitResolutionVideoSettings()
     {
-        resolutions = Screen.resolutions;
-        for (int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < Screen.resolutions.Length; i++)
         {
-            Resolution res = resolutions[i];
-            resolutionDropdown.options[i].text = res.width + " x " + res.height + ", " + res.refreshRate + " hz";
+            Resolution res = Screen.resolutions[i];
+            //resolutionDropdown.options[i].text = res.width + " x " + res.height + ", " + res.refreshRate + " Hz";
+            TMP_Dropdown.OptionData data = new TMP_Dropdown.OptionData();
+            data.text = res.width + " x " + res.height + ", " + res.refreshRate + " Hz";
 
             PlayerPrefs.SetInt("Resolution_" + i + "_W", res.width);
             PlayerPrefs.SetInt("Resolution_" + i + "_H", res.height);
+            PlayerPrefs.SetInt("Resolution_" + i + "_RR", res.refreshRate);
 
-            resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(resolutionDropdown.options[i].text));
+            //resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(resolutionDropdown.options[i].text));
+            resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(data.text));
 
-            if (resolutions[i].width == currentResolution.width && resolutions[i].height == currentResolution.height)
+            if (res.width == currentResolution.width &&
+                res.height == currentResolution.height &&
+                Mathf.Abs(res.refreshRate - currentResolution.refreshRate) < 2)
             {
+                //PlayerPrefs.SetInt("CurrentResolutionIndex", i);
                 resolutionDropdown.value = i;
                 currentResolution = res;
             }
         }
-
+                
         fullscreenToggle.isOn = _isFullscreen;
 
         PlayerPrefs.SetInt("CurrentResolutionIndex", resolutionDropdown.value);
@@ -174,14 +181,20 @@ public class MenuHandler : MonoBehaviour
     {
         int width = PlayerPrefs.GetInt("Resolution_" + resolutionDropdown.value + "_W", Screen.width);
         int height = PlayerPrefs.GetInt("Resolution_" + resolutionDropdown.value + "_H", Screen.height);
+        int refreshRate = PlayerPrefs.GetInt("Resolution_" + resolutionDropdown.value + "_RR", Screen.currentResolution.refreshRate);
         _isFullscreen = fullscreenToggle.isOn;
 
-        if (width == currentResolution.width && height == currentResolution.height && _isFullscreen == Screen.fullScreen) return;
+        if (currentResolution.width == width && 
+            currentResolution.height == height &&
+            currentResolution.refreshRate == refreshRate &&
+            Screen.fullScreen == _isFullscreen)
+            return;
 
-        Screen.SetResolution(width, height, _isFullscreen);
+        Screen.SetResolution(width, height, _isFullscreen, refreshRate);
 
         currentResolution.width = width;
         currentResolution.height = height;
+        currentResolution.refreshRate = refreshRate;
 
         PlayerPrefs.SetInt("CurrentResolutionIndex", resolutionDropdown.value);
         SaveCurrentResolutionSettings();
@@ -190,6 +203,7 @@ public class MenuHandler : MonoBehaviour
     {
         PlayerPrefs.SetInt("CurrentResolution_W", currentResolution.width);
         PlayerPrefs.SetInt("CurrentResolution_H", currentResolution.height);
+        PlayerPrefs.SetInt("CurrentResolution_RR", currentResolution.refreshRate);
         PlayerPrefs.SetInt("FullscreenToggle", _isFullscreen ? 1 : 0);
         PlayerPrefs.Save();
     }
