@@ -81,6 +81,8 @@ public class SummonUi : MonoBehaviour {
 
     void SuccessSummon()
     {
+        FindObjectOfType<UiManager>().UpdateHerbInventoryUi();
+
         curDialogue++;
         if(curDialogue < dialogue.Length)
         {

@@ -81,7 +81,7 @@ public class UiManager : MonoBehaviour {
         if(open) _cameraModeChanger.isAiming = false;
     }
 
-    private void UpdateHerbInventoryUi()
+    public void UpdateHerbInventoryUi()
     {
         int[] herbs = _inventory.GetHerbs();
         for (int herbIndex = 0; herbIndex < herbs.Length; herbIndex++)
@@ -145,8 +145,10 @@ public class UiManager : MonoBehaviour {
         _boltPanel.SetActive(!_inCraftMod);
         _craftingPanel.SetActive(_inCraftMod);
 		_healthBar.SetActive(!_inCraftMod);
-		if(_bossHealthBar.activeInHierarchy) _bossHealthBar.SetActive(!_inCraftMod);
+		_bossHealthBar.SetActive(!_inCraftMod);
 		if(_crossbair.activeInHierarchy) _crossbair.SetActive(!_inCraftMod);
+
+        UpdateHerbInventoryUi();
     }
 
     public void HideShowGameUI()
